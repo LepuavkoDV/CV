@@ -55,29 +55,31 @@ export default {
   grid-area: sidebar;
   background-color: $primary;
   color: $light;
-  text-align: end;
-  padding: 2em;
   display: grid;
+  grid-template-rows: 98% 2%;
+  grid-template-areas:
+  "nav"
+  "copy";
   @media screen and (min-width: $media-min-width) {
     border-bottom-left-radius: $border-radius;
     text-align: end;
-    grid-template-rows: 98% 2%;
-    grid-template-areas:
-    "nav"
-    "copy";
+    padding: 2em;
   }
 
   @media screen and (max-width: $media-max-width) {
-    text-align: end;
-    grid-template-columns: 20% 80%;
-    grid-template-areas:
-    "copy nav";
+    text-align: center;
+    padding: 1em 1em 2em 1em;
   }
   .sidebar__nav {
     grid-area: nav;
     font-size: 1.2em;
     li {
-      margin-bottom: 1em;
+      @media screen and (min-width: $media-min-width) {
+        margin-bottom: 1em;
+      }
+      @media screen and (max-width: $media-max-width) {
+        margin-bottom: 0.5em;
+      }
       a {
         color: inherit;
         text-decoration: none;
@@ -89,7 +91,13 @@ export default {
   }
   .sidebar__copy {
     grid-area: copy;
-    text-align: center;
+    @media screen and (min-width: $media-min-width) {
+      text-align: center;
+    }
+    @media screen and (max-width: $media-max-width) {
+      text-align: center;
+      margin-top: 0.5em;
+    }
   }
 }
 </style>
