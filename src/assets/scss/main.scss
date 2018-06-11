@@ -1,0 +1,44 @@
+@import '_reset.scss';
+@import '_variables.scss';
+
+@media screen and (max-width: $media-max-width) {
+  body {
+    background-color: $bgcolor;
+    font-family: $fontFamily;
+  }
+  .main-container {
+    width: 90vw;
+    height: 90vh;
+    margin: 5vh 5vw 5vh 5vw;
+    background-color: $light;
+    border-radius: $border-radius;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 25% 25% 75%;
+    grid-template-areas:
+    "header"
+    "sidebar"
+    "content";
+  }
+}
+
+@media screen and (min-width: $media-min-width) {
+  body {
+    background-color: $bgcolor;
+    font-family: $fontFamily;
+  }
+  
+  .main-container {
+    width: 60vw;
+    height: 70vh;
+    margin: 15vh 20vw;
+    background-color: $light;
+    border-radius: $border-radius;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 25% 75%;
+    grid-template-areas:
+    "header header"
+    "sidebar content";
+  }
+}
