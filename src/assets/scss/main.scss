@@ -8,7 +8,7 @@
   }
   .main-container {
     width: 90vw;
-    height: 90vh;
+    height: 100vh;
     margin: 5vh 5vw 5vh 5vw;
     background-color: $light;
     border-radius: $border-radius;
@@ -30,15 +30,15 @@
   
   .main-container {
     width: 60vw;
-    height: 70vh;
-    margin: 15vh 20vw;
+    height: 100vh;
+    margin: 0 20vw;
     background-color: $light;
     border-radius: $border-radius;
     display: grid;
-    grid-template-columns: 30% 70%;
-    grid-template-rows: 25% 75%;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 30% 70%;
     grid-template-areas:
     "header header"
-    "sidebar content";
+    "content sidebar";
   }
 }
