@@ -59,7 +59,7 @@ export default {
           icon: 'fas fa-code',
           items: [
             { title: 'HTML 5', value: 95 },
-            { title: 'Bootstrap 3/4', value: 75 },
+            { title: 'Bootstrap 3/4', value: 90 },
             { title: 'Material Design', value: 75 },
             { title: 'CSS 3', value: 65 },
             { title: 'Sass', value: 45 }

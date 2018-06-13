@@ -67,7 +67,7 @@ export default {
       padding: 2px 0;
     }
   }
-  animation: headerAnimation $fast-animation-speed forwards 0s ease-in;
+  animation: headerAnimation $fast-animation-speed forwards 0s linear;
 }
 
 @keyframes headerAnimation{
