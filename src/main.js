@@ -4,6 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+import ProgressBar from 'vue-progressbar-component'
+
+Vue.component('progress-bar', ProgressBar)
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

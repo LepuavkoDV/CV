@@ -26,6 +26,7 @@
   body {
     background-color: $bgcolor;
     font-family: $fontFamily;
+    color: $dark;
   }
   
   .main-container {
@@ -56,3 +57,6 @@
     }
   }
 }
+$progressbar-bar-background: $primary;
+$progressbar-background: $secondary;
+@import "./node_modules/vue-progressbar-component/src/scss/progressbar";
