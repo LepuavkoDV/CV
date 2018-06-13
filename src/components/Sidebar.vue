@@ -95,5 +95,29 @@ export default {
       margin-top: 0.5em;
     }
   }
+  animation: sidebarAnimation $fast-animation-speed forwards 0s ease-in;
+}
+
+@keyframes sidebarAnimation{
+  0%{
+      transform: translateX(100%);
+      opacity: 0.1;
+      }
+  25%{
+      transform: translateX(75%);
+      opacity: 0.25;
+      }
+  50%{
+      transform: translateX(50%);
+      opacity: 0.5;
+      }
+  75%{
+      transform: translateX(25%);
+      opacity: 0.75;
+      }
+  100%{
+      transform: translateX(0);
+      opacity: 1;
+      }
 }
 </style>

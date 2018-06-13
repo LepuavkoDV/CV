@@ -65,5 +65,24 @@ export default {
     text-shadow: 0px 2px 2px $secondary;
     align-self: start;
   }
+  animation: headerAnimation $fast-animation-speed forwards 0s ease-in;
+}
+
+@keyframes headerAnimation{
+  0%{
+      transform: translateY(-100%);
+      }
+  25%{
+      transform: translateY(-75%);
+      }
+  50%{
+      transform: translateY(-50%);
+      }
+  75%{
+      transform: translateY(-25%);
+      }
+  100%{
+      transform: translateY(0);
+      }
 }
 </style>

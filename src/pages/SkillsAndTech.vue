@@ -42,7 +42,7 @@ export default {
         { title: 'Bootstrap 3/4', value: 65 },
         { title: 'Google MD', value: 50 },
         { title: 'CSS3', value: 65 },
-        { title: 'SASS', value: 45 },
+        { title: 'SASS', value: 45 }
       ]
     }
   },
@@ -66,7 +66,7 @@ export default {
       margin-bottom: 0.5em;
       display: grid;
       grid-template-columns: 15% 85%;
-      grid-template-areas: 
+      grid-template-areas:
       "title bar";
       .title {
         grid-area: title;

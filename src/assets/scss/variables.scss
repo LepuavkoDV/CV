@@ -5,11 +5,31 @@ $fontFamily: 'Roboto', sans-serif;
 
 $border-radius: 0px;
 
-$bgcolor:   #8BB0BA;
-$dark:      #001A1C;
-$light:     #E3E1E1;
-$primary:   #135C27;
-$secondary: #78A85D;
+// $bgcolor:   #8BB0BA;
+// $dark:      #001A1C;
+// $primary:   #135C27;
+// $secondary: #78A85D;
+// $light:     #E3E1E1;
+
+// $bgcolor:   #261a2b;
+// $dark:      #442d3f;
+// $primary:   #716da6;
+// $secondary: #9793c6;
+// $light:     #d1ceed;
+
+// $bgcolor:   #f4ea7986;
+// $dark:      #2d2522;
+// $primary:   #5a4d44;
+// $secondary: #ac947c;
+// $light:     #e3dbc8;
+
+$bgcolor:   #9eb99a;
+$dark:      #30444c;
+$primary:   #5d5f70;
+$secondary: #9b8d8d;
+$light:     #dce0e4;
 
 $media-max-width: 600px;
 $media-min-width: 601px;
+
+$fast-animation-speed: .5s;
