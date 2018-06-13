@@ -1,8 +1,8 @@
 <template lang="html">
   <section class="main-header">
-    <h1 class="main-header__title">Dmitriy Lepuavko</h1>
-    <div class="main-header__divider"></div>
-    <h3 class="main-header__description">Frontend developer</h3>
+    <h1 class="main-header__heading">Dmitriy Lepuavko</h1>
+    <div class="main-header__line"></div>
+    <h3 class="main-header__subheading">Frontend developer</h3>
   </section>
 </template>
 
@@ -34,26 +34,36 @@ export default {
   background-color: $primary;
   width: 102%;
   margin-left: -1%;
-  text-align: center;
   box-shadow: 0px 2px 5px $dark;
-  .main-header__title {
+  display: grid;
+  grid-template-rows: 45% 10% 45%;
+  grid-template-areas:
+  "heading"
+  "line"
+  "subheading";
+  align-items: center;
+  justify-items: center;
+  .main-header__heading {
+    grid-area: heading;
     font-family: $titleFontFamily;
     font-size: 2em;
     color: $light;
-    padding-top: 1em;
+    align-self: center;
     text-shadow: 0px 2px 2px $secondary;
+    align-self: end;
   }
-  .main-header__divider {
+  .main-header__line {
+    grid-area: line;
     border-bottom: 1px solid $light;
     width: 70%;
-    margin-left: 15%;
-    margin-top: 0.7em;
-    margin-bottom: 0.4em;
+    box-shadow: 0px 2px 5px $secondary;
   }
-  .main-header__description {
+  .main-header__subheading {
+    grid-area: subheading;
     color: $light;
     font-size: 1.3em;
     text-shadow: 0px 2px 2px $secondary;
+    align-self: start;
   }
 }
 </style>

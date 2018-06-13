@@ -1,6 +1,6 @@
 <template lang="html">
 
-  <section class="achievements">
+  <section class="achievements content">
     <h1>achievements Component</h1>
   </section>
 

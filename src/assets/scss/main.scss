@@ -41,5 +41,9 @@
     grid-template-areas:
     "header header"
     "content sidebar";
+    .content {
+      grid-area: content;
+      padding: 1em;
+    }
   }
 }

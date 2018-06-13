@@ -1,6 +1,6 @@
 <template lang="html">
 
-  <section class="page-not-found">
+  <section class="page-not-found content">
     <h1>page-not-found Component</h1>
   </section>
 

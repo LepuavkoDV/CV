@@ -1,6 +1,6 @@
 <template lang="html">
 
-  <section class="skills-and-tech">
+  <section class="skills-and-tech content">
     <h1>skills-and-tech Component</h1>
   </section>
 
