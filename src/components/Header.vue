@@ -1,8 +1,10 @@
 <template lang="html">
   <section class="main-header">
-    <h1 class="main-header__heading">Dmitriy Lepuavko</h1>
-    <div class="main-header__line"></div>
-    <h3 class="main-header__subheading">Frontend developer</h3>
+    <div class="main-header__heading"><i class="fas fa-address-card"></i> CV</div>
+    <div class="main-header__subheading">
+      <h3>Dmitriy Lepuavko</h3>
+      <h6>Web Developer</h6>
+    </div>
   </section>
 </template>
 
@@ -36,11 +38,9 @@ export default {
   margin-left: -1%;
   box-shadow: 0px 2px 5px $dark;
   display: grid;
-  grid-template-rows: 45% 10% 45%;
+  grid-template-columns: 20% auto;
   grid-template-areas:
-  "heading"
-  "line"
-  "subheading";
+  "heading subheading";
   align-items: center;
   justify-items: center;
   .main-header__heading {
@@ -48,22 +48,24 @@ export default {
     font-family: $titleFontFamily;
     font-size: 2em;
     color: $light;
-    align-self: center;
     text-shadow: 0px 2px 2px $secondary;
-    align-self: end;
-  }
-  .main-header__line {
-    grid-area: line;
-    border-bottom: 1px solid $light;
-    width: 70%;
-    box-shadow: 0px 2px 5px $secondary;
   }
   .main-header__subheading {
     grid-area: subheading;
     color: $light;
-    font-size: 1.3em;
     text-shadow: 0px 2px 2px $secondary;
-    align-self: start;
+    align-self: center;
+    justify-self: start;
+    h3 {
+      font-size: 1.5em;
+      font-weight: bolder;
+      border-bottom: 1px solid $light;
+      padding: 2px 0;
+    }
+    h6 {
+      font-size: 1em;
+      padding: 2px 0;
+    }
   }
   animation: headerAnimation $fast-animation-speed forwards 0s ease-in;
 }
