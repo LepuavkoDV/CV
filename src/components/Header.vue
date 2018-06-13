@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '../assets/scss/_variables';
+@import '../assets/scss/variables';
 .main-header {
   grid-area: header;
   background-color: $secondary;

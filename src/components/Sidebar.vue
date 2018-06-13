@@ -50,7 +50,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '../assets/scss/_variables';
+@import '../assets/scss/variables';
 .sidebar {
   grid-area: sidebar;
   background-color: $primary;
