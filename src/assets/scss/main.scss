@@ -8,7 +8,7 @@
   }
   .main-container {
     width: 90vw;
-    height: 90vh;
+    height: 100vh;
     margin: 5vh 5vw 5vh 5vw;
     background-color: $light;
     border-radius: $border-radius;
@@ -23,22 +23,46 @@
 }
 
 @media screen and (min-width: $media-min-width) {
+  html {
+    height: 100%;
+  }
+
   body {
     background-color: $bgcolor;
     font-family: $fontFamily;
+    color: $dark;
   }
   
   .main-container {
     width: 60vw;
-    height: 70vh;
-    margin: 15vh 20vw;
+    height: auto;
+    min-height: 100vh;
+    margin: 0 20vw;
     background-color: $light;
     border-radius: $border-radius;
+    box-shadow: 0px 2px 5px $dark;
     display: grid;
-    grid-template-columns: 30% 70%;
-    grid-template-rows: 25% 75%;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 100px auto;
     grid-template-areas:
     "header header"
-    "sidebar content";
+    "content sidebar";
+    .content {
+      grid-area: content;
+      margin: 1em;
+      height: 100%;
+      h1 {
+        background: $secondary;
+        color: $light;
+        text-align: center;
+        padding: 1em;
+        box-shadow: 0px 2px 5px $primary;
+        text-shadow: 0px 2px 2px $primary;
+        text-transform: uppercase;
+      }
+    }
   }
 }
+$progressbar-bar-background: $primary;
+$progressbar-background: $secondary;
+@import "./node_modules/vue-progressbar-component/src/scss/progressbar";

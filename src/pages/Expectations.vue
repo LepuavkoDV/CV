@@ -1,6 +1,6 @@
 <template lang="html">
 
-  <section class="expectations">
+  <section class="expectations content">
     <h1>expectations Component</h1>
   </section>
 

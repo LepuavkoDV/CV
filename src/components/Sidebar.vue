@@ -53,26 +53,22 @@ export default {
 @import '../assets/scss/variables';
 .sidebar {
   grid-area: sidebar;
-  background-color: $primary;
+  background-color: $secondary;
+  margin: 1em;
   color: $light;
+  box-shadow: 0px 2px 5px $primary;
   display: grid;
-  grid-template-rows: 98% 2%;
+  grid-template-rows: 95% 5%;
   grid-template-areas:
   "nav"
   "copy";
-  @media screen and (min-width: $media-min-width) {
-    border-bottom-left-radius: $border-radius;
-    text-align: end;
-    padding: 2em;
-  }
-
-  @media screen and (max-width: $media-max-width) {
-    text-align: center;
-    padding: 1em 1em 2em 1em;
-  }
+  align-items: start;
+  justify-items: center;
   .sidebar__nav {
+    margin-top: 1em;
     grid-area: nav;
     font-size: 1.2em;
+    text-align: center;
     li {
       @media screen and (min-width: $media-min-width) {
         margin-bottom: 1em;
@@ -84,7 +80,7 @@ export default {
         color: inherit;
         text-decoration: none;
         &:hover, &.active {
-          text-shadow: 0px 2px 2px $secondary;
+          text-shadow: 0px 2px 2px $primary;
         }
       }
     }

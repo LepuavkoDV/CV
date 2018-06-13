@@ -1,6 +1,6 @@
 <template lang="html">
 
-  <section class="contacts">
+  <section class="contacts content">
     <h1>contacts Component</h1>
   </section>
 
