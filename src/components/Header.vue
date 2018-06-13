@@ -31,17 +31,17 @@ export default {
 @import '../assets/scss/variables';
 .main-header {
   grid-area: header;
-  background-color: $secondary;
-  width: 100%;
-  border-top-left-radius: $border-radius;
-  border-top-right-radius: $border-radius;
-  border-bottom: 20px solid $dark;
+  background-color: $primary;
+  width: 102%;
+  margin-left: -1%;
   text-align: center;
+  box-shadow: 0px 2px 5px $dark;
   .main-header__title {
     font-family: $titleFontFamily;
     font-size: 2em;
     color: $light;
     padding-top: 1em;
+    text-shadow: 0px 2px 2px $secondary;
   }
   .main-header__divider {
     border-bottom: 1px solid $light;
@@ -53,6 +53,7 @@ export default {
   .main-header__description {
     color: $light;
     font-size: 1.3em;
+    text-shadow: 0px 2px 2px $secondary;
   }
 }
 </style>
