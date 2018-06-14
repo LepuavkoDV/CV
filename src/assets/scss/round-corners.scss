@@ -1,0 +1,15 @@
+$border-radius: 5px;
+
+.border-radius-top {
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+}
+
+.border-radius-bottom {
+  border-bottom-left-radius: $border-radius;
+  border-bottom-right-radius: $border-radius;
+}
+
+.border-radius-full {
+  border-radius: $border-radius;
+}

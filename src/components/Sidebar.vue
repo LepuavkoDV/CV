@@ -50,7 +50,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '../assets/scss/variables';
+@import "../assets/scss/variables";
 .sidebar {
   grid-area: sidebar;
   background-color: $secondary;
@@ -60,8 +60,8 @@ export default {
   display: grid;
   grid-template-rows: 95% 5%;
   grid-template-areas:
-  "nav"
-  "copy";
+    "nav"
+    "copy";
   align-items: start;
   justify-items: center;
   .sidebar__nav {
@@ -70,10 +70,11 @@ export default {
     font-size: 1.2em;
     text-align: center;
     li {
+      @extend .border-radius-full;
       background-color: $primary;
       width: 106%;
       margin-left: -3%;
-      padding: .5em 0;
+      padding: 0.5em 0;
       box-shadow: 0px 2px 5px $dark;
       @media screen and (min-width: $media-min-width) {
         margin-bottom: 1em;
@@ -86,9 +87,11 @@ export default {
         text-decoration: none;
         text-shadow: 0px 2px 2px $primary;
       }
-      &:hover, &.active {
+      &:hover,
+      &.active {
         width: 110%;
         margin-left: -5%;
+        font-weight: 500;
       }
     }
   }
@@ -105,26 +108,26 @@ export default {
   animation: sidebarAnimation $fast-animation-speed forwards 0s ease-in;
 }
 
-@keyframes sidebarAnimation{
-  0%{
-      transform: translateX(100%);
-      opacity: 0.1;
-      }
-  25%{
-      transform: translateX(75%);
-      opacity: 0.25;
-      }
-  50%{
-      transform: translateX(50%);
-      opacity: 0.5;
-      }
-  75%{
-      transform: translateX(25%);
-      opacity: 0.75;
-      }
-  100%{
-      transform: translateX(0);
-      opacity: 1;
-      }
+@keyframes sidebarAnimation {
+  0% {
+    transform: translateX(100%);
+    opacity: 0.1;
+  }
+  25% {
+    transform: translateX(75%);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translateX(50%);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translateX(25%);
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 </style>

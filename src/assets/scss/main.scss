@@ -1,111 +1,57 @@
 @import 'reset';
 @import 'variables';
 
-@media screen and (max-width: $media-max-width) {
-  body {
-    background-color: $bgcolor;
-    font-family: $fontFamily;
-  }
-  .main-container {
-    width: 90vw;
-    height: 100vh;
-    margin: 5vh 5vw 5vh 5vw;
-    background-color: $light;
-    border-radius: $border-radius;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 20% 30% 50%;
-    grid-template-areas:
-    "header"
-    "sidebar"
-    "content";
-  }
+// mobile
+@media screen and (max-width: $media-max-width) {}
+// desktop
+@media screen and (min-width: $media-min-width) {}
+
+html {
+  height: 100%;
 }
 
-@media screen and (min-width: $media-min-width) {
-  html {
+body {
+  background-color: $bgcolor;
+  font-family: $fontFamily;
+  color: $dark;
+}
+
+.main-container {
+  @extend .border-radius-bottom;
+  width: 60vw;
+  height: auto;
+  min-height: 100vh;
+  margin: 0 20vw;
+  background-color: $light;
+  box-shadow: 0px 2px 5px $dark;
+  display: grid;
+  grid-template-columns: 80% 20%;
+  grid-template-rows: 100px auto;
+  grid-template-areas:
+  "header header"
+  "content sidebar";
+  .content {
+    grid-area: content;
+    margin: 1em;
     height: 100%;
-  }
-
-  body {
-    background-color: $bgcolor;
-    font-family: $fontFamily;
-    color: $dark;
-  }
-  
-  .main-container {
-    width: 60vw;
-    height: auto;
-    min-height: 100vh;
-    margin: 0 20vw;
-    background-color: $light;
-    border-radius: $border-radius;
-    box-shadow: 0px 2px 5px $dark;
-    display: grid;
-    grid-template-columns: 80% 20%;
-    grid-template-rows: 100px auto;
-    grid-template-areas:
-    "header header"
-    "content sidebar";
-    .content {
-      grid-area: content;
-      margin: 1em;
-      height: 100%;
-      h1 {
-        background: $secondary;
-        color: $light;
-        text-align: center;
-        padding: 1em;
-        box-shadow: 0px 2px 5px $primary;
-        text-shadow: 0px 2px 2px $primary;
-        text-transform: uppercase;
-        animation: pageHeadingAnimation $fast-animation-speed forwards 0s linear;
-      }
+    h1 {
+      background: $secondary;
+      color: $light;
+      text-align: center;
+      padding: 1em;
+      box-shadow: 0px 2px 5px $primary;
+      text-shadow: 0px 2px 2px $primary;
+      text-transform: uppercase;
+      animation: pageHeadingAnimation $fast-animation-speed forwards 0s linear;
     }
-    animation: mainContainerAnimation .75s forwards 0s linear;
   }
+  animation: mainContainerAnimation .75s forwards 0s linear;
 }
+
+// progress bars
 $progressbar-bar-background: $primary;
 $progressbar-background: $bgcolor;
 @import "./node_modules/vue-progressbar-component/src/scss/progressbar";
 
-@keyframes pageHeadingAnimation{
-  0%{
-      transform: translateY(-100%);
-      opacity: 0.1;
-      }
-  25%{
-    transform: translateY(-75%);
-    opacity: 0.25;
-    }
-  50%{
-      transform: translateY(-50%);
-      opacity: 0.5;
-      }
-  75%{
-    transform: translateY(-25%);
-    opacity: 0.75;
-    }
-  100%{
-      transform: translateY(0);
-      opacity: 1;
-      }
-}
-
-@keyframes mainContainerAnimation{
-  0%{
-      opacity: 0.1;
-      }
-  25%{
-      opacity: 0.25;
-      }
-  50%{
-      opacity: 0.5;
-      }
-  75%{
-      opacity: 0.75;
-      }
-  100%{
-      opacity: 1;
-      }
-}
+// animations
+@import 'animations';

@@ -16,5 +16,5 @@ $media-min-width: 601px;
 // animations
 $fast-animation-speed: .5s;
 
-// other
-$border-radius: 0px;
+// round corners
+@import 'round-corners'
