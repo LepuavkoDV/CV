@@ -28,7 +28,7 @@ export default {
           title: 'PHP',
           icon: 'fab fa-php',
           items: [
-            { title: 'PHP', value: 99 },
+            { title: 'PHP', value: 95 },
             { title: 'Codeigniter', value: 99 },
             { title: 'Laravel 5.*', value: 50 }
           ]
@@ -45,7 +45,7 @@ export default {
           title: 'Javascript',
           icon: 'fab fa-js',
           items: [
-            { title: 'JS', value: 99 },
+            { title: 'JS', value: 95 },
             { title: 'Vue/Vuex', value: 80 },
             { title: 'Angular 2+', value: 55 },
             { title: 'React', value: 25 },
@@ -72,8 +72,8 @@ export default {
             { title: 'Git', value: 70 },
             { title: 'Webpack', value: 50 },
             { title: '*nix command line', value: 60 },
-            { title: 'Composer', value: 100 },
-            { title: 'Npm', value: 100 }
+            { title: 'Composer', value: 95 },
+            { title: 'Npm', value: 95 }
           ]
         }
       ]

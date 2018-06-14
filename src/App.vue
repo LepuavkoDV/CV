@@ -20,6 +20,11 @@ export default {
     return {
       currentRoute: router.currentRoute.name
     }
+  },
+  watch: {
+    '$route' (to, from) {
+      this.currentRoute = to.name
+    }
   }
 }
 </script>
