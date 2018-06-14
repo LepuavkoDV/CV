@@ -50,11 +50,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../assets/scss/variables";
+@import '../assets/scss/variables';
+@import '../assets/scss/round-corners';
 .sidebar {
+  @extend .border-radius-bottom;
   grid-area: sidebar;
   background-color: $secondary;
-  margin: 1em;
+  margin: -0.1em 1em 1em 1em;
   color: $light;
   box-shadow: 0px 2px 5px $primary;
   display: grid;
@@ -65,7 +67,7 @@ export default {
   align-items: start;
   justify-items: center;
   .sidebar__nav {
-    margin-top: 1em;
+    margin-top: 3em;
     grid-area: nav;
     font-size: 1.2em;
     text-align: center;

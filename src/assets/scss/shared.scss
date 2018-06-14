@@ -1,0 +1,13 @@
+@import 'variables';
+@import 'round-corners';
+
+.post-title-bar {
+  @extend .border-radius-full;
+  background-color: $secondary;
+  color: $light;
+  padding: 0.5em;
+  margin: 1em 0;
+  box-shadow: 0px 2px 5px $dark;
+  text-align: center;
+  justify-self: center;
+}

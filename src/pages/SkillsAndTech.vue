@@ -89,6 +89,7 @@ export default {
 
 <style scoped lang="scss">
 @import '../assets/scss/variables';
+@import '../assets/scss/shared';
 .skills-and-tech {
   .my-skills {
     display: grid;
@@ -98,13 +99,7 @@ export default {
       display: grid;
       grid-template-rows: 15% auto;
       .my-skills__group-title {
-        background-color: $secondary;
-        color: $light;
-        padding: 0.5em;
-        margin: 1em 0;
-        text-align: center;
-        justify-self: center;
-        box-shadow: 0px 2px 5px $dark;
+        @extend .post-title-bar; // shared
         width: 50%;
       }
       .my-skills__progress-bar {

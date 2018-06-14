@@ -1,5 +1,22 @@
 @import 'reset';
 @import 'variables';
+@import 'round-corners';
+
+// progress bars
+$progressbar-bar-background: $primary;
+$progressbar-background: $bgcolor;
+@import "./node_modules/vue-progressbar-component/src/scss/progressbar";
+.progressbar {
+  @extend .progressbar;
+  @extend .border-radius-full;
+  box-shadow: 0px 2px 5px $progressbar-bar-background;
+  &-bar {
+    @extend .border-radius-full;
+  }
+}
+
+// animations
+@import 'animations';
 
 // mobile
 @media screen and (max-width: $media-max-width) {}
@@ -11,7 +28,7 @@ html {
 }
 
 body {
-  background-color: $bgcolor;
+  background-color: $bgcolor1;
   font-family: $fontFamily;
   color: $dark;
 }
@@ -32,30 +49,21 @@ body {
   "content sidebar";
   .content {
     grid-area: content;
-    margin: 1em;
+    margin: -0.1em 1em 1em 1em;
     height: 100%;
+    z-index: 1;
     h1 {
-      background: $secondary;
+      @extend .border-radius-bottom;
+      background: $bgcolor;
       color: $light;
       text-align: center;
       padding: 1em;
       box-shadow: 0px 2px 5px $primary;
       text-shadow: 0px 2px 2px $primary;
       text-transform: uppercase;
-      animation: pageHeadingAnimation $fast-animation-speed forwards 0s linear;
+      opacity: 0;
+      animation: pageHeadingAnimation $fast-animation-speed forwards .5s linear;
     }
   }
   animation: mainContainerAnimation .75s forwards 0s linear;
 }
-
-// progress bars
-$progressbar-bar-background: $primary;
-$progressbar-background: $bgcolor;
-@import "./node_modules/vue-progressbar-component/src/scss/progressbar";
-.progressbar {
-  @extend .progressbar;
-  box-shadow: 0px 2px 5px $progressbar-bar-background;
-}
-
-// animations
-@import 'animations';

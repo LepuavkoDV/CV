@@ -33,6 +33,7 @@ export default {
 @import '../assets/scss/variables';
 .main-header {
   @extend .border-radius-bottom;
+  z-index: 2;
   grid-area: header;
   background-color: $primary;
   width: 102%;
