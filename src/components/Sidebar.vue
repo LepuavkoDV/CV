@@ -1,8 +1,8 @@
 <template lang="html">
 <section class="sidebar">
   <ul class="sidebar__nav">
-    <li v-for="(item, index) in navLinks" :key="index">
-      <router-link :class="{ 'active' : currentRoute === item.to }" v-bind:to="item.to">{{item.title}}</router-link>
+    <li v-for="(item, index) in navLinks" :key="index" :class="{ 'active' : currentRoute === item.to }">
+      <router-link v-bind:to="item.to">{{item.title}}</router-link>
     </li>
   </ul>
   <div class="sidebar__copy">2018 ©</div>
@@ -70,6 +70,11 @@ export default {
     font-size: 1.2em;
     text-align: center;
     li {
+      background-color: $primary;
+      width: 106%;
+      margin-left: -3%;
+      padding: .5em 0;
+      box-shadow: 0px 2px 5px $dark;
       @media screen and (min-width: $media-min-width) {
         margin-bottom: 1em;
       }
@@ -79,9 +84,11 @@ export default {
       a {
         color: inherit;
         text-decoration: none;
-        &:hover, &.active {
-          text-shadow: 0px 2px 2px $primary;
-        }
+        text-shadow: 0px 2px 2px $primary;
+      }
+      &:hover, &.active {
+        width: 110%;
+        margin-left: -5%;
       }
     }
   }
