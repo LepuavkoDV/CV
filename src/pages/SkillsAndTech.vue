@@ -1,7 +1,7 @@
 <template lang="html">
 
   <section class="skills-and-tech content">
-    <h1>Skills and technologies</h1>
+    <h1>My technologies knowlege and skills</h1>
     <div class="my-skills">
       <div class="my-skills__groups" v-for="(section, index) in mySkills" :key="index">
         <div class="my-skills__group-title"><i :class="section.icon"></i> {{section.title}}</div>

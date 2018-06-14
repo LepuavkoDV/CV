@@ -1,7 +1,7 @@
 <template lang="html">
 
   <section class="expectations content">
-    <h1>expectations Component</h1>
+    <h1>What i expect from job</h1>
   </section>
 
 </template>

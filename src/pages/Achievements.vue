@@ -1,7 +1,7 @@
 <template lang="html">
 
   <section class="achievements content">
-    <h1>achievements Component</h1>
+    <h1>My achievements</h1>
   </section>
 
 </template>
