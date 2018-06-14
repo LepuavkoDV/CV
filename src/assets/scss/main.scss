@@ -52,6 +52,10 @@ body {
 $progressbar-bar-background: $primary;
 $progressbar-background: $bgcolor;
 @import "./node_modules/vue-progressbar-component/src/scss/progressbar";
+.progressbar {
+  @extend .progressbar;
+  box-shadow: 0px 2px 5px $progressbar-bar-background;
+}
 
 // animations
 @import 'animations';
