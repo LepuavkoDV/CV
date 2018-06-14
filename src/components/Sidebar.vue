@@ -87,7 +87,7 @@ export default {
       a {
         color: inherit;
         text-decoration: none;
-        text-shadow: 0px 2px 2px $primary;
+        text-shadow: 0px 2px 2px $secondary;
       }
       &:hover,
       &.active {
