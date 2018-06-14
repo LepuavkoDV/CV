@@ -1,0 +1,41 @@
+@import 'variables';
+@import 'round-corners';
+input,
+textarea,
+button {
+  @extend .border-radius-full;
+  background-color: $light;
+  border: 1px solid $primary;
+  color: $dark;
+  padding: .9em;
+  resize: none;
+}
+
+label {
+  color: $dark;
+  font-size: .9em;
+  margin: 0 0 .1em .1em;
+}
+
+button {
+  background-color: $primary;
+  box-shadow: 0px 2px 2px $secondary;
+  color: $light;
+  padding: .5em 1em;
+  cursor: pointer;
+  font-size: 1.2em;
+  justify-self: start;
+  &:hover {
+    opacity: .9;
+  }
+}
+
+form {
+  display: grid;
+}
+
+.form-group {
+  display: grid;
+  grid-template-rows: 50% 50%;
+  margin: 1em 0 0 0;
+}
