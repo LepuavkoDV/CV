@@ -14,3 +14,4 @@ yarn-error.log*
 *.sln
 
 server/etc/config.json
+src/env.json
