@@ -3,14 +3,14 @@ import Controller from './controller'
 import '../models/skills'
 
 const Group = mongoose.model('skill_group')
-const Skill = mongoose.model('skill')
+const Skill = mongoose.model('skills')
 
 class Skills extends Controller {
-  getSkills () {
-    return Skill.find()
-  }
   getFullList () {
-    return Group.find()
+    return Group.find().populate('items')
+  }
+  addSkill (data) {
+
   }
 }
 
