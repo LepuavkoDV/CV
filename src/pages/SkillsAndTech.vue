@@ -28,62 +28,7 @@ export default {
     console.log(this.mySkills)
   },
   data () {
-    return {
-      // mySkills: [
-      //   {
-      //     title: 'PHP',
-      //     icon: 'fab fa-php',
-      //     items: [
-      //       { title: 'PHP', value: 95 },
-      //       { title: 'Codeigniter', value: 99 },
-      //       { title: 'Laravel 5.*', value: 50 }
-      //     ]
-      //   },
-      //   {
-      //     title: 'Database',
-      //     icon: 'fas fa-database',
-      //     items: [
-      //       { title: 'MySQL', value: 80 },
-      //       { title: 'MongoDB', value: 20 }
-      //     ]
-      //   },
-      //   {
-      //     title: 'Javascript',
-      //     icon: 'fab fa-js',
-      //     items: [
-      //       { title: 'JS', value: 95 },
-      //       { title: 'Vue/Vuex', value: 80 },
-      //       { title: 'Angular 2+', value: 55 },
-      //       { title: 'React', value: 25 },
-      //       { title: 'Angularjs', value: 8 },
-      //       { title: 'Nodejs', value: 50 },
-      //       { title: 'Express', value: 35 }
-      //     ]
-      //   },
-      //   {
-      //     title: 'Markup',
-      //     icon: 'fas fa-code',
-      //     items: [
-      //       { title: 'HTML 5', value: 95 },
-      //       { title: 'Bootstrap 3/4', value: 90 },
-      //       { title: 'Material Design', value: 75 },
-      //       { title: 'CSS 3', value: 65 },
-      //       { title: 'Sass', value: 45 }
-      //     ]
-      //   },
-      //   {
-      //     title: 'Tools',
-      //     icon: 'fas fa-screwdriver',
-      //     items: [
-      //       { title: 'Git', value: 70 },
-      //       { title: 'Webpack', value: 50 },
-      //       { title: '*nix command line', value: 60 },
-      //       { title: 'Composer', value: 95 },
-      //       { title: 'Npm', value: 95 }
-      //     ]
-      //   }
-      // ]
-    }
+    return {}
   },
   methods: {},
   computed: {
