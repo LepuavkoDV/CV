@@ -13,5 +13,5 @@ yarn-error.log*
 *.njsproj
 *.sln
 
-server/etc/config.json
-src/env.json
+#server/etc/config.json
+#src/env.json
