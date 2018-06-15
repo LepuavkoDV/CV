@@ -1,6 +1,4 @@
 import mongoose from 'mongoose'
-import config from '../etc/config'
-
 export function connect () {
-  mongoose.connect(`mongodb://${config.db.user}:${config.db.password}@${config.db.host}:${config.db.port}/${config.db.name}`)
+  mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`)
 }

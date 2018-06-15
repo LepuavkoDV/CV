@@ -3,5 +3,5 @@
     "env",
     "stage-0"
   ],
-  "plugins": ["transform-vue-jsx", "transform-runtime"]
+  "plugins": ["transform-vue-jsx", "transform-runtime", "inline-dotenv"]
 }

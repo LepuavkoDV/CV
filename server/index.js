@@ -3,6 +3,9 @@ import path from 'path'
 import serveStatic from 'serve-static'
 import history from 'connect-history-api-fallback'
 import cors from 'cors'
+import dotenv from 'dotenv'
+dotenv.config()
+/* eslint-disable import/first */
 import bodyParer from 'body-parser'
 import Debug from 'debug'
 import morgan from 'morgan'
