@@ -1,11 +1,26 @@
 import express from 'express'
 import Skills from '../../controllers/skills'
-let s = new Skills()
+import Debug from 'debug'
+let _skills = new Skills()
 
+const debug = Debug('api:*')
 const apiv1 = express.Router()
 
 apiv1.get('/groups', (req, res) => {
-  s.getFullList().then(data => res.send(data))
+  _skills.getFullList().then(data => res.send(data))
+})
+
+apiv1.post('/group', (req, res) => {
+  _skills.addGroup(req.body).then(data => {
+    res.status(201).send()
+  })
+})
+
+apiv1.post('/skill', (req, res) => {
+  debug(req.body)
+  _skills.addSkill(req.body).then(data => {
+    res.status(201).send()
+  })
 })
 
 export default apiv1

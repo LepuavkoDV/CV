@@ -1,16 +1,28 @@
-import mongoose from 'mongoose'
 import Controller from './controller'
-import '../models/skills'
-
-const Group = mongoose.model('skill_group')
-const Skill = mongoose.model('skills')
+import { Group, Skill } from '../models/skills'
 
 class Skills extends Controller {
   getFullList () {
     return Group.find().populate('items')
   }
   addSkill (data) {
+    const skill = new Skill({
+      title: data.title,
+      value: data.value,
+      group: data.group,
+      createdAt: new Date()
+    })
 
+    return skill.save()
+  }
+  addGroup (data) {
+    const group = new Group({
+      title: data.title,
+      icon: data.icon,
+      createdAt: new Date()
+    })
+
+    return group.save()
   }
 }
 
