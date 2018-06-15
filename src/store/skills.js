@@ -12,7 +12,6 @@ const mutations = {
 
 const actions = {
   loadGroups: ({commit}) => {
-    console.log(process.env.API_ENDPOINT)
     return axios.get(process.env.API_ENDPOINT + '/api/v1/groups').then(res => {
       commit('LOAD_GROUPS', res.data)
     })
