@@ -17,23 +17,49 @@
           <button>Submit</button>
         </div>
       </form>
+      <form v-on:submit.prevent="submitSkill">
+        <caption>Add skill</caption>
+        <div class="form-group">
+          <label for="input">Skill:</label>
+          <input type="text" name="group-name" v-model="skill.title">
+        </div>
+        <div class="form-group">
+          <label for="input">Value:</label>
+          <input type="text" name="value" v-model="skill.value">
+        </div>
+        <div class="form-group">
+          <select name="group" v-model="skill.group">
+            <option v-for="(group, index) in groups" :key="index" :value="group._id">{{group.title}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <button>Submit</button>
+        </div>
+      </form>
     </div>
   </section>
 
 </template>
 
 <script lang="js">
+import { mapState } from 'vuex'
 export default {
   name: 'admin',
   props: [],
-  mounted () {
-
+  beforeMount () {
+    this.$store.dispatch('loadGroups')
   },
+  mounted () {},
   data () {
     return {
       group: {
         title: '',
         icon: ''
+      },
+      skill: {
+        title: '',
+        value: '',
+        group: ''
       }
     }
   },
@@ -43,10 +69,19 @@ export default {
         this.group.title = ''
         this.group.icon = ''
       })
+    },
+    submitSkill () {
+      this.$store.dispatch('addSkill', this.skill).then(() => {
+        this.skill.title = ''
+        this.skill.value = ''
+        this.skill.group = ''
+      })
     }
   },
   computed: {
-
+    ...mapState({
+      groups: state => state.skills.groups
+    })
   }
 }
 </script>

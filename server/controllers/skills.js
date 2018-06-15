@@ -1,9 +1,5 @@
-import mongoose from 'mongoose'
 import Controller from './controller'
-import '../models/skills'
-
-const Group = mongoose.model('skill_group')
-const Skill = mongoose.model('skills')
+import { Group, Skill } from '../models/skills'
 
 class Skills extends Controller {
   getFullList () {

@@ -2,6 +2,7 @@
 @import 'round-corners';
 input,
 textarea,
+select,
 button {
   @extend .border-radius-full;
   background-color: $light;
