@@ -9,7 +9,7 @@ dotenv.config()
 import bodyParer from 'body-parser'
 import Debug from 'debug'
 import morgan from 'morgan'
-import apiv1 from './routes/v1/api'
+import apiv1 from './routes/api/v1'
 
 const debug = Debug('server:*')
 
@@ -19,7 +19,7 @@ let app = express()
 app.use(morgan('dev'))
 app.use(cors({ origin: '*' }))
 app.use(bodyParer.json())
-app.use(history())
+app.use(history({}))
 
 app.use(serveStatic(path.join(__dirname, '..', 'dist')))
 app.use('/api/v1', apiv1)
