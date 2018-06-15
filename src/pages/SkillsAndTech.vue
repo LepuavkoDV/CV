@@ -24,9 +24,7 @@ export default {
   beforeMount () {
     this.$store.dispatch('loadGroups')
   },
-  mounted () {
-    console.log(this.mySkills)
-  },
+  mounted () {},
   data () {
     return {}
   },

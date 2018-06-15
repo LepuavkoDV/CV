@@ -11,8 +11,6 @@ Vue.component('progress-bar', ProgressBar)
 
 Vue.config.productionTip = false
 
-console.log(process.env)
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
