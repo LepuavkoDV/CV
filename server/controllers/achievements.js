@@ -1,5 +1,5 @@
 import Controller from '../system/controller'
-import Achievement from '../models/achievements'
+import { Achievement } from '../models/achievements'
 
 class Achievements extends Controller {
   getList () {

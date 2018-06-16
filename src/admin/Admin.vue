@@ -36,6 +36,20 @@
           <button>Submit</button>
         </div>
       </form>
+      <form v-on:submit.prevent="submitAchievement">
+        <caption>Add achievement</caption>
+        <div class="form-group">
+          <label for="input">Title:</label>
+          <input type="text" name="group-name" v-model="achievement.title">
+        </div>
+        <div class="form-group">
+          <label for="input">Text:</label>
+          <textarea name="" id="" cols="30" rows="10" v-model="achievement.text"></textarea>
+        </div>
+        <div class="form-group">
+          <button>Submit</button>
+        </div>
+      </form>
     </div>
   </section>
 
@@ -60,6 +74,10 @@ export default {
         title: '',
         value: '',
         group: ''
+      },
+      achievement: {
+        title: '',
+        text: ''
       }
     }
   },
@@ -75,6 +93,12 @@ export default {
         this.skill.title = ''
         this.skill.value = ''
         this.skill.group = ''
+      })
+    },
+    submitAchievement () {
+      this.$store.dispatch('addAchievement', this.achievement).then(() => {
+        this.achievement.title = ''
+        this.achievement.text = ''
       })
     }
   },
