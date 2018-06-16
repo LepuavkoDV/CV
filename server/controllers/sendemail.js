@@ -29,7 +29,8 @@ class Sendmail {
   }
   send (message) {
     let subj = 'Сообщение от ' + message.who
-    let body = '> Кто: ' + message.who + ' <br/> > Контакт: ' + message.contact + ' <br/> > Предложение: ' + message.body
+    let body = message.body + '<br/><br/><br/>'
+    body += 'Мои контакты: ' + message.contact
     this.mailOptions.subject = subj
     this.mailOptions.html = body
     return new Promise((resolve, reject) => {
