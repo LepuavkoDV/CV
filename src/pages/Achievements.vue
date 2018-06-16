@@ -1,7 +1,7 @@
 <template lang="html">
 
   <section class="achievements content">
-    <h1>My achievements</h1>
+    <h1>Достижения</h1>
     <div class="my-achievements">
       <div class="my-achievements__achievement" v-for="(item, index) in achievements" :key="index">
         <div class="title">{{item.title}}</div>

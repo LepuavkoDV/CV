@@ -20,19 +20,19 @@ export default {
     return {
       navLinks: [
         {
-          title: 'Skills and Technologies',
+          title: 'Навыки',
           to: '/'
         },
         {
-          title: 'Achievements',
+          title: 'Достижения',
           to: 'achievements'
         },
         {
-          title: 'Expectations',
+          title: 'Ожидания от работы',
           to: 'expectations'
         },
         {
-          title: 'Contacts',
+          title: 'Контакты',
           to: 'contacts'
         }
       ],

@@ -4,7 +4,9 @@
     <div class="not-found">
       <div class="not-found__image">
         <div class="message">
-          <i class="fas fa-exclamation-triangle"></i> Oops! Page not found :( Go back to <router-link to="/">homepage</router-link>
+          <i class="far fa-frown"></i> 404 Пичалька
+          <br>
+          <router-link to="/">Го назад</router-link>
         </div>
       </div>
     </div>
@@ -42,6 +44,7 @@ export default {
     left: 50%;
     .not-found__image {
       .message {
+        text-align: center;
         text-shadow: 0px 2px 2px $bgcolor;
         i {
           color: $secondary;
@@ -51,6 +54,7 @@ export default {
         margin-left: -50%;
         width: 100%;
         a {
+          font-size: 0.7em;
           color: $secondary;
           text-decoration: none;
         }
