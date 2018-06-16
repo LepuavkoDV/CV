@@ -9,7 +9,10 @@
 npm install
 
 # serve with hot reload at localhost:8080
-npm run dev
+npm run client
+
+# serve with hot reload at localhost:5000
+npm run server
 
 # build for production with minification
 npm run build
@@ -25,4 +28,4 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 $ heroku config:set NPM_CONFIG_PRODUCTION=false -a ldvcv
 ```
 
-[live](https://ldvcv.herokuapp.com/)
+[live demo](https://ldvcv.herokuapp.com/)
