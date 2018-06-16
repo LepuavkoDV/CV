@@ -1,0 +1,19 @@
+@import 'round-corners';
+
+.my-notification {
+  @extend .border-radius-full;
+  padding: 1em;
+  margin: .5em;
+  font-size: 1em;
+  color: $light;
+  background: $primary;
+  border-top: 5px solid $secondary;
+  box-shadow: 0px 2px 5px $dark;
+  text-shadow: 0px 2px 2px $secondary;
+  &.error {
+    border-top-color: $danger;
+  }
+  &.success {
+    border-top-color: $bgcolor;
+  }
+}

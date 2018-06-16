@@ -10,12 +10,22 @@ button {
   color: $dark;
   padding: .9em;
   resize: none;
+  background-color: $light1;
+  box-shadow: 0px 2px 2px $secondary;
+  &.invalid {
+    border: 1px solid $danger;
+  }
+}
+.validation-error-message {
+  color: $danger;
+  margin: .2em 0;
+  font-size: .8em;
 }
 
 label {
   color: $dark;
   font-size: .9em;
-  margin: 0 0 .1em .1em;
+  margin: 0 0 .2em .1em;
 }
 
 button {
