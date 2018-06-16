@@ -1,8 +1,8 @@
-import Controller from './controller'
+import Controller from '../system/controller'
 import { Group, Skill } from '../models/skills'
 
 class Skills extends Controller {
-  getFullList () {
+  getList () {
     return Group.find().populate('items')
   }
   addSkill (data) {

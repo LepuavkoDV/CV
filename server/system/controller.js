@@ -1,4 +1,4 @@
-import { connect } from '../system/db'
+import { connect } from './db'
 
 class Controller {
   constructor () {
