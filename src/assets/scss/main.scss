@@ -16,6 +16,22 @@ $progressbar-background: $bgcolor;
   }
 }
 
+// loading
+@import '~vue-loading-overlay/src/scss/index';
+.loading-overlay {
+  @extend .loading-overlay;
+  .loading-icon {
+    &:after {
+      border: 0px;
+      border-radius: $border-radius;
+      height: 5em;
+      width: 5em;
+      left: calc(50% - 2.5em);
+      animation: rotate 1.4s infinite ease-in-out, background 1.4s infinite ease-in-out alternate;
+    }
+  }
+}
+
 // animations
 @import 'animations';
 
