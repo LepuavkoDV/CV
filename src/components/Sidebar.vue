@@ -74,10 +74,10 @@ export default {
     grid-area: nav;
     font-size: 1.2em;
     text-align: center;
-    text-shadow: 0px 2px 2px $primary;
+    text-shadow: 0px 4px 4px $primary;
     li {
       @extend .border-radius-full;
-      background-color: $bgcolor;
+      background-color: transparent;
       width: 100%;
       margin-left: -0.5em;
       padding: .5em .5em;
