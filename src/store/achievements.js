@@ -12,12 +12,12 @@ const mutations = {
 
 const actions = {
   loadAchievements: ({commit}) => {
-    return axios.get(process.env.API_ENDPOINT + '/api/v1/achievements').then(res => {
+    return axios.get(process.env.API_ENDPOINT + '/achievements').then(res => {
       commit('LOAD_ACHIEVEMENTS', res.data)
     })
   },
   addAchievement: ({dispatch}, data) => {
-    return axios.post(process.env.API_ENDPOINT + '/api/v1/achievement', data).then(res => {
+    return axios.post(process.env.API_ENDPOINT + '/achievement', data).then(res => {
       dispatch('loadAchievements')
     })
   }
