@@ -17,6 +17,7 @@ import { EventBus, Events } from './events'
 export default {
   name: 'App',
   created () {
+    this.currentRoute = router.currentRoute.name
     EventBus.$on(Events.SHOW_LOADING, () => { this.loading = true })
     EventBus.$on(Events.HIDE_LOADING, () => { this.loading = false })
   },
@@ -27,7 +28,7 @@ export default {
   },
   data () {
     return {
-      currentRoute: router.currentRoute.name,
+      currentRoute: null,
       loading: false
     }
   },

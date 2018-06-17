@@ -14,29 +14,30 @@ import router from '../router'
 export default {
   name: 'sidebar',
   props: [],
-  mounted () {
+  created () {
+    this.currentRoute = router.currentRoute.name
   },
   data () {
     return {
       navLinks: [
         {
-          title: 'Навыки',
+          title: 'Обо мне',
           to: '/'
+        },
+        {
+          title: 'Навыки',
+          to: 'skills'
         },
         {
           title: 'Достижения',
           to: 'achievements'
         },
         {
-          title: 'Ожидания от работы',
-          to: 'expectations'
-        },
-        {
           title: 'Контакты',
           to: 'contacts'
         }
       ],
-      currentRoute: router.currentRoute.path
+      currentRoute: null
     }
   },
   methods: {},
@@ -54,11 +55,12 @@ export default {
 @import '../assets/scss/round-corners';
 .sidebar {
   @extend .border-radius-bottom;
+  opacity: 0;
   grid-area: sidebar;
-  background-color: $secondary;
-  margin: -0.1em 1em 1em 1em;
+  background-color: $bgcolor;
+  margin: -0.1em 1em 1em 0em;
   color: $light;
-  box-shadow: 0px 2px 5px $primary;
+  box-shadow: 0px 1px 5px $primary;
   display: grid;
   grid-template-rows: 95% 5%;
   grid-template-areas:
@@ -66,39 +68,35 @@ export default {
     "copy";
   align-items: start;
   justify-items: center;
+  border: 1px solid $primary;
   .sidebar__nav {
-    margin-top: 3em;
+    margin-top: 1.5em;
     grid-area: nav;
     font-size: 1.2em;
     text-align: center;
+    text-shadow: 0px 2px 2px $primary;
     li {
       @extend .border-radius-full;
-      background-color: $primary;
-      width: 106%;
-      margin-left: -3%;
-      padding: 0.5em 0;
-      box-shadow: 0px 2px 5px $dark;
-      @media screen and (min-width: $media-min-width) {
-        margin-bottom: 1em;
-      }
-      @media screen and (max-width: $media-max-width) {
-        margin-bottom: 0.5em;
-      }
+      background-color: $bgcolor;
+      width: 100%;
+      margin-left: -0.5em;
+      padding: .5em .5em;
+      margin-bottom: .5em;
       a {
         color: inherit;
         text-decoration: none;
-        text-shadow: 0px 2px 2px $secondary;
       }
-      &:hover,
       &.active {
-        width: 110%;
-        margin-left: -5%;
+        background-color: $primary;
         font-weight: 500;
+        box-shadow: 0px 2px 5px $dark;
+        text-shadow: 0px 2px 2px $secondary;
       }
     }
   }
   .sidebar__copy {
     grid-area: copy;
+    text-shadow: 0px 2px 2px $primary;
     @media screen and (min-width: $media-min-width) {
       text-align: center;
     }
@@ -107,7 +105,7 @@ export default {
       margin-top: 0.5em;
     }
   }
-  animation: sidebarAnimation $fast-animation-speed forwards 0s ease-in;
+  animation: pageHeadingAnimation $fast-animation-speed forwards .5s ease-in;
 }
 
 @keyframes sidebarAnimation {

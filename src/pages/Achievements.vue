@@ -51,6 +51,7 @@ export default {
       .text {
         img {
           border-radius: $border-radius;
+          border: 1px solid $primary;
           width: 15em;
           height: auto;
           float: left;

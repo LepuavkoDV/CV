@@ -10,7 +10,8 @@ $progressbar-background: $bgcolor;
 .progressbar {
   @extend .progressbar;
   @extend .border-radius-full;
-  box-shadow: 0px 2px 5px $progressbar-bar-background;
+  box-shadow: 0px 2px 4px $progressbar-bar-background;
+  border: 1px solid $primary;
   &-bar {
     @extend .border-radius-full;
   }
@@ -28,6 +29,7 @@ $progressbar-background: $bgcolor;
       width: 5em;
       left: calc(50% - 2.5em);
       animation: rotate 1.4s infinite ease-in-out, background 1.4s infinite ease-in-out alternate;
+      border: 1px solid $primary;
     }
   }
 }
@@ -57,7 +59,8 @@ body {
   min-height: 100vh;
   margin: 0 20vw;
   background-color: $light;
-  box-shadow: 0px 2px 5px $dark;
+  box-shadow: 0px 1px 5px $dark;
+  border: 1px solid $primary;
   display: grid;
   grid-template-columns: 80% 20%;
   grid-template-rows: 100px auto;
@@ -75,10 +78,11 @@ body {
       color: $light;
       text-align: center;
       padding: 1em;
-      box-shadow: 0px 2px 5px $primary;
+      box-shadow: 0px 1px 4px $primary;
       text-shadow: 0px 2px 2px $primary;
       text-transform: uppercase;
       opacity: 0;
+      border: 1px solid $primary;
       animation: pageHeadingAnimation $fast-animation-speed forwards .5s linear;
     }
   }

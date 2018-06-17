@@ -54,12 +54,15 @@
 }
 @keyframes background {
   0% {
-  background-color: $primary;
+    background-color: $primary;
+    border: 1px solid $secondary;
   }
   50% {
     background-color: $secondary;
+    border: 1px solid $primary;
   }
   100% {
     background-color: $bgcolor;
+    border: 1px solid $primary;
   }
 }

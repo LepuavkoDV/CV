@@ -38,7 +38,7 @@ export default {
   background-color: $primary;
   width: 102%;
   margin-left: -1%;
-  box-shadow: 0px 2px 5px $dark;
+  box-shadow: 0px 2px 3px $dark;
   display: grid;
   grid-template-columns: 20% auto;
   grid-template-areas:

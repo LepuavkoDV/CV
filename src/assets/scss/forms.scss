@@ -11,9 +11,10 @@ button {
   padding: .9em;
   resize: none;
   background-color: $light1;
-  box-shadow: 0px 2px 2px $secondary;
+  box-shadow: 0px 1px 2px $primary;
   &.invalid {
     border: 1px solid $danger;
+    box-shadow: 0px 1px 2px $danger;
   }
 }
 .validation-error-message {

@@ -69,7 +69,7 @@ export default {
       this.$v.$touch()
       if (!this.$v.$invalid) {
         EventBus.$emit(Events.SHOW_LOADING)
-        axios.post(process.env.API_ENDPOINT + '/api/v1/message', this.message).then(res => {
+        axios.post(process.env.API_ENDPOINT + process.env.API_VERSION + '/message', this.message).then(res => {
           EventBus.$emit(Events.HIDE_LOADING)
           this.message.who = ''
           this.message.contact = ''
