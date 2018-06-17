@@ -3,10 +3,7 @@
   <section class="achievements content">
     <h1>Достижения</h1>
     <div class="my-achievements">
-      <div class="my-achievements__achievement" v-for="(item, index) in achievements" :key="index">
-        <div class="title">{{item.title}}</div>
-        <div class="text">{{item.text}}</div>
-      </div>
+      <Achievement v-for="(item, index) in achievements" :key="index" :item="item"></Achievement>
     </div>
   </section>
 
@@ -14,6 +11,7 @@
 
 <script lang="js">
 import { mapState } from 'vuex'
+import Achievement from '../components/Achievement'
 export default {
   name: 'achievements',
   props: [],
@@ -29,27 +27,43 @@ export default {
     ...mapState({
       achievements: state => state.achievements.achievements
     })
+  },
+  components: {
+    Achievement
   }
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import '../assets/scss/variables';
 @import '../assets/scss/shared';
 .achievements {
   .my-achievements {
     display: grid;
-    grid-template-columns: 50% 50%;
     .my-achievements__achievement {
       display: grid;
       grid-template-rows: 10% auto;
       margin: 1em 1em 1em 0;
       .title {
         @extend .post-title-bar; // shared
-        width: 80%;
+        width: 50%;
       }
       .text {
-        text-indent: 1em;
+        img {
+          border-radius: $border-radius;
+          width: 15em;
+          height: auto;
+          float: left;
+          margin: 0 1em 1em 0;
+        }
+        p {
+          margin-bottom: .5em;
+          text-indent: 1em;
+          a {
+            color: $secondary;
+            text-decoration: none;
+          }
+        }
       }
     }
   }
