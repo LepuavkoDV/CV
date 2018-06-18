@@ -1,5 +1,4 @@
 @import 'variables';
-
 @keyframes mainContainerAnimation {
   0% {
     opacity: 0.1;
@@ -52,6 +51,7 @@
     transform: perspective(120px) rotateX(-180deg) rotateY(-180deg);
   }
 }
+
 @keyframes background {
   0% {
     background-color: $primary;
@@ -65,4 +65,26 @@
     background-color: $bgcolor;
     border: 1px solid $primary;
   }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: .5;
+  }
+  75% {
+    opacity: .75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.elementToAnimate {
+  animation: yourAnimation 1s forwards 1s ease;
 }

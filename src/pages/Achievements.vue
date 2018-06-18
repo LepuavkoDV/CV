@@ -2,7 +2,7 @@
 
   <section class="achievements content">
     <h1>Достижения</h1>
-    <div class="my-achievements">
+    <div class="my-achievements animated">
       <Achievement v-for="(item, index) in achievements" :key="index" :item="item"></Achievement>
     </div>
   </section>

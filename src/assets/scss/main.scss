@@ -85,6 +85,10 @@ body {
       border: 1px solid $primary;
       animation: pageHeadingAnimation $fast-animation-speed forwards .5s linear;
     }
+    .animated {
+      animation: fadeIn $fast-animation-speed forwards .3s ease-in;
+      opacity: 0;
+    }
   }
   animation: mainContainerAnimation .75s forwards 0s linear;
 }

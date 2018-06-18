@@ -2,7 +2,7 @@
 
   <section class="about content">
     <h1>Обо мне</h1>
-    <div class="my-expectations">
+    <div class="my-expectations animated">
       <div class="my-expectations-title">Ожидания от работы</div>
       <ul>
         <li>Профессиональный рост</li>
@@ -20,20 +20,12 @@
 export default {
   name: 'about',
   props: [],
-  mounted () {
-
-  },
+  mounted () {},
   data () {
-    return {
-
-    }
+    return {}
   },
-  methods: {
-
-  },
-  computed: {
-
-  }
+  methods: {},
+  computed: {}
 }
 </script>
 

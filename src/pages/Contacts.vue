@@ -2,7 +2,7 @@
 
   <section class="contacts content">
     <h1>Связаться со мной</h1>
-    <div class="contact-me">
+    <div class="contact-me animated">
       <form v-on:submit.prevent="sendMessage">
         <div class="form-group">
           <label for="input">Кто Вы?</label>
