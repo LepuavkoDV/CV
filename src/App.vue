@@ -1,15 +1,15 @@
 <template>
   <div id="app" class="main-container">
     <loading :active.sync="loading"></loading>
-    <notifications classes="my-notification" group="main" position="bottom center" />
-    <Main-header></Main-header>
-    <Sidebar v-show="currentRoute !== 'pageNotFound'"></Sidebar>
-    <router-view/>
+    <notifications classes="my-notification" group="main" position="bottom center"/>
+    <Sidebar></Sidebar>
+    <div class="container-fluid p-0">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
-import Header from './components/Header'
 import Sidebar from './components/Sidebar'
 import router from './router'
 import Loading from 'vue-loading-overlay'
@@ -22,7 +22,6 @@ export default {
     EventBus.$on(Events.HIDE_LOADING, () => { this.loading = false })
   },
   components: {
-    'Main-header': Header,
     'Sidebar': Sidebar,
     'Loading': Loading
   },

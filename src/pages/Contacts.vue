@@ -1,34 +1,40 @@
 <template lang="html">
 
-  <section class="contacts content">
-    <h1>Связаться со мной</h1>
-    <div class="contact-me animated">
-      <form v-on:submit.prevent="sendMessage">
-        <div class="form-group">
-          <label for="input">Кто Вы?</label>
-          <input :class="getValidationClass('who')" type="text" v-model="message.who">
-          <span class="validation-error-message" v-if="!$v.message.who.required && $v.message.$dirty">
-            {{validationErrorMessages.who.required}}
-          </span>
+  <section class="resume-section p-3 p-lg-5 d-flex flex-column slow-fadeIn" id="experience">
+    <div class="my-auto">
+      <h2 class="mb-5">Оставить сообщение</h2>
+
+      <div class="resume-item d-flex flex-column flex-md-row mb-5 pl-5 pr-5">
+        <div class="resume-content mr-auto">
+          <form v-on:submit.prevent="sendMessage">
+            <div class="form-group">
+              <label for="input">Кто Вы?</label>
+              <input :class="['form-control', getValidationClass('who')]" type="text" v-model="message.who">
+              <span class="validation-error-message" v-if="!$v.message.who.required && $v.message.$dirty">
+                {{validationErrorMessages.who.required}}
+              </span>
+            </div>
+            <div class="form-group">
+              <label for="input">Как с Вами связаться?</label>
+              <input :class="['form-control', getValidationClass('contact')]" type="text" v-model="message.contact">
+              <span class="validation-error-message" v-if="!$v.message.contact.required && $v.message.$dirty">
+                {{validationErrorMessages.contact.required}}
+              </span>
+            </div>
+            <div class="form-group">
+              <label for="textarea">Что Вы можете мне предложить?</label>
+              <textarea :class="['form-control', getValidationClass('body')]" name="" id="" cols="30" rows="10" v-model="message.body"></textarea>
+              <span class="validation-error-message" v-if="!$v.message.body.required && $v.message.$dirty">
+                {{validationErrorMessages.body.required}}
+              </span>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary btn-lg"><i class="far fa-envelope"></i> Отправить</button>
+            </div>
+          </form>
         </div>
-        <div class="form-group">
-          <label for="input">Как с Вами связаться?</label>
-          <input :class="getValidationClass('contact')" type="text" v-model="message.contact">
-          <span class="validation-error-message" v-if="!$v.message.contact.required && $v.message.$dirty">
-            {{validationErrorMessages.contact.required}}
-          </span>
-        </div>
-        <div class="form-group">
-          <label for="textarea">Что Вы можете мне предложить?</label>
-          <textarea :class="getValidationClass('body')" name="" id="" cols="30" rows="10" v-model="message.body"></textarea>
-          <span class="validation-error-message" v-if="!$v.message.body.required && $v.message.$dirty">
-            {{validationErrorMessages.body.required}}
-          </span>
-        </div>
-        <div class="form-group">
-          <button><i class="far fa-envelope"></i> Отправить</button>
-        </div>
-      </form>
+      </div>
+
     </div>
   </section>
 
@@ -99,4 +105,9 @@ export default {
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+@import "../assets/scss/variables.scss";
+.validation-error-message {
+  color: $danger;
+}
+</style>

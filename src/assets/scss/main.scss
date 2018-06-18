@@ -1,97 +1,24 @@
-@import 'reset';
-@import 'variables';
-@import 'round-corners';
-@import 'forms';
+// Core variables and mixins
+@import "variables.scss";
+@import "mixins.scss";
 
-// progress bars
-$progressbar-bar-background: $primary;
-$progressbar-background: $bgcolor;
-@import "./node_modules/vue-progressbar-component/src/scss/progressbar";
-.progressbar {
-  @extend .progressbar;
-  @extend .border-radius-full;
-  box-shadow: 0px 2px 4px $progressbar-bar-background;
-  border: 1px solid $primary;
-  &-bar {
-    @extend .border-radius-full;
-  }
-}
+// Bootstrap and fonts
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&subset=cyrillic,cyrillic-ext');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
+$fa-font-path: "/static/fonts";
+@import "./font-awesome/scss/fontawesome.scss";
+@import "./font-awesome/scss/fa-brands.scss";
+@import "./font-awesome/scss/fa-solid.scss";
+@import "./font-awesome/scss/fa-regular.scss";
 
-// loading
-@import '~vue-loading-overlay/src/scss/index';
-.loading-overlay {
-  @extend .loading-overlay;
-  .loading-icon {
-    &:after {
-      border: 0px;
-      border-radius: $border-radius;
-      height: 5em;
-      width: 5em;
-      left: calc(50% - 2.5em);
-      animation: rotate 1.4s infinite ease-in-out, background 1.4s infinite ease-in-out alternate;
-      border: 1px solid $primary;
-    }
-  }
-}
-
-// animations
-@import 'animations';
-
-// mobile
-@media screen and (max-width: $media-max-width) {}
-// desktop
-@media screen and (min-width: $media-min-width) {}
-
-html {
-  height: 100%;
-}
-
-body {
-  background-color: $bgcolor1;
-  font-family: $fontFamily;
-  color: $dark;
-}
-
-.main-container {
-  @extend .border-radius-bottom;
-  width: 60vw;
-  height: auto;
-  min-height: 100vh;
-  margin: 0 20vw;
-  background-color: $light;
-  box-shadow: 0px 1px 5px $dark;
-  border: 1px solid $primary;
-  display: grid;
-  grid-template-columns: 80% 20%;
-  grid-template-rows: 100px auto;
-  grid-template-areas:
-  "header header"
-  "content sidebar";
-  .content {
-    grid-area: content;
-    margin: -0.1em 1em 1em 1em;
-    height: 100%;
-    z-index: 1;
-    h1 {
-      @extend .border-radius-bottom;
-      background: $bgcolor;
-      color: $light;
-      text-align: center;
-      padding: 1em;
-      box-shadow: 0px 1px 4px $primary;
-      text-shadow: 0px 4px 4px $primary;
-      text-transform: uppercase;
-      opacity: 0;
-      border: 1px solid $primary;
-      animation: pageHeadingAnimation $fast-animation-speed forwards .5s linear;
-    }
-    .animated {
-      animation: fadeIn $fast-animation-speed forwards .3s ease-in;
-      opacity: 0;
-    }
-  }
-  animation: mainContainerAnimation .75s forwards 0s linear;
-}
-
-// notifications
-@import 'notifications'
+// Global CSS
+@import "global.scss";
+@import "nav.scss";
+@import "resume-item.scss";
+@import "bootstrap-overrides.scss";
+// Components
+@import "progress-bars";
+@import "notifications";
+@import "loading-overlay";
+@import "animations";
