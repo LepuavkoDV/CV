@@ -30,23 +30,4 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '../assets/scss/shared';
-.about {
-  .my-expectations {
-    display: grid;
-    margin-top: 1em;
-    .my-expectations-title {
-      @extend .post-title-bar; // shared
-      width: 50%;
-    }
-    ul {
-      padding-left: 1.5em;
-      margin-bottom: 1em;
-      li {
-        list-style-type: disc;
-        margin-bottom: .1em;
-      }
-    }
-  }
-}
 </style>

@@ -41,37 +41,4 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '../assets/scss/variables';
-@import '../assets/scss/shared';
-.skills-and-tech {
-  .my-skills {
-    display: grid;
-    margin-top: 1em;
-    grid-template-rows: 20%;
-    .my-skills__groups {
-      display: grid;
-      grid-template-rows: 15% auto;
-      .my-skills__group-title {
-        @extend .post-title-bar; // shared
-        width: 50%;
-      }
-      .my-skills__progress-bar {
-        margin-bottom: 0.5em;
-        display: grid;
-        grid-template-columns: 0 100%;
-        grid-template-areas:
-        "title bar";
-        .title {
-          grid-area: title;
-          align-self: center;
-          color: $light;
-          z-index: 20;
-          font-size: 0.8em;
-          margin-left: .5em;
-          min-width: 10em;
-        }
-      }
-    }
-  }
-}
 </style>

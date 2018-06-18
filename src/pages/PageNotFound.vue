@@ -36,30 +36,4 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '../assets/scss/variables';
-.page-not-found {
-  .not-found {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    .not-found__image {
-      .message {
-        text-align: center;
-        text-shadow: 0px 2px 2px $bgcolor;
-        i {
-          color: $secondary;
-        }
-        font-size: 2em;
-        color: $primary;
-        margin-left: -50%;
-        width: 100%;
-        a {
-          font-size: 0.7em;
-          color: $secondary;
-          text-decoration: none;
-        }
-      }
-    }
-  }
-}
 </style>
