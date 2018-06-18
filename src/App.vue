@@ -1,10 +1,5 @@
 <template>
   <div id="app" class="main-container">
-    <loading :active.sync="loading"></loading>
-    <notifications classes="my-notification" group="main" position="bottom center" />
-    <Main-header></Main-header>
-    <Sidebar v-show="currentRoute !== 'pageNotFound'"></Sidebar>
-    <router-view/>
   </div>
 </template>
 
