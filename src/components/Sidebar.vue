@@ -44,7 +44,7 @@ export default {
           to: 'achievements'
         },
         {
-          title: 'Контакты',
+          title: 'Обратная связь',
           to: 'contacts'
         }
       ],

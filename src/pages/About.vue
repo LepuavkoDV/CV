@@ -6,23 +6,15 @@
         <span class="text-primary">Лепявко</span>
       </h1>
       <div class="subheading mb-5">Frontend developer · Чернигов · 30лет ·
-        <a href="mailto:name@email.com">name@email.com</a>
+        <a :href="'mailto:' + myEmail">{{myEmail}}</a>
       </div>
       <p class="mb-5">I am experienced in leveraging agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p>
       <ul class="list-inline list-social-icons mb-0">
         <li class="list-inline-item">
-          <a href="#">
+          <a href="https://github.com/LepuavkoDV" target="_blank">
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-            </span>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a href="#">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fab fa-gitlab fa-stack-1x fa-inverse"></i>
             </span>
           </a>
         </li>
@@ -38,7 +30,9 @@ export default {
   props: [],
   mounted () {},
   data () {
-    return {}
+    return {
+      myEmail: process.env.MY_EMAIL
+    }
   },
   methods: {},
   computed: {}
