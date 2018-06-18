@@ -1,12 +1,22 @@
 <template lang="html">
-<section class="sidebar">
-  <ul class="sidebar__nav">
-    <li v-for="(item, index) in navLinks" :key="index" :class="{ 'active' : currentRoute === item.to }">
-      <router-link v-bind:to="item.to">{{item.title}}</router-link>
-    </li>
-  </ul>
-  <div class="sidebar__copy">2018 ©</div>
-</section>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+  <a class="navbar-brand">
+    <span class="d-block d-lg-none"></span>
+    <span class="d-none d-lg-block">
+      <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="../../static/profile.jpg" alt="">
+    </span>
+  </a>
+  <button class="navbar-toggler" @click="hideNavBar = !hideNavBar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div :class="['navbar-collapse', { 'collapse': hideNavBar }]" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      <li class="nav-item" v-for="(item, index) in navLinks" :key="index">
+        <router-link :class="['nav-link', { 'active': currentRoute === item.to }]" :to="item.to">{{item.title}}</router-link>
+      </li>
+    </ul>
+  </div>
+</nav>
 </template>
 
 <script lang="js">
@@ -19,6 +29,7 @@ export default {
   },
   data () {
     return {
+      hideNavBar: true,
       navLinks: [
         {
           title: 'Обо мне',
@@ -45,6 +56,7 @@ export default {
   watch: {
     '$route' (to, from) {
       this.currentRoute = to.name
+      this.hideNavBar = true
     }
   }
 }

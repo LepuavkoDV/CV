@@ -1,8 +1,14 @@
 <template lang="html">
 
-  <div class="my-achievements__achievement">
-    <div class="title">{{_props.item.title}}</div>
-    <div class="text" v-html="_props.item.text"></div>
+  <div class="resume-item d-flex flex-column flex-md-row mb-5">
+    <div class="resume-content mr-auto">
+      <h3 class="mb-0">{{_props.item.title}}</h3>
+      <div class="subheading mb-3">Intelitec Solutions</div>
+      <span v-html="_props.item.text"></span>
+    </div>
+    <div class="resume-date text-md-right">
+      <span class="text-primary">March 2013 - Present</span>
+    </div>
   </div>
 
 </template>
@@ -20,4 +26,8 @@ export default {
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+h3 {
+  text-align: start;
+}
+</style>

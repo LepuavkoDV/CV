@@ -1,0 +1,17 @@
+.my-notification {
+  padding: 1em;
+  margin: 0 0 1.5em 0;
+  font-size: 1em;
+  color: $light;
+  background-color: $primary;
+  border-radius: $border-radius;
+  text-align: center;
+  opacity: 0.8;
+  border-top: 10px solid $gray-200;
+  &.error {
+    background-color: $danger;
+  }
+  &.success {
+    background-color: $success;
+  }
+}

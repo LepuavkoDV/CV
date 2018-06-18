@@ -1,15 +1,18 @@
 <template lang="html">
 
-  <section class="skills-and-tech content">
-    <h1>Навыки</h1>
-    <div class="my-skills animated">
-      <div class="my-skills__groups" v-for="(group, index) in groups" :key="index">
-        <div class="my-skills__group-title"><i :class="group.icon"></i> {{group.title}}</div>
-        <div class="my-skills__progress-bar" v-for="(item, index) in group.items" :key="index">
-          <div class="title">{{item.title}}</div>
-          <div><ProgressBar :value="item.value"/></div>
+  <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="experience">
+    <div class="my-auto">
+      <h2 class="mb-5">Навыки</h2>
+
+      <div class="resume-item d-flex flex-column flex-md-row mb-5" v-for="group in groups" :key="group._id">
+        <div class="resume-content mr-auto">
+          <h3 class="mb-0"><i :class="group.icon"></i> {{group.title}}</h3>
+          <div v-for="item in group.items" :key="item._id">
+            <h4 class="mb-0">{{item.title}}</h4><ProgressBar :value="item.value"/>
+          </div>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -40,5 +43,4 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>
