@@ -1,6 +1,6 @@
 <template lang="html">
 
-  <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="experience">
+  <section class="resume-section p-3 p-lg-5 d-flex flex-column slow-fadeIn" id="experience">
     <div class="my-auto">
       <h2 class="mb-5">Связаться со мной</h2>
 
@@ -84,7 +84,7 @@ export default {
           this.$notify({
             group: 'main',
             type: 'success',
-            text: 'Сообщение отправлено',
+            text: 'Сообщение отправлено'
           })
         })
       }

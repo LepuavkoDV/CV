@@ -1,6 +1,6 @@
 <template lang="html">
 
-  <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
+  <section class="resume-section p-3 p-lg-5 d-flex d-column slow-fadeIn" id="about">
     <div class="my-auto">
       <h1 class="mb-0">Дмитрий
         <span class="text-primary">Лепявко</span>
