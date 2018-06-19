@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import store from './store'
 
+
 import ProgressBar from 'vue-progressbar-component'
 import Notifications from 'vue-notification'
 
