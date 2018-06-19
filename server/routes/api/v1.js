@@ -1,12 +1,12 @@
 import express from 'express'
 import Skills from '../../controllers/skills'
-import Achievements from '../../controllers/achievements'
+import MyWorks from '../../controllers/myWorks'
 import Sendmail from '../../controllers/sendemail'
 
 const api = express.Router()
 
 const skills = new Skills()
-const achievements = new Achievements()
+const myWorks = new MyWorks()
 const sendmail = new Sendmail()
 
 // groups
@@ -30,14 +30,14 @@ api.post('/skill', (req, res) => {
 })
 
 // achievements
-api.get('/achievements', (req, res) => {
-  achievements.getList().then(data => {
+api.get('/my-works', (req, res) => {
+  myWorks.getList().then(data => {
     res.send(data)
   })
 })
 
-api.post('/achievement', (req, res) => {
-  achievements.addAchievement(req.body).then(data => {
+api.post('/my-work', (req, res) => {
+  myWorks.addMyWork(req.body).then(data => {
     res.status(201).send(data)
   })
 })

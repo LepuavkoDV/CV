@@ -36,23 +36,23 @@
           <button class="btn btn-primary">Submit</button>
         </div>
       </form>
-      <form v-on:submit.prevent="submitAchievement" class="mb-5">
-        <h4>Add achievement</h4>
+      <form v-on:submit.prevent="submitMyWork" class="mb-5">
+        <h4>Add my work</h4>
         <div class="form-group">
           <label for="input">Title:</label>
-          <input class="form-control" type="text" name="group-name" v-model="achievement.title">
+          <input class="form-control" type="text" name="group-name" v-model="myWork.title">
         </div>
         <div class="form-group">
           <label for="input">Position:</label>
-          <input class="form-control" type="text" name="group-name" v-model="achievement.position">
+          <input class="form-control" type="text" name="group-name" v-model="myWork.position">
         </div>
         <div class="form-group">
           <label for="input">Period:</label>
-          <input class="form-control" type="text" name="group-name" v-model="achievement.period">
+          <input class="form-control" type="text" name="group-name" v-model="myWork.period">
         </div>
         <div class="form-group">
           <label for="input">Text:</label>
-          <textarea class="form-control" name="" id="" cols="30" rows="10" v-model="achievement.text"></textarea>
+          <textarea class="form-control" name="" id="" cols="30" rows="10" v-model="myWork.text"></textarea>
         </div>
         <div class="form-group">
           <button class="btn btn-primary">Submit</button>
@@ -83,7 +83,7 @@ export default {
         value: '',
         group: ''
       },
-      achievement: {
+      myWork: {
         title: '',
         position: '',
         period: '',
@@ -105,12 +105,12 @@ export default {
         this.skill.group = ''
       })
     },
-    submitAchievement () {
-      this.$store.dispatch('addAchievement', this.achievement).then(() => {
-        this.achievement.title = ''
-        this.achievement.position = ''
-        this.achievement.period = ''
-        this.achievement.text = ''
+    submitMyWork () {
+      this.$store.dispatch('addMyWork', this.myWork).then(() => {
+        this.myWork.title = ''
+        this.myWork.position = ''
+        this.myWork.period = ''
+        this.myWork.text = ''
       })
     }
   },

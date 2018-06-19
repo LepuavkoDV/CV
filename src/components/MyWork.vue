@@ -15,7 +15,7 @@
 
 <script lang="js">
 export default {
-  name: 'achievement',
+  name: 'my-work',
   props: ['item'],
   mounted () {},
   data () {

@@ -32,20 +32,20 @@ export default {
       hideNavBar: true,
       navLinks: [
         {
-          title: 'Обо мне',
+          title: 'О себе',
           to: '/'
         },
         {
           title: 'Навыки',
-          to: 'skills'
+          to: 'my-skills'
         },
         {
-          title: 'Достижения',
-          to: 'achievements'
+          title: 'Мои работы',
+          to: 'my-works'
         },
         {
           title: 'Обратная связь',
-          to: 'contacts'
+          to: 'contact-me'
         }
       ],
       currentRoute: null

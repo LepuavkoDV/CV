@@ -2,9 +2,9 @@
 
   <section class="resume-section p-3 p-lg-5 d-flex flex-column slow-fadeIn" id="experience">
     <div class="my-auto">
-      <h2 class="mb-5">Достижения</h2>
+      <h2 class="mb-5">Мои работы</h2>
 
-      <Achievement v-for="(item, index) in achievements" :key="index" :item="item"></Achievement>
+      <MyWork v-for="(item, index) in myWorks" :key="index" :item="item"></MyWork>
 
     </div>
   </section>
@@ -13,12 +13,12 @@
 
 <script lang="js">
 import { mapState } from 'vuex'
-import Achievement from '../components/Achievement'
+import MyWork from '../components/MyWork'
 export default {
-  name: 'achievements',
+  name: 'my-works',
   props: [],
   beforeMount () {
-    this.$store.dispatch('loadAchievements')
+    this.$store.dispatch('loadMyWorks')
   },
   mounted () {},
   data () {
@@ -27,11 +27,11 @@ export default {
   methods: {},
   computed: {
     ...mapState({
-      achievements: state => state.achievements.achievements
+      myWorks: state => state.myWorks.myWorks
     })
   },
   components: {
-    Achievement
+    MyWork
   }
 }
 </script>

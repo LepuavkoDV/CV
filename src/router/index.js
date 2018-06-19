@@ -1,21 +1,21 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import About from '../pages/About'
-import SkillsAndTech from '../pages/SkillsAndTech'
-import Achievements from '../pages/Achievements'
-import Contacts from '../pages/Contacts'
-// import Admin from '../admin/Admin'
-import PageNotFound from '../pages/PageNotFound'
+import Skills from '../pages/Skills'
+import MyWorks from '../pages/MyWorks'
+import ContactMe from '../pages/ContactMe'
+import Admin from '../admin/Admin'
+import p404 from '../pages/404'
 
 Vue.use(Router)
 
 const routes = [
   { path: '/', name: '/', component: About },
-  { path: '/skills', name: 'skills', component: SkillsAndTech },
-  { path: '/achievements', name: 'achievements', component: Achievements },
-  { path: '/contacts', name: 'contacts', component: Contacts },
-  // { path: '/admin', name: 'admin', component: Admin },
-  { path: '/*', name: 'pageNotFound', component: PageNotFound }
+  { path: '/my-skills', name: 'my-skills', component: Skills },
+  { path: '/my-works', name: 'my-works', component: MyWorks },
+  { path: '/contact-me', name: 'contact-me', component: ContactMe },
+  { path: '/admin', name: 'admin', component: Admin },
+  { path: '/*', name: '404', component: p404 }
 ]
 
 export default new Router({

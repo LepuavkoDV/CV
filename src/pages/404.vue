@@ -17,7 +17,7 @@
 
 <script lang="js">
 export default {
-  name: 'page-not-found',
+  name: '404',
   props: [],
   mounted () {
 

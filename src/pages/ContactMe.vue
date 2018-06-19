@@ -47,7 +47,7 @@ import { validationMixin } from 'vuelidate'
 import { required } from 'vuelidate/lib/validators'
 import { getValidationClass } from '../modules/validation'
 export default {
-  name: 'contacts',
+  name: 'contact-me',
   props: [],
   mounted () {},
   data () {

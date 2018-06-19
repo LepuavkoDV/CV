@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
-const AchievementSchema = new Schema({
+const MyWorkSchema = new Schema({
   title: { type: String },
   position: {type: String},
   period: { type: String },
@@ -11,4 +11,4 @@ const AchievementSchema = new Schema({
 })
 
 /* eslint-disable no-unused-vars */
-export const Achievement = mongoose.model('Achievement', AchievementSchema)
+export const MyWork = mongoose.model('MyWork', MyWorkSchema)

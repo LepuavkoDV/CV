@@ -22,7 +22,7 @@
 import ProgressBar from 'vue-progressbar-component'
 import { mapState } from 'vuex'
 export default {
-  name: 'skills-and-tech',
+  name: 'skills',
   props: [],
   beforeMount () {
     this.$store.dispatch('loadGroups')
