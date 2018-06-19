@@ -4,7 +4,7 @@
     <div class="my-auto">
       <h2 class="mb-5">Оставить сообщение</h2>
 
-      <div class="resume-item d-flex flex-column flex-md-row mb-5 pl-5 pr-5">
+      <div class="resume-item d-flex flex-column flex-md-row mb-5">
         <div class="resume-content mr-auto">
           <form v-on:submit.prevent="sendMessage">
             <div class="form-group">
@@ -109,5 +109,11 @@ export default {
 @import "../assets/scss/variables.scss";
 .validation-error-message {
   color: $danger;
+}
+@media (min-width: 992px) {
+  .resume-item {
+    padding-left: 10rem;
+    padding-right: 10rem;
+  }
 }
 </style>
