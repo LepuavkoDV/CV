@@ -17,7 +17,7 @@
           <li>Адекватный менеджмент.</li>
           <li>Возможность удаленной работы.</li>
           <li>Работа в команде</li>
-        </ul>  
+        </ul>
       В данный момент интересует работа с Vue/Vuex (Варианты с React/Angular2+ тоже рассмотрю)</p>
       <ul class="list-inline list-social-icons mb-0">
         <li class="list-inline-item">

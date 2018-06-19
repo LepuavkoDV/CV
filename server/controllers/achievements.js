@@ -9,6 +9,8 @@ class Achievements extends Controller {
   addAchievement (data) {
     const achievement = new Achievement({
       title: data.title,
+      position: data.position,
+      period: data.period,
       text: data.text,
       createdAt: new Date()
     })

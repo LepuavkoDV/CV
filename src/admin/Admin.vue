@@ -43,6 +43,14 @@
           <input type="text" name="group-name" v-model="achievement.title">
         </div>
         <div class="form-group">
+          <label for="input">Position:</label>
+          <input type="text" name="group-name" v-model="achievement.position">
+        </div>
+        <div class="form-group">
+          <label for="input">Period:</label>
+          <input type="text" name="group-name" v-model="achievement.period">
+        </div>
+        <div class="form-group">
           <label for="input">Text:</label>
           <textarea name="" id="" cols="30" rows="10" v-model="achievement.text"></textarea>
         </div>
@@ -77,6 +85,8 @@ export default {
       },
       achievement: {
         title: '',
+        position: '',
+        period: '',
         text: ''
       }
     }
@@ -98,6 +108,8 @@ export default {
     submitAchievement () {
       this.$store.dispatch('addAchievement', this.achievement).then(() => {
         this.achievement.title = ''
+        this.achievement.position = ''
+        this.achievement.period = ''
         this.achievement.text = ''
       })
     }
