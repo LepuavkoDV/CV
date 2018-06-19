@@ -5,8 +5,8 @@
       <h1 class="mb-0">Дмитрий
         <span class="text-primary">Лепявко</span>
       </h1>
-      <div class="subheading mb-5">Frontend developer · Чернигов · 30лет ·
-        <a :href="'mailto:' + myEmail">{{myEmail}}</a>
+      <div class="subheading mb-5">Frontend developer · 30лет ·
+        Чернигов
       </div>
       <h4 class="mb-1">О себе</h4>
       <p class="mb-5">~5 лет в веб разработке. Занимался приложениями для Facebook. Очень долго работал с Codeigniter. Сделал пару плагинов для Wordpress и Opencart.</p>
