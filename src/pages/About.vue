@@ -8,7 +8,11 @@
       <div class="subheading mb-5">Frontend developer · Чернигов · 30лет ·
         <a :href="'mailto:' + myEmail">{{myEmail}}</a>
       </div>
-      <p class="mb-5">I am experienced in leveraging agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p>
+      <h4 class="mb-1">О себе</h4>
+      <p class="mb-5">~5 лет в веб разработке. Занимался приложениями для Facebook. Очень долго работал с Codeigniter. Сделал пару плагинов для Wordpress и Opencart.</p>
+      <h4 class="mb-1">Что я ожидаю от работы?</h4>
+      <p class="mb-5">Профессиональный рост. Адекватный менеджмент. Возможность удаленной работы.
+      В данный момент интересует работа с Vue/Vuex (Варианты с React/Angular2+ тоже рассмотрю)</p>
       <ul class="list-inline list-social-icons mb-0">
         <li class="list-inline-item">
           <a href="https://github.com/LepuavkoDV" target="_blank">

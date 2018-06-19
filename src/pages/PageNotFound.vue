@@ -1,14 +1,15 @@
 <template lang="html">
 
-  <section class="page-not-found content">
-    <div class="not-found">
-      <div class="not-found__image">
-        <div class="message">
-          <i class="far fa-frown"></i> 404 Пичалька
-          <br>
-          <router-link to="/">Го назад</router-link>
+  <section class="resume-section p-3 p-lg-5 d-flex flex-column slow-fadeIn" id="experience">
+    <div class="my-auto">
+      <h1 class="mb-5"><span class="text-primary">404 <i class="far fa-frown"></i></span> Пичалька</h1>
+
+      <div class="resume-item d-flex flex-column flex-md-row mb-5">
+        <div class="resume-content mr-auto">
+          <a href="javascript:window.history.back();">Го назад</a>
         </div>
       </div>
+
     </div>
   </section>
 
