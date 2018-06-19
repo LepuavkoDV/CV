@@ -2,6 +2,7 @@
 @import '~vue-loading-overlay/src/scss/index';
 .loading-overlay {
   @extend .loading-overlay;
+  z-index: 9999;
   .loading-icon {
     &:after {
       border-top: 5px solid $primary;
