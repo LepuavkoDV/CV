@@ -17,6 +17,8 @@ import { EventBus, Events } from './events'
 export default {
   name: 'App',
   created () {
+    this.$store.dispatch('loadGroups')
+    this.$store.dispatch('loadMyWorks')
     this.currentRoute = router.currentRoute.name
     EventBus.$on(Events.SHOW_LOADING, () => { this.loading = true })
     EventBus.$on(Events.HIDE_LOADING, () => { this.loading = false })
