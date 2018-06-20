@@ -21,10 +21,10 @@
       В данный момент интересует работа с Vue/Vuex (Варианты с React/Angular2+ тоже рассмотрю)</p>
       <ul class="list-inline list-social-icons mb-0">
         <li class="list-inline-item">
-          <a href="https://gitlab.com/LepuavkoDV" target="_blank">
+          <a href="https://github.com/LepuavkoDV" target="_blank">
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fab fa-gitlab fa-stack-1x fa-inverse"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
             </span>
           </a>
         </li>
