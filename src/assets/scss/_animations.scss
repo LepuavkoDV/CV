@@ -18,5 +18,32 @@
 
 .slow-fadeIn {
   opacity: 0;
-  animation: fadeIn .5s forwards .1s ease-in;
+  animation: fadeIn .5s forwards .25s ease-in;
+}
+
+@keyframes sidebarAnimation {
+  0% {
+    transform: translateX(-100%);
+    opacity: .1;
+  }
+  25% {
+    transform: translateX(-75%);
+    opacity: .25;
+  }
+  50% {
+    transform: rotate(xx) translateX(-50%);
+    opacity: .5;
+  }
+  75% {
+    transform: rotate(xx) translateX(-75%);
+    opacity: .75;
+  }
+  100% {
+    transform: rotate(xx);
+    opacity: 1;
+  }
+}
+
+.slow-left-slip-in {
+  animation: sidebarAnimation .5s forwards 0s linear;
 }

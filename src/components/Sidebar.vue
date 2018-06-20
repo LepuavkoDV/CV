@@ -1,5 +1,5 @@
 <template lang="html">
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top slow-left-slip-in" id="sideNav">
   <a class="navbar-brand">
     <span class="d-block d-lg-none"></span>
     <span class="d-none d-lg-block">
