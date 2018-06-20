@@ -35,7 +35,7 @@
     opacity: .5;
   }
   75% {
-    transform: rotate(xx) translateX(-75%);
+    transform: rotate(xx) translateX(-25%);
     opacity: .75;
   }
   100% {
@@ -44,6 +44,25 @@
   }
 }
 
-.slow-left-slip-in {
-  animation: sidebarAnimation .5s forwards 0s linear;
+@keyframes sidebarMobileAnimation {
+  0% {
+    transform: translateY(-100%);
+    opacity: .1;
+  }
+  25% {
+    transform: translateY(-75%);
+    opacity: .25;
+  }
+  50% {
+    transform: translateY(-50%);
+    opacity: .5;
+  }
+  75% {
+    transform: translateY(-25%);
+    opacity: .75;
+  }
+  100% {
+    transform: rotate(xx);
+    opacity: 1;
+  }
 }
