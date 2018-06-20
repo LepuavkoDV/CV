@@ -1,5 +1,4 @@
 #sideNav {
-  animation: sidebarMobileAnimation .5s forwards 0s linear;
   .navbar-brand {}
   .navbar-nav {
     .nav-item .nav-link {
@@ -22,7 +21,6 @@
     position: fixed;
     top: 0;
     left: 0;
-    animation: sidebarAnimation .5s forwards 0s linear;
 
     display: flex;
     flex-direction: column;

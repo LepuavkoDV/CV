@@ -1,12 +1,12 @@
 <template lang="html">
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top slow-left-slip-in" id="sideNav">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
   <a class="navbar-brand">
     <span class="d-block d-lg-none"></span>
     <span class="d-none d-lg-block">
       <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="../../static/profile.jpg" alt="">
     </span>
   </a>
-  <button ref="navbarToggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="navbar-collapse collapse" id="navbarSupportedContent">
@@ -55,7 +55,8 @@ export default {
   watch: {
     '$route' (to, from) {
       this.currentRoute = to.name
-      this.$refs.navbarToggler.click()
+      /* eslint-disable no-undef */
+      $('.navbar-collapse').collapse('hide')
     }
   }
 }

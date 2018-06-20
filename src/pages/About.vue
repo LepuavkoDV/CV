@@ -13,10 +13,11 @@
       <h4 class="mb-1">Что я ожидаю от работы?</h4>
       <p class="mb-5">
         <ul class="expectations">
-          <li>Профессиональный рост.</li>
-          <li>Адекватный менеджмент.</li>
-          <li>Возможность удаленной работы.</li>
+          <li class="primary">Возможность работать удаленно</li>
           <li>Работа в команде</li>
+          <li>Интересные задачи</li>
+          <li>Профессиональный рост</li>
+          <li>Адекватный менеджмент</li>
         </ul>
       В данный момент интересует работа с Vue/Vuex (Варианты с React/Angular2+ тоже рассмотрю)</p>
       <ul class="list-inline list-social-icons mb-0">
@@ -50,12 +51,16 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "../assets/scss/variables";
 .expectations {
   padding: 0;
   margin-left: 1.25em;
   li {
     margin: 0;
     padding: 0;
+    &.primary {
+      color: $primary;
+    }
   }
 }
 </style>
