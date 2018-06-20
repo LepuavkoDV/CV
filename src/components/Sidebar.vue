@@ -6,10 +6,10 @@
       <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="../../static/profile.jpg" alt="">
     </span>
   </a>
-  <button class="navbar-toggler" @click="hideNavBar = !hideNavBar">
+  <button ref="navbarToggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div :class="['navbar-collapse', { 'collapse': hideNavBar }]" id="navbarSupportedContent">
+  <div class="navbar-collapse collapse" id="navbarSupportedContent">
     <ul class="navbar-nav">
       <li class="nav-item" v-for="(item, index) in navLinks" :key="index">
         <router-link :class="['nav-link', { 'active': currentRoute === item.to }]" :to="item.to">{{item.title}}</router-link>
@@ -29,7 +29,6 @@ export default {
   },
   data () {
     return {
-      hideNavBar: true,
       navLinks: [
         {
           title: 'О себе',
@@ -56,7 +55,7 @@ export default {
   watch: {
     '$route' (to, from) {
       this.currentRoute = to.name
-      this.hideNavBar = true
+      this.$refs.navbarToggler.click()
     }
   }
 }

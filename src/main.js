@@ -5,6 +5,8 @@ import App from './App'
 import router from './router'
 import store from './store'
 
+import '../node_modules/bootstrap/dist/js/bootstrap.js'
+
 import ProgressBar from 'vue-progressbar-component'
 import Notifications from 'vue-notification'
 
