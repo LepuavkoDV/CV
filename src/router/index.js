@@ -4,7 +4,7 @@ import About from '../pages/About'
 import Skills from '../pages/Skills'
 import MyWorks from '../pages/MyWorks'
 import ContactMe from '../pages/ContactMe'
-import Admin from '../admin/Admin'
+// import Admin from '../admin/Admin'
 import p404 from '../pages/404'
 
 Vue.use(Router)
@@ -14,7 +14,7 @@ const routes = [
   { path: '/my-skills', name: 'my-skills', component: Skills },
   { path: '/my-works', name: 'my-works', component: MyWorks },
   { path: '/contact-me', name: 'contact-me', component: ContactMe },
-  { path: '/admin', name: 'admin', component: Admin },
+  // { path: '/admin', name: 'admin', component: Admin },
   { path: '/*', name: '404', component: p404 }
 ]
 
