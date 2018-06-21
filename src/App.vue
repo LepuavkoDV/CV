@@ -11,9 +11,9 @@
 
 <script>
 import Sidebar from './components/Sidebar'
-import router from './router'
+import router from './modules/router'
 import Loading from 'vue-loading-overlay'
-import { EventBus, Events } from './events'
+import { EventBus, Events } from './modules/events'
 export default {
   name: 'App',
   beforeMount () {

@@ -20,7 +20,7 @@
 </template>
 
 <script lang="js">
-import router from '../router'
+import router from '../modules/router'
 export default {
   name: 'sidebar',
   props: [],

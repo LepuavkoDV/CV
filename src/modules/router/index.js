@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import About from '../pages/About'
-import Skills from '../pages/Skills'
-import MyWorks from '../pages/MyWorks'
-import ContactMe from '../pages/ContactMe'
-// import Admin from '../pages/admin/Admin'
-import p404 from '../pages/404'
+import About from '../../pages/About'
+import Skills from '../../pages/Skills'
+import MyWorks from '../../pages/MyWorks'
+import ContactMe from '../../pages/ContactMe'
+// import Admin from '../../pages/admin/Admin'
+import p404 from '../../pages/404'
 
 Vue.use(Router)
 

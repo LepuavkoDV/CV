@@ -42,7 +42,7 @@
 
 <script lang="js">
 import axios from 'axios'
-import { EventBus, Events } from '../events'
+import { EventBus, Events } from '../modules/events'
 import { validationMixin } from 'vuelidate'
 import { required } from 'vuelidate/lib/validators'
 import { getValidationClass } from '../modules/validation'
