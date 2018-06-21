@@ -16,9 +16,12 @@ import Loading from 'vue-loading-overlay'
 import { EventBus, Events } from './events'
 export default {
   name: 'App',
-  created () {
+  beforeMount () {
+    this.$store.dispatch('getPageContents', 'about')
     this.$store.dispatch('loadGroups')
     this.$store.dispatch('loadMyWorks')
+  },
+  created () {
     this.currentRoute = router.currentRoute.name
     EventBus.$on(Events.SHOW_LOADING, () => { this.loading = true })
     EventBus.$on(Events.HIDE_LOADING, () => { this.loading = false })

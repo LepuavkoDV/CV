@@ -8,18 +8,7 @@
       <div class="subheading mb-5">Frontend developer · 30лет ·
         Чернигов
       </div>
-      <h4 class="mb-1">О себе</h4>
-      <p class="mb-5">~5 лет в веб разработке. Занимался приложениями для Facebook. Очень долго работал с Codeigniter. Сделал пару плагинов для Wordpress и Opencart.</p>
-      <h4 class="mb-1">Что я ожидаю от работы?</h4>
-      <p class="mb-5">
-        <ul class="expectations">
-          <li class="primary">Возможность работать удаленно</li>
-          <li>Работа в команде</li>
-          <li>Интересные задачи</li>
-          <li>Профессиональный рост</li>
-          <li>Адекватный менеджмент</li>
-        </ul>
-      В данный момент интересует работа с Vue/Vuex (Варианты с React/Angular2+ тоже рассмотрю)</p>
+      <Content :content="getContent()"></Content>
       <ul class="list-inline list-social-icons mb-0">
         <li class="list-inline-item">
           <a href="https://github.com/LepuavkoDV" target="_blank">
@@ -36,21 +25,32 @@
 </template>
 
 <script lang="js">
+import Content from '../components/Content'
 export default {
   name: 'about',
   props: [],
+  beforeMount () {
+    this.$store.dispatch('getPageContents', 'about')
+  },
   mounted () {},
   data () {
     return {
       myEmail: process.env.MY_EMAIL
     }
   },
-  methods: {},
-  computed: {}
+  methods: {
+    getContent () {
+      return this.$store.getters.getSectionContent('about', 'content')
+    }
+  },
+  computed: {},
+  components: {
+    Content
+  }
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import "../assets/scss/variables";
 .expectations {
   padding: 0;

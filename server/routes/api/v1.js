@@ -2,12 +2,14 @@ import express from 'express'
 import Skills from '../../controllers/skills'
 import MyWorks from '../../controllers/myWorks'
 import Sendmail from '../../controllers/sendemail'
+import PageContent from '../../controllers/pageContent'
 
 const api = express.Router()
 
 const skills = new Skills()
 const myWorks = new MyWorks()
 const sendmail = new Sendmail()
+const pagecontents = new PageContent()
 
 // groups
 api.get('/groups', (req, res) => {
@@ -46,6 +48,19 @@ api.post('/my-work', (req, res) => {
 api.post('/message', (req, res) => {
   sendmail.send(req.body).then(data => {
     res.send(data)
+  })
+})
+
+// contents
+api.get('/content/:page', (req, res) => {
+  pagecontents.getPageContent(req.params.page).then(data => {
+    res.send(data)
+  })
+})
+
+api.post('/content', (req, res) => {
+  pagecontents.addContent(req.body).then(data => {
+    res.status(201).send(data)
   })
 })
 

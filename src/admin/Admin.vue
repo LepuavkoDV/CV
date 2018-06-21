@@ -58,6 +58,24 @@
           <button class="btn btn-primary">Submit</button>
         </div>
       </form>
+      <form v-on:submit.prevent="submitPageContent" class="mb-5">
+        <h4>Add page content</h4>
+        <div class="form-group">
+          <label for="input">Page:</label>
+          <input class="form-control" type="text" v-model="content.page">
+        </div>
+        <div class="form-group">
+          <label for="input">Section:</label>
+          <input class="form-control" type="text" v-model="content.section">
+        </div>
+        <div class="form-group">
+          <label for="input">Text:</label>
+          <textarea class="form-control" name="" id="" cols="30" rows="10" v-model="content.content"></textarea>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary">Submit</button>
+        </div>
+      </form>
     </div>
   </section>
 
@@ -88,6 +106,11 @@ export default {
         position: '',
         period: '',
         text: ''
+      },
+      content: {
+        page: '',
+        section: '',
+        content: ''
       }
     }
   },
@@ -111,6 +134,13 @@ export default {
         this.myWork.position = ''
         this.myWork.period = ''
         this.myWork.text = ''
+      })
+    },
+    submitPageContent () {
+      this.$store.dispatch('addPageContent', this.content).then(() => {
+        this.content.page = ''
+        this.content.section = ''
+        this.content.content = ''
       })
     }
   },
