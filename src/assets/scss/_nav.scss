@@ -6,6 +6,8 @@
       font-weight: 600;
       text-transform: uppercase;
       text-align: center;
+      padding: 1rem 0;
+      font-size: 1.2rem;
       
     }
     .nav-item:not(:first-child) {
@@ -54,6 +56,8 @@
         .nav-item {
           display: block;
           .nav-link {
+            padding: .5rem 0;
+            font-size: 1rem;
             border-top: 0px;
             display: block;
           }
