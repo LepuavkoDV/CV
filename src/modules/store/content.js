@@ -7,13 +7,10 @@ const state = {
 
 const mutations = {
   SET_PAGE_CONTENT (state, data) {
-    data.forEach((item) => {
-      let idx = _.findIndex(state.content, (o) => {
-        return o.page === item.page && o.section === item.section
+    _.each(data, (item) => {
+      state.content = _.filter(state.content, (o) => {
+        return o.page !== item.page && o.section !== item.section
       })
-      if (idx !== -1) {
-        state.content.splice(idx, 1)
-      }
       state.content.push(item)
     })
   }
