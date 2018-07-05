@@ -23,7 +23,6 @@
             </div>
             <div class="form-group">
               <label for="textarea">Что Вы можете мне предложить?</label>
-              <!-- <textarea :class="['form-control', getValidationClass('body')]" name="" id="" cols="30" rows="10" v-model="message.body"></textarea> -->
               <vue-editor :class="[getValidationClass('body')]" v-model="message.body" :editorToolbar="customToolbar"></vue-editor>
               <span class="validation-error-message" v-if="!$v.message.body.required && $v.message.$dirty">
                 {{validationErrorMessages.body.required}}

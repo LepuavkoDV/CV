@@ -2,7 +2,7 @@
 
   <section class="resume-section p-3 p-lg-5 d-flex d-column slow-fadeIn" id="about">
     <div class="my-auto">
-      <h1 class="mb-0">Дмитрий
+      <h1 class="mb-1">Дмитрий
         <span class="text-primary">Лепявко</span>
       </h1>
       <div class="subheading mb-5">Frontend developer · 30лет ·
