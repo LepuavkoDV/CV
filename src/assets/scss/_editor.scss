@@ -10,12 +10,10 @@
 
 .is-invalid {
   .ql-toolbar {
-    border-top-color: $danger !important;
-    border-left-color: $danger !important;
-    border-right-color: $danger !important;
-    border-bottom-color: $danger !important;
+    border: 1px solid $danger !important;
   }
   .ql-container {
+    border: 1px solid #ccc;
     border-bottom-color: $danger !important;
     border-left-color: $danger !important;
     border-right-color: $danger !important;
