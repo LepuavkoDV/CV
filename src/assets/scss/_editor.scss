@@ -1,0 +1,23 @@
+.ql-toolbar {
+  border-top-left-radius: $border-radius !important;
+  border-top-right-radius: $border-radius !important;
+}
+
+.ql-container {
+  border-bottom-left-radius: $border-radius !important;
+  border-bottom-right-radius: $border-radius !important;
+}
+
+.is-invalid {
+  .ql-toolbar {
+    border-top-color: $danger !important;
+    border-left-color: $danger !important;
+    border-right-color: $danger !important;
+    border-bottom-color: $danger !important;
+  }
+  .ql-container {
+    border-bottom-color: $danger !important;
+    border-left-color: $danger !important;
+    border-right-color: $danger !important;
+  }
+}

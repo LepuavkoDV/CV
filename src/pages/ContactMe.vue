@@ -23,7 +23,8 @@
             </div>
             <div class="form-group">
               <label for="textarea">Что Вы можете мне предложить?</label>
-              <textarea :class="['form-control', getValidationClass('body')]" name="" id="" cols="30" rows="10" v-model="message.body"></textarea>
+              <!-- <textarea :class="['form-control', getValidationClass('body')]" name="" id="" cols="30" rows="10" v-model="message.body"></textarea> -->
+              <vue-editor :class="[getValidationClass('body')]" v-model="message.body" :editorToolbar="customToolbar"></vue-editor>
               <span class="validation-error-message" v-if="!$v.message.body.required && $v.message.$dirty">
                 {{validationErrorMessages.body.required}}
               </span>
@@ -46,6 +47,7 @@ import { EventBus, Events } from '../modules/events'
 import { validationMixin } from 'vuelidate'
 import { required } from 'vuelidate/lib/validators'
 import { getValidationClass } from '../modules/validation'
+import { VueEditor } from 'vue2-editor'
 export default {
   name: 'contact-me',
   props: [],
@@ -67,7 +69,15 @@ export default {
         body: {
           required: 'Поле обязательное'
         }
-      }
+      },
+      customToolbar: [
+        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+        ['bold', 'italic', 'underline', 'strike'],
+        [{ 'align': [] }],
+        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+        [{ 'color': [] }, { 'background': [] }],
+        ['clean'] 
+      ]
     }
   },
   methods: {
@@ -92,6 +102,9 @@ export default {
     getValidationClass (fieldname) {
       return getValidationClass(this.$v.message, fieldname)
     }
+  },
+  components: {
+    VueEditor
   },
   computed: {},
   mixins: [validationMixin],
