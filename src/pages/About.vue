@@ -1,6 +1,6 @@
 <template lang="html">
 
-  <section class="resume-section p-3 p-lg-5 d-flex d-column slow-fadeIn" id="about">
+  <section class="resume-section p-3 p-lg-5 d-flex d-column slow-fadeIn">
     <div class="my-auto">
       <h1 class="mb-1">Дмитрий
         <span class="text-primary">Лепявко</span>
@@ -8,7 +8,7 @@
       <div class="subheading mb-5">Frontend developer · 30лет ·
         Чернигов
       </div>
-      <Content :content="getContent()"></Content>
+      <Content :content="getContent('about', 'content')"></Content>
       <ul class="list-inline list-social-icons mb-0">
         <li class="list-inline-item">
           <a href="https://github.com/LepuavkoDV" target="_blank">
@@ -34,13 +34,11 @@ export default {
   },
   mounted () {},
   data () {
-    return {
-      myEmail: process.env.MY_EMAIL
-    }
+    return {}
   },
   methods: {
-    getContent () {
-      return this.$store.getters.getSectionContent('about', 'content')
+    getContent (page, section) {
+      return this.$store.getters.getSectionContent(page, section)
     }
   },
   computed: {},

@@ -1,6 +1,6 @@
 <template lang="html">
 
-  <section class="resume-section p-3 p-lg-5 d-flex flex-column slow-fadeIn" id="experience">
+  <section class="resume-section p-3 p-lg-5 d-flex flex-column slow-fadeIn">
     <div class="my-auto">
       <h1 class="mb-5"><span class="text-primary">404 <i class="far fa-frown"></i></span> Пичалька</h1>
 
@@ -19,20 +19,12 @@
 export default {
   name: '404',
   props: [],
-  mounted () {
-
-  },
+  mounted () {},
   data () {
-    return {
-
-    }
+    return {}
   },
-  methods: {
-
-  },
-  computed: {
-
-  }
+  methods: {},
+  computed: {}
 }
 </script>
 

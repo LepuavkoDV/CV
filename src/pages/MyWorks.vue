@@ -1,6 +1,6 @@
 <template lang="html">
 
-  <section class="resume-section p-3 p-lg-5 d-flex flex-column slow-fadeIn" id="experience">
+  <section class="resume-section p-3 p-lg-5 d-flex flex-column slow-fadeIn">
     <div class="my-auto">
       <h2 class="mb-5">Мои работы</h2>
 
