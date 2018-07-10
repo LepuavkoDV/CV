@@ -5,7 +5,7 @@
       <h1 class="mb-1">Дмитрий
         <span class="text-primary">Лепявко</span>
       </h1>
-      <div class="subheading mb-5">Frontend developer · 30лет ·
+      <div class="subheading mb-5">Javascript developer · 30лет ·
         Чернигов
       </div>
       <Content :content="getContent('about', 'content')"></Content>
