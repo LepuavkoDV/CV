@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import skills from './skills'
 import myWorks from './myWorks'
 import content from './content'
+import app from './app'
 
 Vue.use(Vuex)
 
@@ -12,7 +13,8 @@ export default new Vuex.Store({
   modules: {
     skills,
     myWorks,
-    content
+    content,
+    app
   },
   strict: debug
 })

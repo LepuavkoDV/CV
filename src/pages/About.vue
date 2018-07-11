@@ -2,13 +2,9 @@
 
   <section class="resume-section p-3 p-lg-5 d-flex d-column slow-fadeIn">
     <div class="my-auto">
-      <h1 class="mb-1">Дмитрий
-        <span class="text-primary">Лепявко</span>
-      </h1>
-      <div class="subheading mb-5">Javascript developer · 30лет ·
-        Чернигов
-      </div>
-      <Content :content="getContent('about', 'content')"></Content>
+      <Content :content="getContent('about', 'headline')"></Content>
+      <Content :content="getContent('about', 'about')"></Content>
+      <Content :content="getContent('about', 'lookingfor')"></Content>
       <ul class="list-inline list-social-icons mb-0">
         <li class="list-inline-item">
           <a href="https://github.com/LepuavkoDV" target="_blank">

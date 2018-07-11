@@ -11,9 +11,10 @@ const mutations = {
 }
 
 const actions = {
-  loadGroups: ({commit}) => {
+  loadGroups: ({commit, dispatch}) => {
     return axios.get(process.env.API_ENDPOINT + process.env.API_VERSION + '/groups').then(res => {
       commit('LOAD_GROUPS', res.data)
+      dispatch('hideLoading')
     })
   },
   addGroup: ({dispatch}, data) => {

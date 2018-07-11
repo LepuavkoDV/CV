@@ -42,7 +42,6 @@
 
 <script lang="js">
 import axios from 'axios'
-import { EventBus, Events } from '../modules/events'
 import { validationMixin } from 'vuelidate'
 import { required } from 'vuelidate/lib/validators'
 import { getValidationClass } from '../modules/validation'
@@ -83,9 +82,9 @@ export default {
     sendMessage () {
       this.$v.$touch()
       if (!this.$v.$invalid) {
-        EventBus.$emit(Events.SHOW_LOADING)
+        this.$store.dispatch('showLoading')
         axios.post(process.env.API_ENDPOINT + process.env.API_VERSION + '/message', this.message).then(res => {
-          EventBus.$emit(Events.HIDE_LOADING)
+          this.$store.dispatch('hideLoading')
           this.message.who = ''
           this.message.contact = ''
           this.message.body = ''

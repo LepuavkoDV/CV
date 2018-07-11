@@ -13,7 +13,7 @@
 import Sidebar from './components/Sidebar'
 import router from './modules/router'
 import Loading from 'vue-loading-overlay'
-import { EventBus, Events } from './modules/events'
+import { mapState } from 'vuex'
 export default {
   name: 'App',
   beforeMount () {
@@ -23,8 +23,6 @@ export default {
   },
   created () {
     this.currentRoute = router.currentRoute.name
-    EventBus.$on(Events.SHOW_LOADING, () => { this.loading = true })
-    EventBus.$on(Events.HIDE_LOADING, () => { this.loading = false })
   },
   components: {
     'Sidebar': Sidebar,
@@ -32,9 +30,13 @@ export default {
   },
   data () {
     return {
-      currentRoute: null,
-      loading: false
+      currentRoute: null
     }
+  },
+  computed: {
+    ...mapState({
+      loading: state => state.app.loading
+    })
   },
   watch: {
     '$route' (to, from) {

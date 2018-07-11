@@ -8,8 +8,8 @@ const state = {
 const mutations = {
   SET_PAGE_CONTENT (state, data) {
     _.each(data, (item) => {
-      state.content = _.filter(state.content, (o) => {
-        return o.page !== item.page && o.section !== item.section
+      state.content = _.reject(state.content, (o) => {
+        return o.page === item.page && o.section === item.section
       })
       state.content.push(item)
     })
@@ -28,9 +28,10 @@ const getters = {
 }
 
 const actions = {
-  getPageContents: ({commit}, page) => {
+  getPageContents: ({commit, dispatch}, page) => {
     return axios.get(process.env.API_ENDPOINT + process.env.API_VERSION + '/content/' + page).then(res => {
       commit('SET_PAGE_CONTENT', res.data)
+      dispatch('hideLoading')
     })
   },
   addPageContent: ({dispatch}, data) => {

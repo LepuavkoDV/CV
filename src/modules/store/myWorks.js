@@ -11,9 +11,10 @@ const mutations = {
 }
 
 const actions = {
-  loadMyWorks: ({commit}) => {
+  loadMyWorks: ({commit, dispatch}) => {
     return axios.get(process.env.API_ENDPOINT + process.env.API_VERSION + '/my-works').then(res => {
       commit('LOAD_MY_WORKS', res.data)
+      dispatch('hideLoading')
     })
   },
   addMyWork: ({dispatch}, data) => {
