@@ -27,21 +27,24 @@ class Sendmail {
       }
     }
   }
-  send (message) {
-    let subj = 'Сообщение от ' + message.who
-    let body = message.body + '<br/><br/><br/>'
-    body += 'Как связаться: ' + message.contact
-    this.mailOptions.subject = subj
-    this.mailOptions.html = body
-    return new Promise((resolve, reject) => {
-      this.transporter.sendMail(this.mailOptions, (err, info) => {
+  async send (req, res) {
+    try {
+      let message = req.body
+      let subj = 'Сообщение от ' + message.who
+      let body = message.body + '<br/><br/><br/>'
+      body += 'Контакты: ' + message.contact
+      this.mailOptions.subject = subj
+      this.mailOptions.html = body
+      await this.transporter.sendMail(this.mailOptions, (err, info) => {
         if (err) {
-          reject(err)
+          res.status(500).send(err)
         } else {
-          resolve(info)
+          res.status(200).send(info)
         }
       })
-    })
+    } catch (error) {
+      res.status(500).send(error)
+    }
   }
 }
 

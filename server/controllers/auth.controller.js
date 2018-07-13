@@ -38,17 +38,15 @@ class Auth extends Controller {
           })
         })
       })(req, res)
-    } catch (err) {
-      console.log(err)
+    } catch (error) {
+      console.log(error)
     }
   }
 
   async Register (req, res) {
     try {
       User.register(new User({
-        username: req.body.email,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName
+        username: req.body.email
       }), req.body.password, function (err, account) {
         if (err) {
           return res.status(500).send('An error occurred: ' + err)
@@ -61,8 +59,8 @@ class Auth extends Controller {
           res.status(200).send('Successfully created new account')
         })
       })
-    } catch (err) {
-      return res.status(500).send('An error occurred: ' + err)
+    } catch (error) {
+      return res.status(500).send('An error occurred: ' + error)
     }
   }
 }

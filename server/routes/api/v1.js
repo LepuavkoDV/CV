@@ -14,55 +14,39 @@ const PageContentsController = new PageContent()
 
 // groups
 api.get('/groups', (req, res) => {
-  SkillsController.getList().then(data => {
-    res.send(data)
-  })
+  SkillsController.getList(req, res)
 })
 
 api.post('/group', passport.authenticate('jwt', { session: false }), (req, res) => {
-  SkillsController.addGroup(req.body).then(data => {
-    res.status(201).send(data)
-  })
+  SkillsController.addGroup(req, res)
 })
 
 // skills
 api.post('/skill', passport.authenticate('jwt', { session: false }), (req, res) => {
-  SkillsController.addSkill(req.body).then(data => {
-    res.status(201).send(data)
-  })
+  SkillsController.addSkill(req, res)
 })
 
 // achievements
 api.get('/my-works', (req, res) => {
-  MyWorksController.getList().then(data => {
-    res.send(data)
-  })
+  MyWorksController.getList(req, res)
 })
 
 api.post('/my-work', passport.authenticate('jwt', { session: false }), (req, res) => {
-  MyWorksController.addMyWork(req.body).then(data => {
-    res.status(201).send(data)
-  })
+  MyWorksController.addMyWork(req, res)
 })
 
 // message
 api.post('/message', (req, res) => {
-  SendmailController.send(req.body).then(data => {
-    res.send(data)
-  })
+  SendmailController.send(req, res)
 })
 
 // contents
 api.get('/content/:page', (req, res) => {
-  PageContentsController.getPageContent(req.params.page).then(data => {
-    res.send(data)
-  })
+  PageContentsController.getPageContent(req, res)
 })
 
 api.post('/content', passport.authenticate('jwt', { session: false }), (req, res) => {
-  PageContentsController.addContent(req.body).then(data => {
-    res.status(201).send(data)
-  })
+  PageContentsController.addContent(req, res)
 })
 
 export default api
