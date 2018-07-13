@@ -5,9 +5,9 @@ const authentication = express.Router()
 
 const AuthController = new Auth()
 
-authentication.post('/register', (req, res) => {
-  AuthController.Register(req, res)
-})
+// authentication.post('/register', (req, res) => {
+//   AuthController.Register(req, res)
+// })
 
 authentication.post('/login', (req, res, next) => {
   AuthController.Login(req, res, next)
