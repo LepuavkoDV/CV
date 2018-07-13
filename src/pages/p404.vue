@@ -17,7 +17,7 @@
 
 <script lang="js">
 export default {
-  name: '404',
+  name: 'p404',
   props: [],
   mounted () {},
   data () {

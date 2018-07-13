@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Auth from '../utils/auth'
 
 const state = {
   groups: null
@@ -18,13 +19,16 @@ const actions = {
     })
   },
   addGroup: ({dispatch}, data) => {
-    console.log(data)
-    return axios.post(process.env.API_ENDPOINT + process.env.API_VERSION + '/group', data).then(res => {
+    return axios.post(process.env.API_ENDPOINT + process.env.API_VERSION + '/group', data, {
+      headers: Auth.getJWTAuthHeaders()
+    }).then(res => {
       dispatch('loadGroups')
     })
   },
   addSkill: ({dispatch}, data) => {
-    return axios.post(process.env.API_ENDPOINT + process.env.API_VERSION + '/skill', data).then(res => {
+    return axios.post(process.env.API_ENDPOINT + process.env.API_VERSION + '/skill', data, {
+      headers: Auth.getJWTAuthHeaders()
+    }).then(res => {
       dispatch('loadGroups')
     })
   }

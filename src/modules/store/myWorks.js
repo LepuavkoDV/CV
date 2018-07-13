@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Auth from '../utils/auth'
 
 const state = {
   myWorks: null
@@ -18,7 +19,9 @@ const actions = {
     })
   },
   addMyWork: ({dispatch}, data) => {
-    return axios.post(process.env.API_ENDPOINT + process.env.API_VERSION + '/my-work', data).then(res => {
+    return axios.post(process.env.API_ENDPOINT + process.env.API_VERSION + '/my-work', data, {
+      headers: Auth.getJWTAuthHeaders()
+    }).then(res => {
       dispatch('loadMyWorks')
     })
   }

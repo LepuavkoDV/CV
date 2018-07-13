@@ -1,5 +1,6 @@
 import axios from 'axios'
 import _ from 'lodash'
+import Auth from '../utils/auth'
 
 const state = {
   content: []
@@ -28,19 +29,29 @@ const getters = {
 }
 
 const actions = {
-  getPageContents: ({commit, dispatch}, page) => {
+  getPageContents: ({
+    commit,
+    dispatch
+  }, page) => {
     return axios.get(process.env.API_ENDPOINT + process.env.API_VERSION + '/content/' + page).then(res => {
       commit('SET_PAGE_CONTENT', res.data)
       dispatch('hideLoading')
     })
   },
-  addPageContent: ({dispatch}, data) => {
-    return axios.post(process.env.API_ENDPOINT + process.env.API_VERSION + '/content', data).then(res => {
+  addPageContent: ({
+    dispatch
+  }, data) => {
+    return axios.post(process.env.API_ENDPOINT + process.env.API_VERSION + '/content', data, {
+      headers: Auth.getJWTAuthHeaders()
+    }).then(res => {
       dispatch('getPageContents', data.page)
     })
   }
 }
 
 export default {
-  state, mutations, actions, getters
+  state,
+  mutations,
+  actions,
+  getters
 }

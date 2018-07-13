@@ -44,7 +44,7 @@
 import axios from 'axios'
 import { validationMixin } from 'vuelidate'
 import { required } from 'vuelidate/lib/validators'
-import { getValidationClass } from '../modules/validation'
+import Validation from '../modules/utils/validation'
 import { VueEditor } from 'vue2-editor'
 export default {
   name: 'contact-me',
@@ -98,7 +98,7 @@ export default {
       }
     },
     getValidationClass (fieldname) {
-      return getValidationClass(this.$v.message, fieldname)
+      return Validation.getValidationClass(this.$v.message, fieldname)
     }
   },
   components: {
@@ -117,10 +117,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../assets/scss/variables.scss";
-.validation-error-message {
-  color: $danger;
-}
 @media (min-width: 992px) {
   .resume-item {
     padding-left: 10rem;

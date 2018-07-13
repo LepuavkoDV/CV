@@ -4,6 +4,7 @@ import skills from './skills'
 import myWorks from './myWorks'
 import content from './content'
 import app from './app'
+import user from './user'
 
 Vue.use(Vuex)
 
@@ -14,7 +15,8 @@ export default new Vuex.Store({
     skills,
     myWorks,
     content,
-    app
+    app,
+    user
   },
   strict: debug
 })

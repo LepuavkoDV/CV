@@ -3,7 +3,6 @@
   <section class="resume-section p-3 p-lg-5 d-flex flex-column slow-fadeIn">
     <div class="my-auto">
       <h2 class="mb-5">Навыки</h2>
-
       <div class="resume-item d-flex flex-column flex-md-row mb-5" v-for="group in groups" :key="group._id">
         <div class="resume-content mr-auto">
           <h3 class="mb-0"><i :class="group.icon"></i> {{group.title}}</h3>

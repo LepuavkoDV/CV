@@ -14,6 +14,12 @@
       <li class="nav-item" v-for="(item, index) in navLinks" :key="index">
         <router-link :class="['nav-link', { 'active': currentRoute === item.to }]" :to="item.to">{{item.title}}</router-link>
       </li>
+      <li class="nav-item" v-if="user !== null">
+        <router-link :class="['nav-link', { 'active': currentRoute === 'dashboard' }]" to="dashboard">Панель управления</router-link>
+      </li>
+      <li class="nav-item" v-if="user !== null">
+        <a href="#" class="nav-link" @click.prevent="logout()">Выход</a>
+      </li>
     </ul>
   </div>
 </nav>
@@ -21,6 +27,7 @@
 
 <script lang="js">
 import router from '../modules/router'
+import { mapState } from 'vuex'
 export default {
   name: 'sidebar',
   props: [],
@@ -50,8 +57,17 @@ export default {
       currentRoute: null
     }
   },
-  methods: {},
-  computed: {},
+  methods: {
+    logout () {
+      this.$store.dispatch('logout')
+      router.push({ path: '/login' })
+    }
+  },
+  computed: {
+    ...mapState({
+      user: state => state.user.user
+    })
+  },
   watch: {
     '$route' (to, from) {
       this.currentRoute = to.name

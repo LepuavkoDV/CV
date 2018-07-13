@@ -23,3 +23,12 @@ $fa-font-path: "/static/fonts";
 @import "loading-overlay";
 @import "animations";
 @import "editor";
+
+.second-name {
+  display: block;
+}
+@include media-breakpoint-up(sm) {
+  .second-name {
+    display: inline;
+  }
+}

@@ -73,3 +73,8 @@ h2, h3 {
     }
   }
 }
+
+.validation-error-message {
+  color: $danger;
+  font-size: .8rem;
+}

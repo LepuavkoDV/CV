@@ -17,6 +17,7 @@ import { mapState } from 'vuex'
 export default {
   name: 'App',
   beforeMount () {
+    this.$store.dispatch('loadUserInfo')
     this.$store.dispatch('getPageContents', 'about')
     this.$store.dispatch('loadGroups')
     this.$store.dispatch('loadMyWorks')

@@ -1,6 +1,6 @@
 <template lang="html">
 
-  <section class="resume-section p-3 p-lg-5 d-flex d-column slow-fadeIn">
+  <section class="resume-section p-3 p-lg-5 d-flex flex-column slow-fadeIn">
     <div class="my-auto">
       <Content :content="getContent('about', 'headline')"></Content>
       <Content :content="getContent('about', 'about')"></Content>
