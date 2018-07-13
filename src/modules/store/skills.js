@@ -1,4 +1,5 @@
 import axios from 'axios'
+import _ from 'lodash'
 import Auth from '../utils/auth'
 
 const state = {
@@ -11,6 +12,17 @@ const mutations = {
   }
 }
 
+const getters = {
+  getGroupById: (state) => (id) => {
+    let item = _.find(state.groups, (o) => {
+      return o._id === id
+    })
+    if (item !== undefined) {
+      return item
+    }
+  }
+}
+
 const actions = {
   loadGroups: ({commit, dispatch}) => {
     return axios.get(process.env.API_ENDPOINT + process.env.API_VERSION + '/groups').then(res => {
@@ -19,7 +31,24 @@ const actions = {
     })
   },
   addGroup: ({dispatch}, data) => {
+    dispatch('showLoading')
     return axios.post(process.env.API_ENDPOINT + process.env.API_VERSION + '/group', data, {
+      headers: Auth.getJWTAuthHeaders()
+    }).then(res => {
+      dispatch('loadGroups')
+    })
+  },
+  editGroup: ({dispatch}, data) => {
+    dispatch('showLoading')
+    return axios.put(process.env.API_ENDPOINT + process.env.API_VERSION + '/group', data, {
+      headers: Auth.getJWTAuthHeaders()
+    }).then(res => {
+      dispatch('loadGroups')
+    })
+  },
+  removeGroup: ({dispatch}, id) => {
+    dispatch('showLoading')
+    return axios.delete(process.env.API_ENDPOINT + process.env.API_VERSION + '/group/' + id, {
       headers: Auth.getJWTAuthHeaders()
     }).then(res => {
       dispatch('loadGroups')
@@ -35,5 +64,5 @@ const actions = {
 }
 
 export default {
-  state, mutations, actions
+  state, mutations, actions, getters
 }

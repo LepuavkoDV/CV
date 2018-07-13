@@ -41,6 +41,28 @@ class Skills extends Controller {
       res.status(500).send(error)
     }
   }
+  async editGroup (req, res) {
+    try {
+      let data = req.body
+      Group.findByIdAndUpdate(data._id, { $set: { title: data.title, icon: data.icon } }, { new: true }, (err, group) => {
+        if (err) {
+          res.status(500).send(err)
+        }
+        res.status(200).send(group)
+      })
+    } catch (error) {
+      res.status(500).send(error)
+    }
+  }
+  async removeGroup (req, res) {
+    try {
+      Group.findByIdAndRemove(req.params.id, (result) => {
+        res.status(200).send({})
+      })
+    } catch (error) {
+      res.status(500).send(error)
+    }
+  }
 }
 
 export default Skills

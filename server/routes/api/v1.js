@@ -21,6 +21,14 @@ api.post('/group', passport.authenticate('jwt', { session: false }), (req, res) 
   SkillsController.addGroup(req, res)
 })
 
+api.put('/group', passport.authenticate('jwt', { session: false }), (req, res) => {
+  SkillsController.editGroup(req, res)
+})
+
+api.delete('/group/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+  SkillsController.removeGroup(req, res)
+})
+
 // skills
 api.post('/skill', passport.authenticate('jwt', { session: false }), (req, res) => {
   SkillsController.addSkill(req, res)
