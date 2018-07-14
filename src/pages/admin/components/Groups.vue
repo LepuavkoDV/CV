@@ -4,6 +4,7 @@
     <data-tables
       :data="groups"
       :pagination-props="pagination"
+      :page-size="pagination.pageSize"
       :action-col="actions"
       :filters="filters">
       <el-table-column v-for="title in titles" :prop="title.prop" :label="title.label" :key="title.label">
@@ -81,7 +82,8 @@ export default {
         }
       ],
       pagination: {
-        pageSizes: [5, 10, 15, 20]
+        pageSizes: [5, 10, 15, 20],
+        pageSize: 10
       },
       actions: {
         label: 'Действия',
@@ -147,7 +149,7 @@ export default {
   },
   computed: {
     ...mapState({
-      groups: state => state.skills.groups
+      groups: state => state.groups.groups
     }),
     modalTitle () {
       return this.editmode ? 'Редактирование группы' : 'Добавить новую группу'

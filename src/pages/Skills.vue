@@ -33,7 +33,7 @@ export default {
   methods: {},
   computed: {
     ...mapState({
-      groups: state => state.skills.groups
+      groups: state => state.groups.groups
     })
   },
   components: {

@@ -3,18 +3,19 @@ import _ from 'lodash'
 import Auth from '../utils/auth'
 
 const state = {
-  groups: null
+  skills: null
 }
 
 const mutations = {
-  LOAD_GROUPS (state, data) {
-    state.groups = data
+
+  LOAD_SKILLS (state, data) {
+    state.skills = data
   }
 }
 
 const getters = {
-  getGroupById: (state) => (id) => {
-    let item = _.find(state.groups, (o) => {
+  getSkillById: (state) => (id) => {
+    let item = _.find(state.skills, (o) => {
       return o._id === id
     })
     if (item !== undefined) {
@@ -24,41 +25,33 @@ const getters = {
 }
 
 const actions = {
-  loadGroups: ({commit, dispatch}) => {
-    return axios.get(process.env.API_ENDPOINT + process.env.API_VERSION + '/groups').then(res => {
-      commit('LOAD_GROUPS', res.data)
+  loadSkills: ({commit, dispatch}) => {
+    return axios.get(process.env.API_ENDPOINT + process.env.API_VERSION + '/skills').then(res => {
+      commit('LOAD_SKILLS', res.data)
       dispatch('hideLoading')
-    })
-  },
-  addGroup: ({dispatch}, data) => {
-    dispatch('showLoading')
-    return axios.post(process.env.API_ENDPOINT + process.env.API_VERSION + '/group', data, {
-      headers: Auth.getJWTAuthHeaders()
-    }).then(res => {
-      dispatch('loadGroups')
-    })
-  },
-  editGroup: ({dispatch}, data) => {
-    dispatch('showLoading')
-    return axios.put(process.env.API_ENDPOINT + process.env.API_VERSION + '/group', data, {
-      headers: Auth.getJWTAuthHeaders()
-    }).then(res => {
-      dispatch('loadGroups')
-    })
-  },
-  removeGroup: ({dispatch}, id) => {
-    dispatch('showLoading')
-    return axios.delete(process.env.API_ENDPOINT + process.env.API_VERSION + '/group/' + id, {
-      headers: Auth.getJWTAuthHeaders()
-    }).then(res => {
-      dispatch('loadGroups')
     })
   },
   addSkill: ({dispatch}, data) => {
     return axios.post(process.env.API_ENDPOINT + process.env.API_VERSION + '/skill', data, {
       headers: Auth.getJWTAuthHeaders()
     }).then(res => {
-      dispatch('loadGroups')
+      dispatch('loadSkills')
+    })
+  },
+  editSkill: ({dispatch}, data) => {
+    dispatch('showLoading')
+    return axios.put(process.env.API_ENDPOINT + process.env.API_VERSION + '/skill', data, {
+      headers: Auth.getJWTAuthHeaders()
+    }).then(res => {
+      dispatch('loadSkills')
+    })
+  },
+  removeSkill: ({dispatch}, id) => {
+    dispatch('showLoading')
+    return axios.delete(process.env.API_ENDPOINT + process.env.API_VERSION + '/skill/' + id, {
+      headers: Auth.getJWTAuthHeaders()
+    }).then(res => {
+      dispatch('loadSkills')
     })
   }
 }

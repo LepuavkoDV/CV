@@ -16,7 +16,7 @@ const actions = {
     commit('SHOW_LOADING')
   },
   hideLoading: ({commit, rootState}) => {
-    if (rootState.content.content !== null && rootState.myWorks.myWorks !== null && rootState.skills.groups !== null) {
+    if (rootState.content.content !== null && rootState.myWorks.myWorks !== null && rootState.groups.groups !== null) {
       commit('HIDE_LOADING')
     }
   }

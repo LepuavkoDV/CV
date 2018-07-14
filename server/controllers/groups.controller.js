@@ -1,54 +1,55 @@
 import Controller from '../system/controller'
-import { Skill } from '../models/skills'
+import {
+  Group
+} from '../models/skills'
 
-class Skills extends Controller {
+class Groups extends Controller {
   async getList (req, res) {
     try {
-      let list = await Skill.find().populate('group')
+      let list = await Group.find().populate('items')
       res.status(200).send(list)
     } catch (error) {
       res.status(500).send(error)
     }
   }
-  async addSkill (req, res) {
+  async addGroup (req, res) {
     try {
       let data = req.body
-      const skill = new Skill({
+      const group = new Group({
         title: data.title,
-        value: data.value,
-        group: data.group,
+        icon: data.icon,
         createdAt: new Date()
       })
 
-      let item = await skill.save()
+      let item = await group.save()
       res.status(201).send(item)
     } catch (error) {
       res.status(500).send(error)
     }
   }
-  async editSkill (req, res) {
+  async editGroup (req, res) {
     try {
       let data = req.body
-      Skill.findByIdAndUpdate(data._id, {
+      Group.findByIdAndUpdate(data._id, {
         $set: {
           title: data.title,
-          value: data.value
+          icon: data.icon
         }
       }, {
         new: true
-      }, (err, skill) => {
+      }, (err, group) => {
         if (err) {
           res.status(500).send(err)
         }
-        res.status(200).send(skill)
+        res.status(200).send(group)
       })
     } catch (error) {
       res.status(500).send(error)
     }
   }
-  async removeSkill (req, res) {
+  async removeGroup (req, res) {
     try {
-      Skill.findByIdAndRemove(req.params.id, (result) => {
+      Group.findByIdAndRemove(req.params.id, (result) => {
         res.status(200).send({})
       })
     } catch (error) {
@@ -57,4 +58,4 @@ class Skills extends Controller {
   }
 }
 
-export default Skills
+export default Groups

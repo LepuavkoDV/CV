@@ -1,5 +1,6 @@
 import express from 'express'
 import passport from 'passport'
+import Groups from '../../controllers/groups.controller'
 import Skills from '../../controllers/skills.controller'
 import MyWorks from '../../controllers/myWorks.controller'
 import Sendmail from '../../controllers/sendemail.controller'
@@ -7,6 +8,7 @@ import PageContent from '../../controllers/pageContent.controller'
 
 const api = express.Router()
 
+const GroupsController = new Groups()
 const SkillsController = new Skills()
 const MyWorksController = new MyWorks()
 const SendmailController = new Sendmail()
@@ -14,24 +16,36 @@ const PageContentsController = new PageContent()
 
 // groups
 api.get('/groups', (req, res) => {
-  SkillsController.getList(req, res)
+  GroupsController.getList(req, res)
 })
 
 api.post('/group', passport.authenticate('jwt', { session: false }), (req, res) => {
-  SkillsController.addGroup(req, res)
+  GroupsController.addGroup(req, res)
 })
 
 api.put('/group', passport.authenticate('jwt', { session: false }), (req, res) => {
-  SkillsController.editGroup(req, res)
+  GroupsController.editGroup(req, res)
 })
 
 api.delete('/group/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
-  SkillsController.removeGroup(req, res)
+  GroupsController.removeGroup(req, res)
 })
 
 // skills
+api.get('/skills', (req, res) => {
+  SkillsController.getList(req, res)
+})
+
 api.post('/skill', passport.authenticate('jwt', { session: false }), (req, res) => {
   SkillsController.addSkill(req, res)
+})
+
+api.put('/skill', passport.authenticate('jwt', { session: false }), (req, res) => {
+  SkillsController.editSkill(req, res)
+})
+
+api.delete('/skill/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+  SkillsController.removeSkill(req, res)
 })
 
 // achievements

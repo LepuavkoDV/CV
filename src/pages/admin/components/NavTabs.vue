@@ -4,10 +4,10 @@
     <li class="nav-item">
       <a class="nav-link active" data-toggle="tab" href="#groups">Группы</a>
     </li>
-    <!-- <li class="nav-item">
+    <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#skills">Навыки</a>
     </li>
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#my-works">Мои работы</a>
     </li>
     <li class="nav-item">
@@ -21,20 +21,12 @@
 export default {
   name: 'nav-tabs',
   props: [],
-  mounted () {
-
-  },
+  mounted () {},
   data () {
-    return {
-
-    }
+    return {}
   },
-  methods: {
-
-  },
-  computed: {
-
-  }
+  methods: {},
+  computed: {}
 }
 </script>
 
