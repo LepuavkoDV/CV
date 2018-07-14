@@ -1,30 +1,26 @@
 <template lang="html">
 
-  <div class="tab-pane active py-5" id="groups">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">Название</th>
-          <th scope="col">Иконка</th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="group in groups" :key="group._id">
-          <td>{{group.title}}</td>
-          <td>{{group.icon}}</td>
-          <td>
-            <button @click.prevent="edit(group._id)" class="btn btn-sm btn-outline-info"><i class="fas fa-edit"></i></button>
-            <button @click.prevent="remove(group._id)" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="tab-pane active pt-2 pb-5" id="groups">
+    <data-tables
+      :data="groups"
+      :pagination-props="pagination"
+      :action-col="actions"
+      :filters="filters">
+      <el-table-column v-for="title in titles" :prop="title.prop" :label="title.label" :key="title.label">
+      </el-table-column>
+    </data-tables>
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#groupModal">
-      <i class="fas fa-plus"></i>
-    </button>
+    <div class="d-flex flex-row w-25">
+      <button
+        type="button"
+        class="btn btn-outline-primary mr-2"
+        data-toggle="modal"
+        data-target="#groupModal">
+        <i class="fas fa-plus"></i>
+      </button>
+      <input type="text" class="form-control" v-model="filters[0].value" placeholder="Поиск">
+    </div>
+
     <!-- Modal -->
     <div class="modal fade" id="groupModal" tabindex="-1" role="dialog" aria-labelledby="groupModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -36,7 +32,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form v-on:submit.prevent="submitGroup" class="dashboard-form mx-auto">
+            <form v-on:submit.prevent="submitGroup" class="dashboard-form">
               <div class="form-group">
                 <label for="input">Название:</label>
                 <input class="form-control" type="text" name="group-name" v-model="group.title">
@@ -46,7 +42,8 @@
                 <input class="form-control" type="text" name="icon" v-model="group.icon">
               </div>
               <div class="form-group">
-                <button class="btn btn-success"><i class="fas fa-check"></i></button>
+                <button data-dismiss="modal" aria-label="Close" class="btn btn-danger float-right"><i class="fas fa-times"></i> Отмена</button>
+                <button class="btn btn-success float-right mr-2"><i class="fas fa-check"></i> Ок</button>
               </div>
             </form>
           </div>
@@ -64,10 +61,54 @@ export default {
   name: 'groups',
   props: [],
   mounted () {
-
+    $('#groupModal').on('hidden.bs.modal', (e) => {
+      this.editmode = false
+      this.group._id = null
+      this.group.title = ''
+      this.group.icon = ''
+    })
   },
   data () {
     return {
+      titles: [
+        { prop: 'title', label: 'Название' },
+        { prop: 'icon', label: 'Иконка' }
+      ],
+      filters: [
+        {
+          prop: ['title', 'icon'],
+          value: ''
+        }
+      ],
+      pagination: {
+        pageSizes: [5, 10, 15, 20]
+      },
+      actions: {
+        label: 'Действия',
+        props: {
+          align: 'center'
+        },
+        buttons: [
+          {
+            props: {
+              type: 'btn btn-sm btn-outline-info',
+              icon: 'fas fa-edit'
+            },
+            handler: row => {
+              this.edit(row._id)
+            }
+          },
+          {
+            props: {
+              type: 'btn btn-sm btn-outline-danger',
+              icon: 'fas fa-trash-alt'
+            },
+            handler: row => {
+              this.remove(row._id)
+            }
+          }
+        ]
+      },
       group: {
         _id: null,
         title: '',
@@ -80,11 +121,7 @@ export default {
     submitGroup () {
       let action = this.editmode ? 'editGroup' : 'addGroup'
       this.$store.dispatch(action, this.group).then(() => {
-        this.group._id = null
-        this.group.title = ''
-        this.group.icon = ''
         $('#groupModal').modal('hide')
-        this.editmode = false
       }).catch(err => {
         this.$store.dispatch('hideLoading')
         this.$notify({

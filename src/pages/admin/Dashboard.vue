@@ -1,6 +1,6 @@
 <template lang="html">
 
-  <section class="admin content px-5">
+  <section class="admin content px-5 pt-5">
     <h2>Панель Управления</h2>
     <div class="pt-2">
       <NavTabs></NavTabs>
@@ -39,10 +39,6 @@ export default {
 
 <style lang="scss">
 @import "../../assets/scss/variables";
-.dashboard-form {
-  width: 90%;
-}
-
 table {
   color: $dark;
 }
