@@ -50,7 +50,8 @@
                 </select>
               </div>
               <div class="form-group">
-                <button class="btn btn-primary">Submit</button>
+                <button data-dismiss="modal" aria-label="Close" class="btn btn-danger float-right"><i class="fas fa-times"></i> Отмена</button>
+                <button class="btn btn-success float-right mr-2"><i class="fas fa-check"></i> Ок</button>
               </div>
             </form>
           </div>

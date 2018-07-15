@@ -7,10 +7,10 @@
     <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#skills">Навыки</a>
     </li>
-    <!-- <li class="nav-item">
+    <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#my-works">Мои работы</a>
     </li>
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#content">Контент</a>
     </li> -->
   </ul>

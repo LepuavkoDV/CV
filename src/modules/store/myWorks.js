@@ -1,5 +1,6 @@
 import axios from 'axios'
 import Auth from '../utils/auth'
+import _ from 'lodash'
 
 const state = {
   myWorks: null
@@ -8,6 +9,17 @@ const state = {
 const mutations = {
   LOAD_MY_WORKS (state, data) {
     state.myWorks = data
+  }
+}
+
+const getters = {
+  getMyWorkById: (state) => (id) => {
+    let item = _.find(state.myWorks, (o) => {
+      return o._id === id
+    })
+    if (item !== undefined) {
+      return item
+    }
   }
 }
 
@@ -24,9 +36,25 @@ const actions = {
     }).then(res => {
       dispatch('loadMyWorks')
     })
+  },
+  editMyWork: ({dispatch}, data) => {
+    dispatch('showLoading')
+    return axios.put(process.env.API_ENDPOINT + process.env.API_VERSION + '/my-work', data, {
+      headers: Auth.getJWTAuthHeaders()
+    }).then(res => {
+      dispatch('loadMyWorks')
+    })
+  },
+  removeMyWork: ({dispatch}, id) => {
+    dispatch('showLoading')
+    return axios.delete(process.env.API_ENDPOINT + process.env.API_VERSION + '/my-work/' + id, {
+      headers: Auth.getJWTAuthHeaders()
+    }).then(res => {
+      dispatch('loadMyWorks')
+    })
   }
 }
 
 export default {
-  state, mutations, actions
+  state, mutations, actions, getters
 }

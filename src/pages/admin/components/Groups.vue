@@ -73,7 +73,8 @@ export default {
     return {
       titles: [
         { prop: 'title', label: 'Название' },
-        { prop: 'icon', label: 'Иконка' }
+        { prop: 'icon', label: 'Иконка' },
+        { prop: 'items.length', label: 'Кол-во Навыков' }
       ],
       filters: [
         {

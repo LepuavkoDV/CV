@@ -48,13 +48,21 @@ api.delete('/skill/:id', passport.authenticate('jwt', { session: false }), (req,
   SkillsController.removeSkill(req, res)
 })
 
-// achievements
+// my works
 api.get('/my-works', (req, res) => {
   MyWorksController.getList(req, res)
 })
 
 api.post('/my-work', passport.authenticate('jwt', { session: false }), (req, res) => {
   MyWorksController.addMyWork(req, res)
+})
+
+api.put('/my-work', passport.authenticate('jwt', { session: false }), (req, res) => {
+  MyWorksController.editMyWork(req, res)
+})
+
+api.delete('/my-work/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+  MyWorksController.removeMyWork(req, res)
 })
 
 // message

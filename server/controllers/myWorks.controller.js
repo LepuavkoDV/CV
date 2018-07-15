@@ -28,6 +28,39 @@ class MyWorks extends Controller {
       res.status(500).send(error)
     }
   }
+
+  async editMyWork (req, res) {
+    try {
+      let data = req.body
+      MyWork.findByIdAndUpdate(data._id, {
+        $set: {
+          title: data.title,
+          position: data.position,
+          period: data.period,
+          text: data.text
+        }
+      }, {
+        new: true
+      }, (err, mywork) => {
+        if (err) {
+          res.status(500).send(err)
+        }
+        res.status(200).send(mywork)
+      })
+    } catch (error) {
+      res.status(500).send(error)
+    }
+  }
+
+  async removeMyWork (req, res) {
+    try {
+      MyWork.findByIdAndRemove(req.params.id, (result) => {
+        res.status(200).send({})
+      })
+    } catch (error) {
+      res.status(500).send(error)
+    }
+  }
 }
 
 export default MyWorks

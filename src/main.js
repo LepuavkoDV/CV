@@ -14,12 +14,16 @@ Vue.component('progress-bar', ProgressBar)
 import Notifications from 'vue-notification'
 Vue.use(Notifications)
 
-import ElementUI from 'element-ui'
+// import ElementUI from 'element-ui'
+import { Table, TableColumn, Button, Pagination } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import lang from 'element-ui/lib/locale/lang/en'
 import locale from 'element-ui/lib/locale'
 locale.use(lang)
-Vue.use(ElementUI)
+Vue.use(Table)
+Vue.use(TableColumn)
+Vue.use(Button)
+Vue.use(Pagination)
 
 import { DataTables } from 'vue-data-tables'
 Vue.use(DataTables)
