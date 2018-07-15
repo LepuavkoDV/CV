@@ -15,7 +15,7 @@
     <div class="d-flex flex-row w-25">
       <button
         type="button"
-        class="btn btn-outline-primary mr-2"
+        class="el-button el-button--primary is-plain mr-2"
         data-toggle="modal"
         data-target="#skillsModal">
         <i class="fas fa-plus"></i>
@@ -39,19 +39,23 @@
                 <label for="input">Название:</label>
                 <input class="form-control" type="text" name="group-name" v-model="skill.title">
               </div>
-              <div class="form-group">
+              <div class="form-group d-flex flex-column justify-content-start">
                 <label for="input">Значение:</label>
-                <input class="form-control" type="number" name="value" v-model="skill.value">
+                <el-input-number v-model="skill.value" :min="1" :max="100"></el-input-number>
               </div>
-              <div class="form-group">
+              <div class="form-group d-flex flex-column justify-content-start">
                 <label for="input">Группа:</label>
-                <select class="form-control" name="group" v-model="skill.group">
-                  <option v-for="(group, index) in groups" :key="index" :value="group._id">{{group.title}}</option>
-                </select>
+                <el-select v-model="skill.group" placeholder="Select">
+                  <el-option
+                    v-for="(group, index) in groups" :key="index"
+                    :label="group.title"
+                    :value="group._id">
+                  </el-option>
+                </el-select>
               </div>
               <div class="form-group">
-                <button data-dismiss="modal" aria-label="Close" class="btn btn-danger float-right"><i class="fas fa-times"></i> Отмена</button>
-                <button class="btn btn-success float-right mr-2"><i class="fas fa-check"></i> Ок</button>
+                <button data-dismiss="modal" aria-label="Close" class="el-button el-button--danger float-right"><i class="fas fa-times"></i> Отмена</button>
+                <button class="el-button el-button--success float-right mr-2"><i class="fas fa-check"></i> Ок</button>
               </div>
             </form>
           </div>
@@ -106,7 +110,7 @@ export default {
         buttons: [
           {
             props: {
-              type: 'btn btn-sm btn-outline-info',
+              type: 'info el-button--mini is-plain',
               icon: 'fas fa-edit'
             },
             handler: row => {
@@ -115,7 +119,7 @@ export default {
           },
           {
             props: {
-              type: 'btn btn-sm btn-outline-danger',
+              type: 'danger el-button--mini is-plain',
               icon: 'fas fa-trash-alt'
             },
             handler: row => {

@@ -31,6 +31,7 @@ const actions = {
     })
   },
   addMyWork: ({dispatch}, data) => {
+    dispatch('showLoading')
     return axios.post(process.env.API_ENDPOINT + process.env.API_VERSION + '/my-work', data, {
       headers: Auth.getJWTAuthHeaders()
     }).then(res => {

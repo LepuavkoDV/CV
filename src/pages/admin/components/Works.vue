@@ -14,7 +14,7 @@
     <div class="d-flex flex-row w-25">
       <button
         type="button"
-        class="btn btn-outline-primary mr-2"
+        class="el-button el-button--primary is-plain mr-2"
         data-toggle="modal"
         data-target="#myWorkModal">
         <i class="fas fa-plus"></i>
@@ -51,8 +51,8 @@
                 <vue-editor v-model="myWork.text"></vue-editor>
               </div>
               <div class="form-group">
-                <button data-dismiss="modal" aria-label="Close" class="btn btn-danger float-right"><i class="fas fa-times"></i> Отмена</button>
-                <button class="btn btn-success float-right mr-2"><i class="fas fa-check"></i> Ок</button>
+                <button data-dismiss="modal" aria-label="Close" class="el-button el-button--danger float-right"><i class="fas fa-times"></i> Отмена</button>
+                <button class="el-button el-button--success float-right mr-2"><i class="fas fa-check"></i> Ок</button>
               </div>
             </form>
           </div>
@@ -105,7 +105,7 @@ export default {
         buttons: [
           {
             props: {
-              type: 'btn btn-sm btn-outline-info',
+              type: 'info el-button--mini is-plain',
               icon: 'fas fa-edit'
             },
             handler: row => {
@@ -114,7 +114,7 @@ export default {
           },
           {
             props: {
-              type: 'btn btn-sm btn-outline-danger',
+              type: 'danger el-button--mini is-plain',
               icon: 'fas fa-trash-alt'
             },
             handler: row => {

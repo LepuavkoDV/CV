@@ -7,7 +7,6 @@ const state = {
 }
 
 const mutations = {
-
   LOAD_SKILLS (state, data) {
     state.skills = data
   }
@@ -32,6 +31,7 @@ const actions = {
     })
   },
   addSkill: ({dispatch}, data) => {
+    dispatch('showLoading')
     return axios.post(process.env.API_ENDPOINT + process.env.API_VERSION + '/skill', data, {
       headers: Auth.getJWTAuthHeaders()
     }).then(res => {

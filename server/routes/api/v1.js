@@ -75,8 +75,20 @@ api.get('/content/:page', (req, res) => {
   PageContentsController.getPageContent(req, res)
 })
 
+api.get('/contents', (req, res) => {
+  PageContentsController.listPageContents(req, res)
+})
+
 api.post('/content', passport.authenticate('jwt', { session: false }), (req, res) => {
   PageContentsController.addContent(req, res)
+})
+
+api.put('/content', passport.authenticate('jwt', { session: false }), (req, res) => {
+  PageContentsController.editContent(req, res)
+})
+
+api.delete('/content/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+  PageContentsController.removeContent(req, res)
 })
 
 export default api
