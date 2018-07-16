@@ -11,11 +11,7 @@ import '../node_modules/bootstrap/dist/js/bootstrap.js'
 import ProgressBar from 'vue-progressbar-component'
 Vue.component('progress-bar', ProgressBar)
 
-import Notifications from 'vue-notification'
-Vue.use(Notifications)
-
-// import ElementUI from 'element-ui'
-import { Table, TableColumn, Button, Pagination, InputNumber, Select, Option } from 'element-ui'
+import { Table, TableColumn, Button, Pagination, InputNumber, Select, Option, MessageBox, Message } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import lang from 'element-ui/lib/locale/lang/en'
 import locale from 'element-ui/lib/locale'
@@ -27,6 +23,12 @@ Vue.use(Pagination)
 Vue.use(InputNumber)
 Vue.use(Select)
 Vue.use(Option)
+
+Vue.prototype.$msgbox = MessageBox
+Vue.prototype.$alert = MessageBox.alert
+Vue.prototype.$confirm = MessageBox.confirm
+Vue.prototype.$prompt = MessageBox.prompt
+Vue.prototype.$message = Message
 
 import { DataTables } from 'vue-data-tables'
 Vue.use(DataTables)

@@ -41,7 +41,7 @@ const getters = {
 }
 
 const actions = {
-  getList: ({commit, dispatch}) => {
+  getContentList: ({commit, dispatch}) => {
     return axios.get(process.env.API_ENDPOINT + process.env.API_VERSION + '/contents').then(res => {
       commit('LOAD_CONTENTS', res.data)
       dispatch('hideLoading')

@@ -24,7 +24,11 @@ import Content from './components/Content'
 export default {
   name: 'dashboard',
   props: [],
-  beforeMount () {},
+  created () {
+    this.$store.dispatch('loadSkills')
+    this.$store.dispatch('loadGroups')
+    this.$store.dispatch('getContentList')
+  },
   mounted () {},
   data () {
     return {}

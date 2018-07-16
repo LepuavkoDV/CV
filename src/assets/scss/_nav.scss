@@ -1,5 +1,6 @@
 #sideNav {
   animation: sidebarMobileAnimation .5s forwards 0s linear;
+  background-color: desaturate(darken($primary, 30%), 30%) !important;
   .navbar-brand {}
   .navbar-nav {
     .nav-item .nav-link {

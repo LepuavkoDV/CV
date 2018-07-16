@@ -29,7 +29,7 @@
               </span>
             </div>
             <div class="form-group">
-              <button class="btn btn-primary btn-lg"><i class="far fa-envelope"></i> Отправить</button>
+              <button class="el-button el-button--primary"><i class="far fa-envelope"></i> Отправить</button>
             </div>
           </form>
         </div>
@@ -53,6 +53,11 @@ export default {
   data () {
     return {
       message: {
+        who: '',
+        contact: '',
+        body: ''
+      },
+      messageDefaulsState: {
         who: '',
         contact: '',
         body: ''
@@ -85,20 +90,21 @@ export default {
         this.$store.dispatch('showLoading')
         axios.post(process.env.API_ENDPOINT + process.env.API_VERSION + '/message', this.message).then(res => {
           this.$store.dispatch('hideLoading')
-          this.message.who = ''
-          this.message.contact = ''
-          this.message.body = ''
+          this.resetForm()
           this.$v.$reset()
-          this.$notify({
-            group: 'main',
+          this.$message({
             type: 'success',
-            text: 'Сообщение отправлено'
+            showClose: true,
+            message: 'Сообщение отправлено'
           })
         })
       }
     },
     getValidationClass (fieldname) {
       return Validation.getValidationClass(this.$v.message, fieldname)
+    },
+    resetForm () {
+      this.message = { ...this.messageDefaulsState }
     }
   },
   components: {

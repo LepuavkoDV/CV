@@ -26,7 +26,9 @@ $teal:    #20c997 !default;
 $cyan:    #17a2b8 !default;
 $cherry:  #911E42 !default;
 
-$primary:       $cherry !default;
+$el-ui-primary: #409eff;
+
+$primary:       $el-ui-primary !default;
 $secondary:     $gray-600 !default;
 $success:       $green !default;
 $info:          $cyan !default;
