@@ -71,10 +71,10 @@ export default {
           router.push({ path: '/dashboard' })
         }).catch(err => {
           this.$store.dispatch('hideLoading')
-          this.$notify({
-            group: 'main',
-            type: 'error',
-            text: err.response.data.message
+          this.$message({
+            type: 'success',
+            showClose: true,
+            message: err.response.data.message
           })
         })
       }

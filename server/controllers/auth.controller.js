@@ -45,10 +45,13 @@ class Auth extends Controller {
 
   async Register (req, res) {
     try {
+      console.log(req.body)
       User.register(new User({
-        username: req.body.email
+        username: req.body.email,
+        email: req.body.email
       }), req.body.password, function (err, account) {
         if (err) {
+          console.log(err)
           return res.status(500).send('An error occurred: ' + err)
         }
 
