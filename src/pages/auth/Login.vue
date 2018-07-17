@@ -72,7 +72,7 @@ export default {
         }).catch(err => {
           this.$store.dispatch('hideLoading')
           this.$message({
-            type: 'success',
+            type: 'error',
             showClose: true,
             message: err.response.data.message
           })
