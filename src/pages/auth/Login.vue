@@ -44,8 +44,8 @@ export default {
   data () {
     return {
       user: {
-        email: process.env.NODE_ENV !== 'production' ? 'lepuavkodv@gmail.com' : '',
-        password: process.env.NODE_ENV !== 'production' ? 'cfi3lorvy_cv' : ''
+        email: '',
+        password: ''
       },
       validationErrorMessages: {
         email: {
