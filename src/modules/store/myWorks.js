@@ -32,7 +32,7 @@ const actions = {
   },
   addMyWork: ({dispatch}, data) => {
     dispatch('showLoading')
-    return axios.post(process.env.API_ENDPOINT + process.env.API_VERSION + '/my-work', data, {
+    return axios.post(process.env.API_ENDPOINT + process.env.API_VERSION + '/my-works', data, {
       headers: Auth.getJWTAuthHeaders()
     }).then(res => {
       dispatch('loadMyWorks')
@@ -40,7 +40,7 @@ const actions = {
   },
   editMyWork: ({dispatch}, data) => {
     dispatch('showLoading')
-    return axios.put(process.env.API_ENDPOINT + process.env.API_VERSION + '/my-work', data, {
+    return axios.put(process.env.API_ENDPOINT + process.env.API_VERSION + '/my-works/' + data._id, data, {
       headers: Auth.getJWTAuthHeaders()
     }).then(res => {
       dispatch('loadMyWorks')
@@ -48,7 +48,7 @@ const actions = {
   },
   removeMyWork: ({dispatch}, id) => {
     dispatch('showLoading')
-    return axios.delete(process.env.API_ENDPOINT + process.env.API_VERSION + '/my-work/' + id, {
+    return axios.delete(process.env.API_ENDPOINT + process.env.API_VERSION + '/my-works/' + id, {
       headers: Auth.getJWTAuthHeaders()
     }).then(res => {
       dispatch('loadMyWorks')

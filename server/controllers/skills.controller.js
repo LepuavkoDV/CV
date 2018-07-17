@@ -29,7 +29,7 @@ class Skills extends Controller {
   async editSkill (req, res) {
     try {
       let data = req.body
-      Skill.findByIdAndUpdate(data._id, {
+      Skill.findByIdAndUpdate(req.params.id, {
         $set: {
           title: data.title,
           value: data.value

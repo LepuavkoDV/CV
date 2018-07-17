@@ -48,34 +48,34 @@ const actions = {
     })
   },
   getPageContents: ({commit, dispatch}, page) => {
-    return axios.get(process.env.API_ENDPOINT + process.env.API_VERSION + '/content/' + page).then(res => {
+    return axios.get(process.env.API_ENDPOINT + process.env.API_VERSION + '/contents/' + page).then(res => {
       commit('SET_PAGE_CONTENT', res.data)
       dispatch('hideLoading')
     })
   },
   addPageContent: ({dispatch}, data) => {
     dispatch('showLoading')
-    return axios.post(process.env.API_ENDPOINT + process.env.API_VERSION + '/content', data, {
+    return axios.post(process.env.API_ENDPOINT + process.env.API_VERSION + '/contents', data, {
       headers: Auth.getJWTAuthHeaders()
     }).then(res => {
       dispatch('getPageContents', data.page)
-      dispatch('getList')
+      dispatch('getContentList')
     })
   },
   editPageContent: ({dispatch}, data) => {
     dispatch('showLoading')
-    return axios.put(process.env.API_ENDPOINT + process.env.API_VERSION + '/content', data, {
+    return axios.put(process.env.API_ENDPOINT + process.env.API_VERSION + '/contents/' + data._id, data, {
       headers: Auth.getJWTAuthHeaders()
     }).then(res => {
-      dispatch('getList')
+      dispatch('getContentList')
     })
   },
   removePageContent: ({dispatch}, id) => {
     dispatch('showLoading')
-    return axios.delete(process.env.API_ENDPOINT + process.env.API_VERSION + '/content/' + id, {
+    return axios.delete(process.env.API_ENDPOINT + process.env.API_VERSION + '/contents/' + id, {
       headers: Auth.getJWTAuthHeaders()
     }).then(res => {
-      dispatch('getList')
+      dispatch('getContentList')
     })
   }
 }

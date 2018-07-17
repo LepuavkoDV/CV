@@ -37,7 +37,7 @@ class PageContent extends Controller {
   async editContent (req, res) {
     try {
       let data = req.body
-      Content.findByIdAndUpdate(data._id, {
+      Content.findByIdAndUpdate(req.params.id, {
         $set: {
           page: data.page,
           section: data.section,

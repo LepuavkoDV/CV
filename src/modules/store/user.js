@@ -27,7 +27,7 @@ const mutations = {
 
 const actions = {
   login: ({commit, dispatch}, data) => {
-    return axios.post(process.env.API_ENDPOINT + '/auth/login', data).then(res => {
+    return axios.post(process.env.API_ENDPOINT + process.env.API_VERSION + '/auth/login', data).then(res => {
       if (res.status !== 200) {
         //
       } else {
@@ -37,7 +37,7 @@ const actions = {
     })
   },
   register: ({commit, dispatch}, data) => {
-    return axios.post(process.env.API_ENDPOINT + '/auth/register', data).then(res => {
+    return axios.post(process.env.API_ENDPOINT + process.env.API_VERSION + '/auth/register', data).then(res => {
       console.log(res)
     })
   },

@@ -32,7 +32,7 @@ const actions = {
   },
   addSkill: ({dispatch}, data) => {
     dispatch('showLoading')
-    return axios.post(process.env.API_ENDPOINT + process.env.API_VERSION + '/skill', data, {
+    return axios.post(process.env.API_ENDPOINT + process.env.API_VERSION + '/skills', data, {
       headers: Auth.getJWTAuthHeaders()
     }).then(res => {
       dispatch('loadSkills')
@@ -40,7 +40,7 @@ const actions = {
   },
   editSkill: ({dispatch}, data) => {
     dispatch('showLoading')
-    return axios.put(process.env.API_ENDPOINT + process.env.API_VERSION + '/skill', data, {
+    return axios.put(process.env.API_ENDPOINT + process.env.API_VERSION + '/skills/' + data._id, data, {
       headers: Auth.getJWTAuthHeaders()
     }).then(res => {
       dispatch('loadSkills')
@@ -48,7 +48,7 @@ const actions = {
   },
   removeSkill: ({dispatch}, id) => {
     dispatch('showLoading')
-    return axios.delete(process.env.API_ENDPOINT + process.env.API_VERSION + '/skill/' + id, {
+    return axios.delete(process.env.API_ENDPOINT + process.env.API_VERSION + '/skills/' + id, {
       headers: Auth.getJWTAuthHeaders()
     }).then(res => {
       dispatch('loadSkills')

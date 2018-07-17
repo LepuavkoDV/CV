@@ -88,7 +88,7 @@ export default {
       this.$v.$touch()
       if (!this.$v.$invalid) {
         this.$store.dispatch('showLoading')
-        axios.post(process.env.API_ENDPOINT + process.env.API_VERSION + '/message', this.message).then(res => {
+        axios.post(process.env.API_ENDPOINT + process.env.API_VERSION + '/messages', this.message).then(res => {
           this.$store.dispatch('hideLoading')
           this.resetForm()
           this.$v.$reset()

@@ -18,7 +18,11 @@
       :page-size="_props.config.datatables.pagination.pageSize"
       :action-col="actions"
       :filters="_props.config.datatables.filters">
-      <el-table-column v-for="title in _props.config.datatables.titles" :prop="title.prop" :label="title.label" :key="title.label">
+      <el-table-column
+        v-for="title in _props.config.datatables.titles"
+        :prop="title.prop"
+        :label="title.label"
+        :key="title.label">
       </el-table-column>
     </data-tables>
 
@@ -137,6 +141,11 @@ export default {
     submit () {
       let action = this.editmode ? this._props.config.vuex.editAction : this._props.config.vuex.addAction
       this.$store.dispatch(action, this.model).then(() => {
+        this.$message({
+          type: 'success',
+          showClose: true,
+          message: this.editmode ? 'Запись сохранена' : 'Запись добавлена'
+        })
         $('#' + this.modalId).modal('hide')
       }).catch(err => {
         this.$store.dispatch('hideLoading')
@@ -172,7 +181,13 @@ export default {
         cancelButtonText: 'Отмена',
         type: 'warning'
       }).then(() => {
-        this.$store.dispatch(this._props.config.vuex.removeAction, data._id)
+        this.$store.dispatch(this._props.config.vuex.removeAction, data._id).then(() => {
+          this.$message({
+            type: 'success',
+            showClose: true,
+            message: 'Запись удалена'
+          })
+        })
       }).catch(() => {})
     },
     rndStr (len) {

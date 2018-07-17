@@ -30,7 +30,7 @@ class Groups extends Controller {
   async editGroup (req, res) {
     try {
       let data = req.body
-      Group.findByIdAndUpdate(data._id, {
+      Group.findByIdAndUpdate(req.params.id, {
         $set: {
           title: data.title,
           icon: data.icon

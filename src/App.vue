@@ -1,7 +1,6 @@
 <template>
   <div id="app" class="main-container">
     <loading :active.sync="loading"></loading>
-    <notifications classes="my-notification" group="main" position="bottom center"/>
     <Sidebar></Sidebar>
     <div class="container-fluid p-0">
       <router-view></router-view>

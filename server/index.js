@@ -9,8 +9,8 @@ import cors from 'cors'
 import bodyParer from 'body-parser'
 import Debug from 'debug'
 import morgan from 'morgan'
-import apiv1 from './routes/api/v1'
-import auth from './routes/api/auth'
+import apiv1 from './routes/api/v1/'
+// import listEndpoints from 'express-list-endpoints'
 
 import passport from 'passport'
 import init from './system/passport'
@@ -25,14 +25,11 @@ app.use(morgan('dev'))
 app.use(cors({ origin: '*' }))
 app.use(bodyParer.json())
 app.use(history({}))
-
 app.use(serveStatic(path.join(__dirname, '..', 'dist')))
-app.use('/api/v1', apiv1)
-
 app.use(passport.initialize())
 
-app.use('/api/auth', auth)
+app.use('/api/v1', apiv1)
 
-// app.use('/user', passport.authenticate('jwt', {session: false}), user)
+// console.log(listEndpoints(app))
 
 app.listen(port, () => debug('Server listen on port =', port, 'ENV =', process.env.NODE_ENV))

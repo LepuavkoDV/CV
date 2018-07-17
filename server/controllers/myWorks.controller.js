@@ -32,7 +32,7 @@ class MyWorks extends Controller {
   async editMyWork (req, res) {
     try {
       let data = req.body
-      MyWork.findByIdAndUpdate(data._id, {
+      MyWork.findByIdAndUpdate(req.params.id, {
         $set: {
           title: data.title,
           position: data.position,

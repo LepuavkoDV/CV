@@ -32,7 +32,7 @@ const actions = {
   },
   addGroup: ({dispatch}, data) => {
     dispatch('showLoading')
-    return axios.post(process.env.API_ENDPOINT + process.env.API_VERSION + '/group', data, {
+    return axios.post(process.env.API_ENDPOINT + process.env.API_VERSION + '/groups', data, {
       headers: Auth.getJWTAuthHeaders()
     }).then(res => {
       dispatch('loadGroups')
@@ -40,7 +40,7 @@ const actions = {
   },
   editGroup: ({dispatch}, data) => {
     dispatch('showLoading')
-    return axios.put(process.env.API_ENDPOINT + process.env.API_VERSION + '/group', data, {
+    return axios.put(process.env.API_ENDPOINT + process.env.API_VERSION + '/groups/' + data._id, data, {
       headers: Auth.getJWTAuthHeaders()
     }).then(res => {
       dispatch('loadGroups')
@@ -48,7 +48,7 @@ const actions = {
   },
   removeGroup: ({dispatch}, id) => {
     dispatch('showLoading')
-    return axios.delete(process.env.API_ENDPOINT + process.env.API_VERSION + '/group/' + id, {
+    return axios.delete(process.env.API_ENDPOINT + process.env.API_VERSION + '/groups/' + id, {
       headers: Auth.getJWTAuthHeaders()
     }).then(res => {
       dispatch('loadGroups')
