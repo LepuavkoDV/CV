@@ -4,12 +4,18 @@
     <div class="d-flex flex-row my-2 justify-content-end">
       <button
         type="button"
-        class="el-button el-button--primary is-plain mr-2"
+        class="el-button el-button--primary el-button--mini is-plain mr-2"
         data-toggle="modal"
         :data-target="'#'+modalId">
         <i class="fas fa-plus"></i>
       </button>
-      <input type="text" class="form-control w-25" v-model="_props.config.datatables.filters[0].value" placeholder="Поиск">
+
+      <div class="input-group w-25">
+        <input type="text" class="form-control" placeholder="Поиск" aria-label="Поиск" aria-describedby="button-addon2" v-model="_props.config.datatables.filters[0].value">
+        <div class="input-group-append" v-if="_props.config.datatables.filters[0].value !== ''">
+          <button @click="_props.config.datatables.filters[0].value = ''" class="btn btn-primary btn-clear" type="button"><i class="fas fa-ban"></i></button>
+        </div>
+      </div>
     </div>
 
     <data-tables
@@ -221,4 +227,12 @@ export default {
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+@import '../../assets/scss/variables';
+.btn-clear {
+  background-color: $white;
+  border: 1px solid $gray-400;
+  border-left: 0;
+  color: $danger;
+}
+</style>
