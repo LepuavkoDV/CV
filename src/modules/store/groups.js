@@ -1,6 +1,7 @@
 import axios from 'axios'
 import _ from 'lodash'
 import Auth from '../utils/auth'
+import formatDate from '../utils/formatDate'
 
 const state = {
   groups: null
@@ -20,6 +21,18 @@ const getters = {
     if (item !== undefined) {
       return item
     }
+  },
+  getGroupsFormattedList: (state) => () => {
+    let list = _.flatMap(state.groups, (item) => {
+      return {
+        _id: item._id,
+        title: item.title,
+        icon: item.icon,
+        totalItems: item.items.length,
+        createdAt: formatDate(item.createdAt)
+      }
+    })
+    return list
   }
 }
 

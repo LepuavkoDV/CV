@@ -1,13 +1,13 @@
 <template lang="html">
 
   <div class="tab-pane pt-2 pb-5" id="content">
-    <Crud :data="$store.state.content.list" :config="config"></Crud>
+    <Crud :data="$store.getters.getContentFormattedList()" :config="config"></Crud>
   </div>
 
 </template>
 
 <script lang="js">
-import Crud from './crud/Crud'
+import Crud from '../../../components/crud/Crud'
 export default {
   name: 'mycontent',
   props: [],
@@ -18,11 +18,12 @@ export default {
         datatables: {
           titles: [
             { prop: 'section', label: 'Секция' },
-            { prop: 'page', label: 'Страница' }
+            { prop: 'page', label: 'Страница' },
+            { prop: 'createdAt', label: 'Дата' }
           ],
           filters: [
             {
-              prop: ['section', 'page'],
+              prop: ['section', 'page', 'createdAt'],
               value: ''
             }
           ],

@@ -1,6 +1,7 @@
 import axios from 'axios'
 import _ from 'lodash'
 import Auth from '../utils/auth'
+import formatDate from '../utils/formatDate'
 
 const state = {
   skills: null
@@ -20,6 +21,19 @@ const getters = {
     if (item !== undefined) {
       return item
     }
+  },
+  getSkillsFormattedList: (state) => () => {
+    let list = _.flatMap(state.skills, (item) => {
+      return {
+        _id: item._id,
+        title: item.title,
+        value: item.value,
+        groupName: item.group.title,
+        group: item.group,
+        createdAt: formatDate(item.createdAt)
+      }
+    })
+    return list
   }
 }
 

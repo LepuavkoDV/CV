@@ -1,13 +1,13 @@
 <template lang="html">
 
   <div class="tab-pane pt-2 pb-5" id="skills">
-    <Crud :data="$store.state.skills.skills" :config="config"></Crud>
+    <Crud :data="$store.getters.getSkillsFormattedList()" :config="config"></Crud>
   </div>
 
 </template>
 
 <script lang="js">
-import Crud from './crud/Crud'
+import Crud from '../../../components/crud/Crud'
 import _ from 'lodash'
 export default {
   name: 'skills',
@@ -20,11 +20,12 @@ export default {
           titles: [
             { prop: 'title', label: 'Название' },
             { prop: 'value', label: 'Значение' },
-            { prop: 'group.title', label: 'Группа' }
+            { prop: 'groupName', label: 'Группа' },
+            { prop: 'createdAt', label: 'Дата' }
           ],
           filters: [
             {
-              prop: ['title'],
+              prop: ['title', 'value', 'groupName', 'createdAt'],
               value: ''
             }
           ],

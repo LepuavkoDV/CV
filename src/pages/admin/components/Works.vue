@@ -1,13 +1,13 @@
 <template lang="html">
 
   <div class="tab-pane pt-2 pb-5" id="my-works">
-    <Crud :data="$store.state.myWorks.myWorks" :config="config"></Crud>
+    <Crud :data="$store.getters.getMyWorksFormattedList()" :config="config"></Crud>
   </div>
 
 </template>
 
 <script lang="js">
-import Crud from './crud/Crud'
+import Crud from '../../../components/crud/Crud'
 export default {
   name: 'works',
   props: [],
@@ -19,11 +19,12 @@ export default {
           titles: [
             { prop: 'title', label: 'Заголовок' },
             { prop: 'period', label: 'Период' },
-            { prop: 'position', label: 'Позиция' }
+            { prop: 'position', label: 'Позиция' },
+            { prop: 'createdAt', label: 'Дата' }
           ],
           filters: [
             {
-              prop: ['title', 'period', 'position'],
+              prop: ['title', 'period', 'position', 'createdAt'],
               value: ''
             }
           ],

@@ -1,6 +1,7 @@
 import axios from 'axios'
 import _ from 'lodash'
 import Auth from '../utils/auth'
+import formatDate from '../utils/formatDate'
 
 const state = {
   content: [],
@@ -37,6 +38,18 @@ const getters = {
     if (item !== undefined) {
       return item
     }
+  },
+  getContentFormattedList: (state) => () => {
+    let list = _.flatMap(state.list, (item) => {
+      return {
+        _id: item._id,
+        page: item.page,
+        section: item.section,
+        content: item.content,
+        createdAt: formatDate(item.createdAt)
+      }
+    })
+    return list
   }
 }
 

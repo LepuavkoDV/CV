@@ -17,11 +17,13 @@
       :pagination-props="_props.config.datatables.pagination"
       :page-size="_props.config.datatables.pagination.pageSize"
       :action-col="actions"
+      :table-props="tableProps"
       :filters="_props.config.datatables.filters">
       <el-table-column
         v-for="title in _props.config.datatables.titles"
         :prop="title.prop"
         :label="title.label"
+        sortable="custom"
         :key="title.label">
       </el-table-column>
     </data-tables>
@@ -109,6 +111,12 @@ export default {
       model: {},
       modelDefaultState: {},
       editmode: false,
+      tableProps: {
+        defaultSort: {
+          prop: 'createdAt',
+          order: 'descending'
+        }
+      },
       actions: {
         label: 'Действия',
         props: {
