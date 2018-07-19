@@ -99,13 +99,16 @@ export default {
   name: 'crud-crud',
   props: ['data', 'config'],
   beforeMount () {
+    // make sure all modals in crud have unique id
     this.modalId = this.rndStr(5)
+    // init model and copy default model state to separate property so we can reset model easily
     _.forOwn(this._props.config.model, (value, key) => {
       Vue.set(this.model, key, value.defaultValue)
       Vue.set(this.modelDefaultState, key, value.defaultValue)
     })
   },
   mounted () {
+    // reset modal on close
     $('#' + this.modalId).on('hidden.bs.modal', (e) => {
       this.editmode = false
       this.resetModel()
@@ -113,22 +116,27 @@ export default {
   },
   data () {
     return {
+      // general crud options
       modalId: null,
+      editmode: false,
+      // model
       model: {},
       modelDefaultState: {},
-      editmode: false,
+      // datatable sorting
       tableProps: {
         defaultSort: {
           prop: 'createdAt',
           order: 'descending'
         }
       },
+      // datatable actions
       actions: {
         label: 'Действия',
         props: {
           align: 'center'
         },
         buttons: [
+          // edit btn
           {
             props: {
               type: 'info el-button--mini is-plain',
@@ -138,6 +146,7 @@ export default {
               this.edit(row)
             }
           },
+          // remove btn
           {
             props: {
               type: 'danger el-button--mini is-plain',
@@ -148,17 +157,29 @@ export default {
             }
           }
         ]
+      },
+      lang: {
+        addSuccessMsg: 'Запись добавлена',
+        saveSuccessMsg: 'Запись сохранена',
+        removeSuccessMsg: 'Запись удалена',
+        warning: 'Внимание!',
+        confirmDeleteMsg: 'Удалить запись?',
+        confirmButtonText: 'Ок',
+        cancelButtonText: 'Отмена',
+        addModalTitle: 'Добавить новую запись',
+        editModalTitle: 'Редактирование записи'
       }
     }
   },
   methods: {
     submit () {
       let action = this.editmode ? this._props.config.vuex.editAction : this._props.config.vuex.addAction
+      // either create or edit object
       this.$store.dispatch(action, this.model).then(() => {
         this.$message({
           type: 'success',
           showClose: true,
-          message: this.editmode ? 'Запись сохранена' : 'Запись добавлена'
+          message: this.editmode ? this.lang.saveSuccessMsg : this.lang.addSuccessMsg
         })
         $('#' + this.modalId).modal('hide')
       }).catch(err => {
@@ -172,6 +193,8 @@ export default {
     },
     edit (data) {
       this.editmode = true
+      // make sure we working with known props in passed data object
+      // "known fields" - is a model passed via config and initialised in beforeMount()
       _.forOwn(data, (value, key) => {
         // if model have this property (need to filter system mongodb values, to avoid unnecesarry errors)
         if (this._props.config.model[key] !== undefined) {
@@ -190,16 +213,16 @@ export default {
       $('#' + this.modalId).modal('show')
     },
     remove (data) {
-      this.$confirm('Удалить запись?', 'Внимание!', {
-        confirmButtonText: 'OK',
-        cancelButtonText: 'Отмена',
+      this.$confirm(this.lang.confirmDeleteMsg, this.lang.warning, {
+        confirmButtonText: this.lang.confirmButtonText,
+        cancelButtonText: this.lang.cancelButtonText,
         type: 'warning'
       }).then(() => {
         this.$store.dispatch(this._props.config.vuex.removeAction, data._id).then(() => {
           this.$message({
             type: 'success',
             showClose: true,
-            message: 'Запись удалена'
+            message: this.lang.removeSuccessMsg
           })
         })
       }).catch(() => {})
@@ -218,7 +241,7 @@ export default {
   },
   computed: {
     modalTitle () {
-      return this.editmode ? 'Редактирование записи' : 'Добавить новую запись'
+      return this.editmode ? this.lang.editModalTitle : this.lang.addModalTitle
     }
   },
   components: {
