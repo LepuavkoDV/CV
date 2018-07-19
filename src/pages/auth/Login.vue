@@ -23,7 +23,7 @@
             </span>
           </div>
           <div class="form-group">
-            <button class="el-button el-button--primary"><i class="fas fa-sign-in-alt"></i> Войти</button>
+            <button class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Войти</button>
           </div>
         </form>
       </div>

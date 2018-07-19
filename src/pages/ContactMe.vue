@@ -29,7 +29,7 @@
               </span>
             </div>
             <div class="form-group">
-              <button class="el-button el-button--primary"><i class="far fa-envelope"></i> Отправить</button>
+              <button class="btn btn-primary"><i class="far fa-envelope"></i> Отправить</button>
             </div>
           </form>
         </div>

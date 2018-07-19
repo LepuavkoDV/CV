@@ -49,7 +49,7 @@ class Skills extends Controller {
   async removeSkill (req, res) {
     try {
       Skill.findByIdAndRemove(req.params.id, (result) => {
-        res.status(200).send({})
+        res.status(204).send({})
       })
     } catch (error) {
       res.status(500).send(error)

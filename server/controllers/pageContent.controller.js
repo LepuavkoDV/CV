@@ -58,7 +58,7 @@ class PageContent extends Controller {
   async removeContent (req, res) {
     try {
       Content.findByIdAndRemove(req.params.id, (result) => {
-        res.status(200).send({})
+        res.status(204).send({})
       })
     } catch (error) {
       res.status(500).send(error)

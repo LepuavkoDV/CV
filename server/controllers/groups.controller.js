@@ -6,7 +6,7 @@ import {
 class Groups extends Controller {
   async getList (req, res) {
     try {
-      let list = await Group.find().populate('items')
+      let list = await Group.find().populate('items').sort('createdAt')
       res.status(200).send(list)
     } catch (error) {
       res.status(500).send(error)
@@ -50,7 +50,7 @@ class Groups extends Controller {
   async removeGroup (req, res) {
     try {
       Group.findByIdAndRemove(req.params.id, (result) => {
-        res.status(200).send({})
+        res.status(204).send({})
       })
     } catch (error) {
       res.status(500).send(error)
