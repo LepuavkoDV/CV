@@ -1,18 +1,20 @@
+import _ from 'lodash'
 import express from 'express'
-import groups from './groups'
-import skills from './skills'
-import myWorks from './myWorks'
-import contents from './contents'
-import messages from './messages'
-import auth from './auth'
+import requireContext from 'require-context'
 
 const api = express.Router()
+// require context module is buggy and looks in /node_modules/require-context folder,
+// so we need to navigate to needed folder blindfolded :[
+const requireModule = requireContext('../../server/routes/api/v1', true, /\.js$/)
 
-api.use('/groups', groups)
-api.use('/skills', skills)
-api.use('/my-works', myWorks)
-api.use('/contents', contents)
-api.use('/messages', messages)
-api.use('/auth', auth)
+requireModule.keys().forEach(fileName => {
+  // skip this file
+  if (fileName === 'index.js') return
+
+  const moduleName = _.kebabCase(fileName.replace(/(\.\/|\.js)/g, ''))
+  const module = requireModule(fileName).default
+
+  api.use('/' + moduleName, module)
+})
 
 export default api

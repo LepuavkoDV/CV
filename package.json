@@ -46,6 +46,7 @@
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^5.0.1",
     "popper.js": "^1.14.3",
+    "require-context": "^1.1.0",
     "sass-loader": "^7.0.3",
     "vue": "^2.5.2",
     "vue-data-tables": "^3.4.2",
