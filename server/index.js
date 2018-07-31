@@ -10,7 +10,7 @@ import bodyParer from 'body-parser'
 import Debug from 'debug'
 import morgan from 'morgan'
 import apiv1 from './routes/api/v1/'
-import gql from './routes/api/gql'
+import gql from './routes/graphql'
 // import listEndpoints from 'express-list-endpoints'
 
 import { connect } from './system/database'
