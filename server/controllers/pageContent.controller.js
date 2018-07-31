@@ -1,43 +1,55 @@
-import Controller from '../system/controller'
+import result from '../system/result'
 import { Content } from '../models/content'
 
-class PageContent extends Controller {
-  async listPageContents (req, res) {
+const PageContent = {
+  /**
+   * List all existing content entries, or only page-specific if page provided
+   * @param {string} page
+   */
+  async list (page = null) {
     try {
-      let content = await Content.find()
-      res.status(200).send(content)
+      const scope = {}
+      if (page !== null) {
+        scope.page = page
+      }
+      result.data = await Content.find(scope)
+      result.status = 200
     } catch (error) {
-      res.status(500).send(error)
+      result.data = error
+      result.status = 500
     }
-  }
-  async getPageContent (req, res) {
+    return result
+  },
+
+  /**
+   * Add new content entry
+   * @param {object} data
+   */
+  async add (data) {
     try {
-      let page = req.params.page
-      let content = await Content.find({ page: page })
-      res.status(200).send(content)
-    } catch (error) {
-      res.status(500).send(error)
-    }
-  }
-  async addContent (req, res) {
-    try {
-      let data = req.body
       const content = new Content({
         page: data.page,
         section: data.section,
         content: data.content,
         createdAt: new Date()
       })
-      let item = await content.save()
-      res.status(201).send(item)
+      result.data = await content.save()
+      result.status = 201
     } catch (error) {
-      res.status(500).send(error)
+      result.data = error
+      result.status = 500
     }
-  }
-  async editContent (req, res) {
+    return result
+  },
+
+  /**
+   * Update existing content entry
+   * @param {string} id
+   * @param {object} data
+   */
+  async update (id, data) {
     try {
-      let data = req.body
-      Content.findByIdAndUpdate(req.params.id, {
+      Content.findByIdAndUpdate(id, {
         $set: {
           page: data.page,
           section: data.section,
@@ -47,22 +59,34 @@ class PageContent extends Controller {
         new: true
       }, (err, content) => {
         if (err) {
-          res.status(500).send(err)
+          result.data = err
+          result.status = 500
         }
-        res.status(200).send(content)
+        result.data = content
+        result.status = 200
       })
     } catch (error) {
-      res.status(500).send(error)
+      result.data = error
+      result.status = 500
     }
-  }
-  async removeContent (req, res) {
+    return result
+  },
+
+  /**
+   * Remove existing entry
+   * @param {string} id
+   */
+  async remove (id) {
     try {
-      Content.findByIdAndRemove(req.params.id, (result) => {
-        res.status(204).send({})
+      Content.findByIdAndRemove(id, (r) => {
+        result.data = {}
+        result.status = 200
       })
     } catch (error) {
-      res.status(500).send(error)
+      result.data = error
+      result.status = 500
     }
+    return result
   }
 }
 

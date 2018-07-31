@@ -2,27 +2,36 @@ import express from 'express'
 import passport from 'passport'
 import PageContent from '../../../controllers/pageContent.controller'
 
-const PageContentsController = new PageContent()
-const contents = express.Router()
+const api = express.Router()
 
-contents.get('/', (req, res) => {
-  PageContentsController.listPageContents(req, res)
+api.get('/', (req, res) => {
+  PageContent.list().then(result => {
+    res.status(result.status).send(result.data)
+  })
 })
 
-contents.get('/:page', (req, res) => {
-  PageContentsController.getPageContent(req, res)
+api.get('/:page', (req, res) => {
+  PageContent.list(req.params.page).then(result => {
+    res.status(result.status).send(result.data)
+  })
 })
 
-contents.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
-  PageContentsController.addContent(req, res)
+api.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
+  PageContent.add(req.body).then(result => {
+    res.status(result.status).send(result.data)
+  })
 })
 
-contents.put('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
-  PageContentsController.editContent(req, res)
+api.put('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+  PageContent.update(req.params.id, req.body).then(result => {
+    res.status(result.status).send(result.data)
+  })
 })
 
-contents.delete('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
-  PageContentsController.removeContent(req, res)
+api.delete('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+  PageContent.remove(req.params.id).then(result => {
+    res.status(result.status).send(result.data)
+  })
 })
 
-export default contents
+export default api

@@ -1,19 +1,27 @@
-import Controller from '../system/controller'
+import result from '../system/result'
 import { MyWork } from '../models/myWorks'
 
-class MyWorks extends Controller {
-  async getList (req, res) {
+const myWorks = {
+  /**
+   * List my works
+   */
+  async list () {
     try {
-      let list = await MyWork.find()
-      res.status(200).send(list)
+      result.data = await MyWork.find()
+      result.status = 200
     } catch (error) {
-      res.status(500).send(error)
+      result.data = error
+      result.status = 500
     }
-  }
+    return result
+  },
 
-  async addMyWork (req, res) {
+  /**
+   * Add new entry
+   * @param {object} data
+   */
+  async add (data) {
     try {
-      let data = req.body
       const myWork = new MyWork({
         title: data.title,
         position: data.position,
@@ -22,17 +30,23 @@ class MyWorks extends Controller {
         createdAt: new Date()
       })
 
-      let item = await myWork.save()
-      res.status(201).send(item)
+      result.data = await myWork.save()
+      result.status = 201
     } catch (error) {
-      res.status(500).send(error)
+      result.data = error
+      result.status = 500
     }
-  }
+    return result
+  },
 
-  async editMyWork (req, res) {
+  /**
+   * Update existing entry
+   * @param {string} id object id in mongodb
+   * @param {object} data
+   */
+  async update (id, data) {
     try {
-      let data = req.body
-      MyWork.findByIdAndUpdate(req.params.id, {
+      MyWork.findByIdAndUpdate(id, {
         $set: {
           title: data.title,
           position: data.position,
@@ -43,24 +57,35 @@ class MyWorks extends Controller {
         new: true
       }, (err, mywork) => {
         if (err) {
-          res.status(500).send(err)
+          result.data = err
+          result.status = 500
         }
-        res.status(200).send(mywork)
+        result.data = mywork
+        result.status = 200
       })
     } catch (error) {
-      res.status(500).send(error)
+      result.data = error
+      result.status = 500
     }
-  }
+    return result
+  },
 
-  async removeMyWork (req, res) {
+  /**
+   * Remove existing entry
+   * @param {string} id object id in mongodb
+   */
+  async remove (id) {
     try {
-      MyWork.findByIdAndRemove(req.params.id, (result) => {
-        res.status(204).send({})
+      MyWork.findByIdAndRemove(id, (r) => {
+        result.data = {}
+        result.status = 200
       })
     } catch (error) {
-      res.status(500).send(error)
+      result.data = error
+      result.status = 500
     }
+    return result
   }
 }
 
-export default MyWorks
+export default myWorks

@@ -2,23 +2,30 @@ import express from 'express'
 import passport from 'passport'
 import Skills from '../../../controllers/skills.controller'
 
-const SkillsController = new Skills()
-const skills = express.Router()
+const api = express.Router()
 
-skills.get('/', (req, res) => {
-  SkillsController.getList(req, res)
+api.get('/', (req, res) => {
+  Skills.list().then(result => {
+    res.status(result.status).send(result.data)
+  })
 })
 
-skills.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
-  SkillsController.addSkill(req, res)
+api.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
+  Skills.add(req.body).then(result => {
+    res.status(result.status).send(result.data)
+  })
 })
 
-skills.put('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
-  SkillsController.editSkill(req, res)
+api.put('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+  Skills.update(req.params.id, req.body).then(result => {
+    res.status(result.status).send(result.data)
+  })
 })
 
-skills.delete('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
-  SkillsController.removeSkill(req, res)
+api.delete('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+  Skills.remove(req.params.id).then(result => {
+    res.status(result.status).send(result.data)
+  })
 })
 
-export default skills
+export default api

@@ -1,10 +1,8 @@
 import { User } from '../models/user'
-// import bodyParer from 'body-parser'
 import passport from 'passport'
 import jwt from 'jsonwebtoken'
-import Controller from '../system/controller'
 
-class Auth extends Controller {
+class Auth {
   async Login (req, res, next) {
     try {
       if (!req.body.email || !req.body.password) {

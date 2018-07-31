@@ -1,18 +1,20 @@
-import Controller from '../system/controller'
+import result from '../system/result'
 import { Skill } from '../models/skills'
 
-class Skills extends Controller {
-  async getList (req, res) {
+const skills = {
+  async list () {
     try {
-      let list = await Skill.find().populate('group')
-      res.status(200).send(list)
+      result.data = await Skill.find().populate('group')
+      result.status = 200
     } catch (error) {
-      res.status(500).send(error)
+      result.data = error
+      result.status = 500
     }
-  }
-  async addSkill (req, res) {
+    return result
+  },
+
+  async add (data) {
     try {
-      let data = req.body
       const skill = new Skill({
         title: data.title,
         value: data.value,
@@ -20,16 +22,18 @@ class Skills extends Controller {
         createdAt: new Date()
       })
 
-      let item = await skill.save()
-      res.status(201).send(item)
+      result.data = await skill.save()
+      result.status = 201
     } catch (error) {
-      res.status(500).send(error)
+      result.data = error
+      result.status = 500
     }
-  }
-  async editSkill (req, res) {
+    return result
+  },
+
+  async update (id, data) {
     try {
-      let data = req.body
-      Skill.findByIdAndUpdate(req.params.id, {
+      Skill.findByIdAndUpdate(id, {
         $set: {
           title: data.title,
           value: data.value
@@ -38,23 +42,31 @@ class Skills extends Controller {
         new: true
       }, (err, skill) => {
         if (err) {
-          res.status(500).send(err)
+          result.data = err
+          result.status = 500
         }
-        res.status(200).send(skill)
+        result.data = skill
+        result.status = 200
       })
     } catch (error) {
-      res.status(500).send(error)
+      result.data = error
+      result.status = 500
     }
-  }
-  async removeSkill (req, res) {
+    return result
+  },
+
+  async remove (id) {
     try {
-      Skill.findByIdAndRemove(req.params.id, (result) => {
-        res.status(204).send({})
+      Skill.findByIdAndRemove(id, (r) => {
+        result.data = {}
+        result.status = 200
       })
     } catch (error) {
-      res.status(500).send(error)
+      result.data = error
+      result.status = 500
     }
+    return result
   }
 }
 
-export default Skills
+export default skills

@@ -10,7 +10,11 @@ import bodyParer from 'body-parser'
 import Debug from 'debug'
 import morgan from 'morgan'
 import apiv1 from './routes/api/v1/'
+import gql from './routes/api/gql'
 // import listEndpoints from 'express-list-endpoints'
+
+import { connect } from './system/database'
+connect()
 
 import passport from 'passport'
 import init from './system/passport'
@@ -18,18 +22,22 @@ init()
 
 const debug = Debug('server:*')
 
-let port = process.env.PORT || 5000
+const port = process.env.PORT || 5000
+const webServer = express()
 
-let app = express()
-app.use(morgan('dev'))
-app.use(cors({ origin: '*' }))
-app.use(bodyParer.json())
-app.use(history({}))
-app.use(serveStatic(path.join(__dirname, '..', 'dist')))
-app.use(passport.initialize())
+webServer.use(morgan('dev'))
+webServer.use(cors({ origin: '*' }))
+webServer.use(bodyParer.json())
+webServer.use(history({}))
+webServer.use(serveStatic(path.join(__dirname, '..', 'dist')))
+webServer.use(passport.initialize())
+webServer.use('/api/v1', apiv1)
 
-app.use('/api/v1', apiv1)
+webServer.listen(port, () => debug('Web Server listening on port =', port, 'ENV =', process.env.NODE_ENV))
 
-// console.log(listEndpoints(app))
+const port2 = process.env.PORT2 || 5001
+const gqlServer = express()
+gqlServer.use('/gql', gql)
+gqlServer.listen(port2, () => debug('GraphQL Server listening on port =', port2, 'ENV =', process.env.NODE_ENV))
 
-app.listen(port, () => debug('Server listen on port =', port, 'ENV =', process.env.NODE_ENV))
+// console.log(listEndpoints(webServer))

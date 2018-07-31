@@ -2,23 +2,30 @@ import express from 'express'
 import passport from 'passport'
 import MyWorks from '../../../controllers/myWorks.controller'
 
-const MyWorksController = new MyWorks()
-const myWorks = express.Router()
+const api = express.Router()
 
-myWorks.get('/', (req, res) => {
-  MyWorksController.getList(req, res)
+api.get('/', (req, res) => {
+  MyWorks.list().then(result => {
+    res.status(result.status).send(result.data)
+  })
 })
 
-myWorks.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
-  MyWorksController.addMyWork(req, res)
+api.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
+  MyWorks.add(req.body).then(result => {
+    res.status(result.status).send(result.data)
+  })
 })
 
-myWorks.put('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
-  MyWorksController.editMyWork(req, res)
+api.put('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+  MyWorks.update(req.params.id, req.body).then(result => {
+    res.status(result.status).send(result.data)
+  })
 })
 
-myWorks.delete('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
-  MyWorksController.removeMyWork(req, res)
+api.delete('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+  MyWorks.remove(req.params.id).then(result => {
+    res.status(result.status).send(result.data)
+  })
 })
 
-export default myWorks
+export default api

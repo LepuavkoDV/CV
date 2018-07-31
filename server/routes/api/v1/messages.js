@@ -1,12 +1,12 @@
 import express from 'express'
 // import passport from 'passport'
-import Sendmail from '../../../controllers/sendemail.controller'
+import SendemailController from '../../../controllers/sendemail.controller'
 
-const SendmailController = new Sendmail()
-const messages = express.Router()
+const Sendemail = new SendemailController()
+const api = express.Router()
 
-messages.post('/', (req, res) => {
-  SendmailController.send(req, res)
+api.post('/', (req, res) => {
+  Sendemail.send(req, res)
 })
 
-export default messages
+export default api

@@ -2,23 +2,30 @@ import express from 'express'
 import passport from 'passport'
 import Groups from '../../../controllers/groups.controller'
 
-const GroupsController = new Groups()
-const groups = express.Router()
+const api = express.Router()
 
-groups.get('/', (req, res) => {
-  GroupsController.getList(req, res)
+api.get('/', (req, res) => {
+  Groups.list().then(result => {
+    res.status(result.status).send(result.data)
+  })
 })
 
-groups.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
-  GroupsController.addGroup(req, res)
+api.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
+  Groups.add(req.body).then(result => {
+    res.status(result.status).send(result.data)
+  })
 })
 
-groups.put('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
-  GroupsController.editGroup(req, res)
+api.put('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+  Groups.update(req.params.id, req.body).then(result => {
+    res.status(result.status).send(result.data)
+  })
 })
 
-groups.delete('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
-  GroupsController.removeGroup(req, res)
+api.delete('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+  Groups.remove(req.params.id).then(result => {
+    res.status(result.status).send(result.data)
+  })
 })
 
-export default groups
+export default api

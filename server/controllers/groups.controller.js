@@ -1,36 +1,50 @@
-import Controller from '../system/controller'
-import {
-  Group
-} from '../models/skills'
+import result from '../system/result'
+import { Group } from '../models/skills'
 
-class Groups extends Controller {
-  async getList (req, res) {
+const groups = {
+  /**
+   * List groups
+   */
+  async list () {
     try {
-      let list = await Group.find().populate('items').sort('createdAt')
-      res.status(200).send(list)
+      result.data = await Group.find().populate('items').sort('createdAt')
+      result.status = 200
     } catch (error) {
-      res.status(500).send(error)
+      result.data = error
+      result.status = 500
     }
-  }
-  async addGroup (req, res) {
+    return result
+  },
+
+  /**
+   * Add new group
+   * @param {object} data
+   */
+  async add (data) {
     try {
-      let data = req.body
       const group = new Group({
         title: data.title,
         icon: data.icon,
         createdAt: new Date()
       })
 
-      let item = await group.save()
-      res.status(201).send(item)
+      result.data = await group.save()
+      result.status = 201
     } catch (error) {
-      res.status(500).send(error)
+      result.data = error
+      result.status = 500
     }
-  }
-  async editGroup (req, res) {
+    return result
+  },
+
+  /**
+   * Update existing group
+   * @param {string} id object id in mongodb
+   * @param {object} data
+   */
+  async update (id, data) {
     try {
-      let data = req.body
-      Group.findByIdAndUpdate(req.params.id, {
+      Group.findByIdAndUpdate(id, {
         $set: {
           title: data.title,
           icon: data.icon
@@ -39,23 +53,35 @@ class Groups extends Controller {
         new: true
       }, (err, group) => {
         if (err) {
-          res.status(500).send(err)
+          result.data = err
+          result.status = 500
         }
-        res.status(200).send(group)
+        result.data = group
+        result.status = 200
       })
     } catch (error) {
-      res.status(500).send(error)
+      result.data = error
+      result.status = 500
     }
-  }
-  async removeGroup (req, res) {
+    return result
+  },
+
+  /**
+   * Remove existing group
+   * @param {string} id object id in mongodb
+   */
+  async remove (id) {
     try {
-      Group.findByIdAndRemove(req.params.id, (result) => {
-        res.status(204).send({})
+      Group.findByIdAndRemove(id, (r) => {
+        result.data = {}
+        result.status = 202
       })
     } catch (error) {
-      res.status(500).send(error)
+      result.data = error
+      result.status = 500
     }
+    return result
   }
 }
 
-export default Groups
+export default groups
