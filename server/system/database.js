@@ -1,4 +1,18 @@
 import mongoose from 'mongoose'
-export function connect () {
-  mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`)
+
+class Database {
+  constructor () {
+    this.user = process.env.DB_USER
+    this.password = process.env.DB_PASSWORD
+    this.host = process.env.DB_HOST
+    this.port = process.env.DB_PORT
+    this.dbName = process.env.DB_NAME
+  }
+
+  async connect () {
+    const result = await mongoose.connect(`mongodb://${this.user}:${this.password}@${this.host}:${this.port}/${this.dbName}`)
+    return result
+  }
 }
+
+export default Database
