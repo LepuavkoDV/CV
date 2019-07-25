@@ -26,6 +26,10 @@ h6 {
   font-weight: 700;
   text-transform: uppercase;
   color: $gray-800;
+
+  span.primary {
+    color: $primary;
+  }
 }
 
 h1 {
