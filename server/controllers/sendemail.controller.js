@@ -32,30 +32,20 @@ class Sendmail {
       // const testAccount = await nodemailer.createTestAccount()
 
       let transporter = nodemailer.createTransport({
-        pool: true,
-        host: 'smtp-pulse.com',
-        port: 2525,
-        secure: false, // use TLS
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
         auth: {
-          user: 'lepuavkodv@gmail.com',
-          pass: 'TPj8etncB6H3'
+          user: process.env.GMAIL_USER,
+          pass: process.env.GMAIL_USER_PASSWORD
         }
       })
 
       const message = req.body
       const subj = 'Сообщение от ' + message.who
       const body = message.body + '<br/><br/><br/>' + 'Контакты: ' + message.contact
-      // this.mailOptions.subject = subj
-      // this.mailOptions.html = body
-      // await this.transporter.sendMail(this.mailOptions, (err, info) => {
-      //   if (err) {
-      //     res.status(500).send(err)
-      //   } else {
-      //     res.status(200).send(info)
-      //   }
-      // })
       const info = await transporter.sendMail({
-        from: 'lepuavkodv@ldvcv.org', // sender address
+        from: process.env.GMAIL_USER, // sender address
         to: 'lepuavkodv@gmail.com', // list of receivers
         subject: subj, // Subject line
         text: body, // plain text body
