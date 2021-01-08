@@ -54,8 +54,6 @@ class Sendmail {
       //     res.status(200).send(info)
       //   }
       // })
-      console.log(message)
-
       const info = await transporter.sendMail({
         from: 'lepuavkodv@ldvcv.org', // sender address
         to: 'lepuavkodv@gmail.com', // list of receivers
