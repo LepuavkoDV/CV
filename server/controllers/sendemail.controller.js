@@ -17,11 +17,11 @@ class Sendmail {
       const subj = 'Сообщение от ' + message.who
       const body = message.body + '<br/><br/><br/>' + 'Контакты: ' + message.contact
       const info = await transporter.sendMail({
-        from: process.env.GMAIL_USER, // sender address
-        to: 'lepuavkodv@gmail.com', // list of receivers
-        subject: subj, // Subject line
-        text: body, // plain text body
-        html: body // html body
+        from: process.env.MY_EMAIL,
+        to: process.env.GMAIL_EMAIL,
+        subject: subj,
+        text: body,
+        html: body
       })
 
       res.status(200).send(info)
