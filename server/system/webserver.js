@@ -7,11 +7,11 @@ import cors from 'cors'
 import bodyParer from 'body-parser'
 import Debug from 'debug'
 import morgan from 'morgan'
-import passport from 'passport'
-import apiv1 from '../routes/api/v1/'
 import listEndpoints from 'express-list-endpoints'
+
+import api from '../routes/api/v1'
+
 import Database from './database'
-import Auth from './auth'
 
 class Server {
   constructor () {
@@ -26,11 +26,10 @@ class Server {
     this.app.use(bodyParer.json())
     this.app.use(history({}))
     this.app.use(serveStatic(path.join(__dirname, '../..', 'dist')))
-    this.app.use(passport.initialize())
-    this.app.use('/api/v1', apiv1)
+
+    this.app.use('/api/v1', api)
 
     this.database = new Database()
-    this.auth = new Auth()
   }
 
   run () {
