@@ -15,7 +15,7 @@ Vue.use(Router)
 const routes = [
   { path: '/', name: '/', component: About },
   { path: '/my-skills', name: 'my-skills', component: Skills },
-  //{ path: '/my-works', name: 'my-works', component: MyWorks },
+  // { path: '/my-works', name: 'my-works', component: MyWorks },
   { path: '/contact-me', name: 'contact-me', component: ContactMe },
   { path: '/login', name: 'login', component: Login },
   { path: '/dashboard', name: 'dashboard', component: Dashboard, beforeEnter: RestrictedAccessGuard },

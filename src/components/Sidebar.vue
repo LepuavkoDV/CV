@@ -45,10 +45,10 @@ export default {
           title: 'Навыки',
           to: 'my-skills'
         },
-        //{
-          //title: 'Мои работы',
-          //to: 'my-works'
-        //},
+        // {
+          // title: 'Мои работы',
+          // to: 'my-works'
+        // },
         {
           title: 'Обратная связь',
           to: 'contact-me'
