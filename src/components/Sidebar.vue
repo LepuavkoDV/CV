@@ -46,8 +46,8 @@ export default {
           to: 'my-skills'
         },
         // {
-          // title: 'Мои работы',
-          // to: 'my-works'
+        // title: 'Мои работы',
+        // to: 'my-works'
         // },
         {
           title: 'Обратная связь',
