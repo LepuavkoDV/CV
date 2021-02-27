@@ -1,8 +1,9 @@
 #!/bin/bash
 
-TIMEOUT_DEFAULT_VALUE=180
+TIMEOUT_DEFAULT_VALUE=5
 TIMEOUT=$TIMEOUT_DEFAULT_VALUE
 URL_TO_FETCH="https://ldvcv.herokuapp.com"
+FILENAME=___keepalive___
 
 while true
 do
@@ -14,11 +15,11 @@ do
             echo -ne "\e[39mUpdating \033[0K\r"
             sleep 1
             echo -ne "\e[39m"
-            wget $URL_TO_FETCH
+            wget -O $FILENAME $URL_TO_FETCH
             echo -ne "\e[32mDONE \033[0K\r"
             sleep 1
             echo -ne "\e[39mDoing some cleanups... \033[0K\r"
-            rm -rf index.html*
+            rm -rf $FILENAME
             sleep 1
             echo -ne "\e[39mRestarting... \033[0K\r"
             sleep 1
