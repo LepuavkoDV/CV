@@ -55,10 +55,17 @@
                     type="text"
                     v-model="model[item.name]"
                   >
-                  <vue-editor
+                  <!--<vue-editor
                     v-if="item.type === 'text'"
                     v-model="model[item.name]"
-                  ></vue-editor>
+                  ></vue-editor>-->
+                  <textarea
+                    v-if="item.type === 'text'"
+                    v-model="model[item.name]"
+                    cols="30"
+                    rows="10"
+                    class="form-control"
+                  ></textarea>
                   <el-input-number
                     v-if="item.type === 'number'"
                     v-model="model[item.name]"
